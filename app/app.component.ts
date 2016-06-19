@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { JUI_DIRECTIVES } from "jsvalley-ui";
+import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.tpl.html',
-  directives: [ JUI_DIRECTIVES ]
+  directives: [ JSVALLEY_DIRECTIVES ]
 })
 export class AppComponent {
 
