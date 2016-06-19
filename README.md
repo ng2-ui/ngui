@@ -2,6 +2,9 @@
 
 Collection of Well-Engineered Angular 2 UIs
 
+
+    npm install javalley-ui
+
 ### jui-map
 Google Maps Api V3 Wrappe
 
