@@ -1,0 +1,30 @@
+<h3>jui-datetime-picker</h3>
+<input [(ngModel)]="date1" datetime-picker /> <br/>
+<pre>
+&lt;input [(ngModel)]="date1" datetime-picker /> &lt;br/>
+</pre>
+
+<h3>jui-auto-complete</h3>
+<input auto-complete [source]="arrayOfKeyValues"
+       [(ngModel)]="model3"
+       placeholder="enter text"
+       value-property-name="key"
+       display-property-name="name"/>
+<br/> selected: {{model3 | json}}
+<pre>
+&lt;input auto-complete [source]="arrayOfKeyValues"
+       [(ngModel)]="model3"
+       placeholder="enter text"
+       value-property-name="key"
+       display-property-name="name"/>
+</pre>
+
+<h3>jui-map</h3>
+<ng2-map center="Brampton, Canada">
+  <marker position="Brampton, Canada" draggable="true"></marker>
+</ng2-map>
+<pre>
+&lt;ng2-map center="Brampton, Canada">
+  &lt;marker position="Brampton, Canada" draggable="true">&lt;/marker>
+&lt;/ng2-map>
+</pre>
