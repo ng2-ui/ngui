@@ -8,7 +8,7 @@
     '@angular':                   'https://npmcdn.com/@angular', // sufficient if we didn't pin the version
     'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
     'ts':                         'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
-    'typescript':                 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js',
+    'typescript':                 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
   };
 
   //packages tells the System loader how to load when no filename and/or no extension
@@ -18,8 +18,8 @@
   };
 
   // for distribution
-  // map['jsvalley-ui'] = 'https://npmcdn.com/jsvalley-ui';
-  packages['jsvalley-ui'] =  {main: 'index.js', defaultExtension: 'js'};
+  map['jsvalley-ui'] = 'node_modules/jsvalley-ui';
+  packages['jsvalley-ui'] =  {defaultExtension: 'js'};
 
   var ngPackageNames = [
     'common',
