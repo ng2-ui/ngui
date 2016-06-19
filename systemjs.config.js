@@ -23,7 +23,7 @@
 
   // for distribution
   map['jsvalley-ui'] = 'dist';
-  packages['jsvalley-ui'] =  {defaultExtension: 'js'};
+  packages['jsvalley-ui'] =  { main: 'index.js', defaultExtension: 'js' };
 
   var ngPackageNames = [
     'common',
