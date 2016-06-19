@@ -18,7 +18,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.tpl.html',
-            directives: [jsvalley_ui_1.JUI_DIRECTIVES]
+            directives: [jsvalley_ui_1.JSVALLEY_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
