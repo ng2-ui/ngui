@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var jsvalley_ui_1 = require("jsvalley-ui");
+core_1.enableProdMode();
 var AppComponent = (function () {
     function AppComponent() {
         this.arrayOfKeyValues = [{ key: 1, name: 'Key One' }, { key: 2, name: 'Key Two' }, { key: 3, name: 'Key Three' }, { key: 4, name: 'Key Four' }];
