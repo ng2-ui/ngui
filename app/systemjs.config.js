@@ -13,12 +13,12 @@
 
   //packages tells the System loader how to load when no filename and/or no extension
   var packages = {
-    'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
+    'app':                        { main: 'app/main.ts',  defaultExtension: 'ts' },
     'rxjs':                       { defaultExtension: 'js' }
   };
 
   // for distribution
-  map['jsvalley-ui'] = 'https://npmcdn.com/jui';
+  // map['jsvalley-ui'] = 'https://npmcdn.com/jsvalley-ui';
   packages['jsvalley-ui'] =  {main: 'index.js', defaultExtension: 'js'};
 
   var ngPackageNames = [

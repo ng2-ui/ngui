@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JUI_DIRECTIVES } from "jsvalley-ui";
+import { JUI_DIRECTIVES } from "jsvalley-ui/dist";
 
 @Component({
   selector: 'my-app',
