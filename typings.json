@@ -1,0 +1,9 @@
+{
+  "dependencies": {},
+  "globalDependencies": {
+    "es6-collections": "registry:dt/es6-collections#0.5.1+20160316155526",
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160614011821",
+    "google.maps": "registry:dt/google.maps#3.20.0+20160619012224",
+    "node": "registry:dt/node#6.0.0+20160613154055"
+  }
+}
