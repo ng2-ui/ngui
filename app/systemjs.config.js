@@ -17,9 +17,13 @@
     'rxjs':                       { defaultExtension: 'js' }
   };
 
-  // for distribution
-  map['jsvalley-ui'] = 'node_modules/jsvalley-ui';
-  packages['jsvalley-ui'] =  {defaultExtension: 'js'};
+  // from node_modules
+  // map['jsvalley-ui'] = 'node_modules/jsvalley-ui';
+  // packages['jsvalley-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
+  
+  // from npm cdn 
+  map['jsvalley-ui'] = 'https://npmcdn.com/jsvalley-ui';
+  packages['jsvalley-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
 
   var ngPackageNames = [
     'common',
