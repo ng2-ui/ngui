@@ -1,6 +1,6 @@
 # JsValley User Interface
 
-Collection of Well-Engineered Angular 2 UIs
+Collection of Quality Angular 2 UIs
 
 
 ## Install
