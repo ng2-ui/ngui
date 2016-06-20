@@ -58,7 +58,7 @@
   packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
   
   // from npm cdn 
-  map['jsvalley-ui'] = 'node_modules/jsvalley-ui';
+  map['jsvalley-ui'] = 'https://npmcdn.com/jsvalley-ui';
   packages['jsvalley-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
   
   var config = {
