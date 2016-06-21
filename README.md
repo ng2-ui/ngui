@@ -3,11 +3,61 @@
 Collection of Quality Angular 2 UIs
 
 
-## Install
+## Install 
 
-    npm install javalley-ui
+   * npm
+   
+         $ npm install javalley-ui
+   
+   * update `config.js` map and packages
+   
+         //map tells the System loader where to look for things
+         map: {
+           app: "./src",
+           '@angular': 'https://npmcdn.com/@angular',
+           ...
+           'jsvalley-ui': 'https://npmcdn.com/jsvalley-ui' // <----- this
+         },
+    
+         packages: {
+            app: {
+              main: './main.ts',
+              defaultExtension: 'ts'
+            },
+            ...
+            'jsvalley-ui': {                              // <----- this
+              main: 'dist/index.js',
+              defaultExtension: 'js'
+            }
+         }
 
 ## Usage
+
+Import and include directives for your application
+
+* app.ts
+
+        //our root app component
+        import {Component, enableProdMode} from '@angular/core'
+        import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
+        enableProdMode();
+
+        @Component({
+          selector: 'my-app',
+          templateUrl: 'src/app.tpl.html',
+          directives: [ JSVALLEY_DIRECTIVES ]
+        })
+        export class App {
+          arrayOfValues: any[] = ['a', 'b', 'c'];
+        }
+
+* src/app.tpl.html
+
+        <input jui-auto-complete [source]="arrayOfKeyValues" [(ngModel)]="myModel" />
+        
+        <input [(ngModel)]="date1" jui-datetime-picker /> 
+        
+        <jui-map center="Brampton, Canada"></jui-map>
 
 ## Directives
  * `jui-map` Google Maps Api V3 Wrappe
