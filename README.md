@@ -2,6 +2,7 @@
 
 Collection of Quality Angular 2 UIs
 
+[Demo](http://plnkr.co/edit/BcGThZ?p=preview)
 
 ## Install 
 
