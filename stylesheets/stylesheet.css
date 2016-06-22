@@ -76,6 +76,8 @@ h2.group-title a {
 
 .page-header .toc {
   float: right;
+  z-index: 10;
+  position: relative;
   text-align: left;
   min-height: 15em;
 }
@@ -267,3 +269,29 @@ h2.group-title a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.tabs {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  top: 1px;
+}
+.tabs .tab {
+  display: block;
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 0 0;
+  background-color: #eee;
+  padding: 0 10px;
+}
+.tabs .tab.current {
+  background-color: #fff;
+  border-bottom: 1px solid transparent;
+}
+.tab-contents {
+  clear:both;
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+}
+
