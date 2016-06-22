@@ -1,7 +1,7 @@
 import { Component, enableProdMode } from '@angular/core';
 import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
 
-enableProdMode();
+// enableProdMode();
 
 @Component({
   selector: 'my-app',
