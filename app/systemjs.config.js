@@ -63,15 +63,15 @@
   
   var config = {
     // DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
-    transpiler: 'ts',
-    typescriptOptions: {
-      tsconfig: true
-    },
-    meta: {
-      'typescript': {
-        "exports": "ts"
-      }
-    },
+    // transpiler: 'ts',
+    // typescriptOptions: {
+    //   tsconfig: true
+    // },
+    // meta: {
+    //   'typescript': {
+    //     "exports": "ts"
+    //   }
+    // },
     map: map,
     packages: packages
   };

@@ -13,7 +13,10 @@ var jsvalley_ui_1 = require("jsvalley-ui");
 core_1.enableProdMode();
 var AppComponent = (function () {
     function AppComponent() {
-        this.arrayOfKeyValues = [{ key: 1, name: 'Key One' }, { key: 2, name: 'Key Two' }, { key: 3, name: 'Key Three' }, { key: 4, name: 'Key Four' }];
+        this.arrayOfStrings = ["this", "is", "array", "of", "text"];
+        this.arrayOfKeyValues = [{ id: 1, value: 'One' }, { id: 2, value: 'Two' }, { id: 3, value: 'Three' }, { id: 4, value: 'Four' }];
+        this.arrayOfKeyValues2 = [{ key: 1, name: 'Key One' }, { key: 2, name: 'Key Two' }, { key: 3, name: 'Key Three' }, { key: 4, name: 'Key Four' }];
+        this.googleGeoCode = "https://maps.googleapis.com/maps/api/geocode/json?address=:keyword";
     }
     AppComponent = __decorate([
         core_1.Component({

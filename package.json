@@ -1,0 +1,27 @@
+{
+  "name": "jsvalleu-ui",
+  "version": "1.0.0",
+  "description": "Collection of Quality Angular2 Directives",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsvalley/jui.git"
+  },
+  "keywords": [
+    "Angular2",
+    "directive",
+    "UI",
+    "component"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsvalley/jui/issues"
+  },
+  "homepage": "https://github.com/jsvalley/jui#readme"
+}
