@@ -9,20 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var jsvalley_ui_1 = require("jsvalley-ui");
-core_1.enableProdMode();
+var partial_datetime_picker_component_1 = require("./partials/partial-datetime-picker.component");
+var partial_auto_complete_component_1 = require("./partials/partial-auto-complete.component");
+var partial_ng2_map_component_1 = require("./partials/partial-ng2-map.component");
+var partial_tab_component_1 = require("./partials/partial-tab.component");
+var partial_accordion_component_1 = require("./partials/partial-accordion.component");
 var AppComponent = (function () {
     function AppComponent() {
-        this.arrayOfStrings = ["this", "is", "array", "of", "text"];
-        this.arrayOfKeyValues = [{ id: 1, value: 'One' }, { id: 2, value: 'Two' }, { id: 3, value: 'Three' }, { id: 4, value: 'Four' }];
-        this.arrayOfKeyValues2 = [{ key: 1, name: 'Key One' }, { key: 2, name: 'Key Two' }, { key: 3, name: 'Key Three' }, { key: 4, name: 'Key Four' }];
-        this.googleGeoCode = "https://maps.googleapis.com/maps/api/geocode/json?address=:keyword";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/app.tpl.html',
-            directives: [jsvalley_ui_1.JSVALLEY_DIRECTIVES]
+            // template: templateStr,
+            directives: [
+                partial_datetime_picker_component_1.PartialDateTimePickerComponent,
+                partial_auto_complete_component_1.PartialAutoCompleteComponent,
+                partial_ng2_map_component_1.PartialNg2MapComponent,
+                partial_tab_component_1.PartialTabComponent,
+                partial_accordion_component_1.PartialAccordionComponent
+            ],
+            template: "\n    <partial-datetime-picker></partial-datetime-picker>\n    <partial-auto-complete></partial-auto-complete>\n    <partial-ng2-map></partial-ng2-map>\n    <partial-tab></partial-tab>\n    <partial-accordion></partial-accordion>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -1,28 +1,27 @@
 import { Component, enableProdMode } from '@angular/core';
-import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
+import {PartialDateTimePickerComponent} from "./partials/partial-datetime-picker.component";
+import {PartialAutoCompleteComponent} from "./partials/partial-auto-complete.component";
+import {PartialNg2MapComponent} from "./partials/partial-ng2-map.component";
+import {PartialTabComponent} from "./partials/partial-tab.component";
+import {PartialAccordionComponent} from "./partials/partial-accordion.component";
 
-enableProdMode();
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/app.tpl.html',
-  directives: [ JSVALLEY_DIRECTIVES ]
+  // template: templateStr,
+  directives: [ 
+    PartialDateTimePickerComponent,
+    PartialAutoCompleteComponent,
+    PartialNg2MapComponent,
+    PartialTabComponent,
+    PartialAccordionComponent
+  ],
+  template: `
+    <partial-datetime-picker></partial-datetime-picker>
+    <partial-auto-complete></partial-auto-complete>
+    <partial-ng2-map></partial-ng2-map>
+    <partial-tab></partial-tab>
+    <partial-accordion></partial-accordion>
+  `
 })
-export class AppComponent {
-  
-  arrayOfStrings: string[] =
-    ["this", "is", "array", "of", "text"];
-
-  arrayOfKeyValues: any[] =
-    [{id:1, value:'One'}, {id:2, value:'Two'}, {id:3, value:'Three'}, {id:4, value:'Four'}];
-
-  arrayOfKeyValues2: any[] =
-    [{key:1, name:'Key One'}, {key:2, name:'Key Two'}, {key:3, name:'Key Three'}, {key:4, name:'Key Four'}];
-
-  googleGeoCode: string = "https://maps.googleapis.com/maps/api/geocode/json?address=:keyword";
-
-  model1: any;
-  model2: any;
-  model3: any;
-  model4: any;
-}
+export class AppComponent {}

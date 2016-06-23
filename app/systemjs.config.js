@@ -22,7 +22,6 @@
 
   //packages tells the System loader how to load when no filename and/or no extension
   var packages = {
-    'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
   };
@@ -60,18 +59,20 @@
   // from npm cdn 
   map['jsvalley-ui'] = 'https://npmcdn.com/jsvalley-ui';
   packages['jsvalley-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
+  packages['app'] =  { main: 'main.js',  defaultExtension: 'js' };
+  // packages['app'] =  { main: 'main.ts',  defaultExtension: 'ts' };  //comment it out for production
   
   var config = {
-    // DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
-    // transpiler: 'ts',
-    // typescriptOptions: {
-    //   tsconfig: true
-    // },
-    // meta: {
-    //   'typescript': {
-    //     "exports": "ts"
-    //   }
-    // },
+    //DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
+    transpiler: 'ts',
+    typescriptOptions: {
+      tsconfig: true
+    },
+    meta: {
+      'typescript': {
+        "exports": "ts"
+      }
+    },
     map: map,
     packages: packages
   };
