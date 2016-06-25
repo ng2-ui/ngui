@@ -8,7 +8,7 @@ Collection of Quality Angular 2 UIs
 
    * npm
    
-         $ npm install javalley-ui
+         $ npm install jsvalley-ui
    
    * update `config.js` map and packages
    
@@ -67,11 +67,11 @@ Import and include directives for your application
 
 ## For Developer,
 
-To publish a directive as s part of Jsvalley UI, `jui`
+To publish a directive as a part of Jsvalley UI, `jui`
 
 1. Install a modularized directive.
  
-       e.g. $ npm instlal ng2-map
+       e.g. $ npm install ng2-map
 
 2. Update `build.sh` by adding additional line, so it will be added to distribution
 
