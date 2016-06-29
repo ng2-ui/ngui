@@ -4,6 +4,13 @@ Collection of Quality Angular 2 UIs
 
 [Demo](http://plnkr.co/edit/BcGThZ?p=preview)
 
+
+## Current Modules Included
+  * ng2-auto-complete
+  * ng2-datetime-picker
+  * ng2-map
+  * ng2-overlay
+
 ## Install 
 
    * npm
