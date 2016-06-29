@@ -86,4 +86,7 @@ To publish a directive as a part of Jsvalley UI, `jui`
           NG2_MAP_DIRECTIVES
         ];
 
+4. Build again
+        
+        $ npm run build
 
