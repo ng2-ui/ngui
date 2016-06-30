@@ -10,6 +10,7 @@ Collection of Quality Angular 2 UIs
   * ng2-datetime-picker
   * ng2-map
   * ng2-overlay
+  * ng2-scrollable
 
 ## Install 
 
@@ -61,39 +62,43 @@ Import and include directives for your application
 
 * src/app.tpl.html
 
-        <input jui-auto-complete [source]="arrayOfKeyValues" [(ngModel)]="myModel" />
+        <input ng2-auto-complete [source]="arrayOfKeyValues" [(ngModel)]="myModel" />
         
-        <input [(ngModel)]="date1" jui-datetime-picker /> 
+        <input [(ngModel)]="date1" ng2-datetime-picker /> 
         
-        <jui-map center="Brampton, Canada"></jui-map>
+        <ng2-map center="Brampton, Canada"></ng2-map>
 
 ## Directives
- * `jui-map` Google Maps Api V3 Wrappe
- * `jui-auto-complete` Typeahead for local and remote sources
- *  `jui-datetime-picker` Date picker, Time picker, or both
+ * `ng2-map` Google Maps Api V3 Wrappe
+ * `ng2-auto-complete` Typeahead for local and remote sources
+ * `ng2-datetime-picker` Date picker, Time picker, or both
+ * `ng2-overlay`  Generic overlays
+ * `ng2-scrollable` Scroll Enabler and Sccoll Detector
 
 ## For Developer,
 
 To publish a directive as a part of Jsvalley UI, `jui`
 
-1. Install a modularized directive.
- 
-       e.g. $ npm install ng2-map
+1. Update `build.sh` by adding additional line, so it will be added to distribution
 
-2. Update `build.sh` by adding additional line, so it will be added to distribution
+        declare -a packages=(
+            ng2-map
+            ng2-auto-complete
+            ng2-datetime-picker
+            ng2-overlay
+            ng2-scrollable
+        )
 
-        cp -R node_modules/ng2-map/dist             dist/jui-map
+2. Update `dist/jsvalley-directives.ts`, so that it will included in `JSVALLEY_DIRECTIVES`
 
-3. Update `dist/jsvalley-directives.ts`, so that it will included in `JSVALLEY_DIRECTIVES`
-
-        import { NG2_MAP_DIRECTIVES } from './jui-map';
+        import { NG2_MAP_DIRECTIVES } from './ng2-map';
 
         export const JSVALLEY_DIRECTIVES: any[] = [
           ..
           NG2_MAP_DIRECTIVES
         ];
 
-4. Build again
+3. Build again
         
         $ npm run build
 

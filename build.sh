@@ -3,12 +3,27 @@
 set -e
 
 # empty dist directory
-rm -rf dist/jui-*
+rm -rf dist/ng2-* dist/jui-*
 
-# update node_modules and copy to dist directory
-npm update
-cp -R node_modules/ng2-map/dist             dist/jui-map
-cp -R node_modules/ng2-auto-complete/dist   dist/jui-auto-complete
-cp -R node_modules/ng2-datetime-picker/dist dist/jui-datetime-picker
-cp -R node_modules/ng2-overlay/dist         dist/jui-overlay
+installPackage() {
+  npm uninstall $1 --save-dev
+  npm install $1 --save-dev
+  cp -R node_modules/$1/dist dist/$1
+}
+# Reinstall all packages
+declare -a packages=(
+    ng2-map
+    ng2-auto-complete
+    ng2-datetime-picker
+    ng2-overlay
+    ng2-scrollable
+)
+
+## now loop through the above array
+for package in "${packages[@]}"
+do
+ echo ">>>>>>>>>>>$package<<<<<<<<<"
+ installPackage $package
+done
+
 tsc

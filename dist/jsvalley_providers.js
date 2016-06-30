@@ -1,5 +1,5 @@
 "use strict";
-var index_1 = require('./jui-overlay/index');
+var index_1 = require('./ng2-overlay/index');
 exports.JSVALLEY_PROVIDERS = [
     index_1.OverlayManager
 ];

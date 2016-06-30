@@ -12,7 +12,7 @@ console.log('OverlayManager', OverlayManager);
   providers: [HTTP_PROVIDERS, OverlayManager]
 })
 export class AppComponent {
-  constructor(public t overlayManager: OverlayManager) {}
+  constructor(public overlayManager: OverlayManager) {}
   
   public arrayOfKeyValues: any[] =
     [{key:1, name:'Key One'}, {key:2, name:'Key Two'}, {key:3, name:'Key Three'}, {key:4, name:'Key Four'}];

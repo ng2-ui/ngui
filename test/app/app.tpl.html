@@ -1,7 +1,7 @@
-<h3>jui-datetime-picker</h3>
+<h3>ng2-datetime-picker</h3>
 <input [(ngModel)]="date1" datetime-picker /> <br/>
 
-<h3>jui-auto-complete</h3>
+<h3>ng2-auto-complete</h3>
 <input auto-complete [source]="arrayOfKeyValues"
   [(ngModel)]="model3"
   placeholder="enter text"
@@ -9,16 +9,22 @@
   display-property-name="name"/>
 <br/> selected: {{model3 | json}}
 
-<h3>jui-map</h3>
+<h3>ng2-map</h3>
 <ng2-map center="Brampton, Canada">
   <marker position="Brampton, Canada" draggable="true"></marker>
 </ng2-map>
 
-<h3>jui-overlay</h3>
-<div id="window-loading" jui-overlay-of="window">
+<h3>ng2-overlay</h3>
+<div id="window-loading" ng2-overlay-of="window">
   <div style="color:#fff">Loading</div>
   <button (click)="overlayManager.close('window-loading')">Close</button>
 </div>
 <button (click)="overlayManager.open('window-loading')">Show Loading For Window</button>
 
 
+<h3>ng2-scrollable</h3>
+currentSection: {{id}}
+<div class="scrollable" (scrolledTo)="id=$event" ng2-scrollable style="overflow:auto; height: 2em">
+  <div id="s1">One</div> <div id="s2">Two</div> <div id="s3">Three</div> <div id="s4">Four</div> <div id="s5">Five</div>
+  <div id="s6">Six</div> <div id="s7">Seven</div> <div id="s8">Eight</div> <div id="s9">Nine</div>
+</div>
