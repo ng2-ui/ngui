@@ -4,10 +4,10 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
 @Component({
   selector: 'partial-ng2-map',
   template: `
-    <h2 class="group-title jui-map">
-      <a name="jui-map" href="https://github.com/jsvalley/ng2-map">jui-map</a>
+    <h2 class="group-title ng2-map">
+      <a name="ng2-map" href="https://github.com/jsvalley/ng2-map">jui-map</a>
     </h2>
-    <div class="directive-group jui-auto-complete">
+    <div class="directive-group">
       <ng2-map center="Brampton, Canada">
         <marker position="Brampton, Canada" draggable="true"></marker>
       </ng2-map>

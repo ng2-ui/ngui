@@ -16,7 +16,7 @@ var PartialNg2MapComponent = (function () {
     PartialNg2MapComponent = __decorate([
         core_1.Component({
             selector: 'partial-ng2-map',
-            template: "\n    <h2 class=\"group-title jui-map\">\n      <a name=\"jui-map\" href=\"https://github.com/jsvalley/ng2-map\">jui-map</a>\n    </h2>\n    <div class=\"directive-group jui-auto-complete\">\n      <ng2-map center=\"Brampton, Canada\">\n        <marker position=\"Brampton, Canada\" draggable=\"true\"></marker>\n      </ng2-map>\n      <pre>  &lt;ng2-map center=\"Brampton, Canada\">\n        &lt;marker position=\"Brampton, Canada\" draggable=\"true\">&lt;/marker>\n      &lt;/ng2-map></pre>\n    </div>\n  ",
+            template: "\n    <h2 class=\"group-title ng2-map\">\n      <a name=\"ng2-map\" href=\"https://github.com/jsvalley/ng2-map\">jui-map</a>\n    </h2>\n    <div class=\"directive-group\">\n      <ng2-map center=\"Brampton, Canada\">\n        <marker position=\"Brampton, Canada\" draggable=\"true\"></marker>\n      </ng2-map>\n      <pre>  &lt;ng2-map center=\"Brampton, Canada\">\n        &lt;marker position=\"Brampton, Canada\" draggable=\"true\">&lt;/marker>\n      &lt;/ng2-map></pre>\n    </div>\n  ",
             directives: [jsvalley_ui_1.JSVALLEY_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])

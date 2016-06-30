@@ -5,20 +5,20 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
   selector: 'partial-auto-complete',
   template: `
     <h2 class="group-title">
-      <a name="jui-auto-complete" href="https://github.com/jsvalley/ng2-auto-complete">jui-auto-complete</a>
+      <a name="ng2-auto-complete" href="https://github.com/jsvalley/ng2-auto-complete">jui-auto-complete</a>
     </h2>
 
-    <div class="directive-group jui-auto-complete">
+    <div class="directive-group ng2-auto-complete">
 
       <h3> Autocomplete From Local Source - Array </h3>
       source:
       <pre>{{arrayOfStrings | json}}</pre>
-      <input jui-auto-complete
+      <input ng2-auto-complete
              [(ngModel)]="model1"
              [source]="arrayOfStrings"
              placeholder="enter text"/>
       <pre>selected: {{model1 | json}}</pre>
-      <pre> &lt;input jui-auto-complete
+      <pre> &lt;input ng2-auto-complete
         [(ngModel)]="model1"
         [source]="arrayOfStrings"
         placeholder="enter text"/></pre>
@@ -27,13 +27,13 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
       source:
       <pre>{{arrayOfKeyValues | json}}</pre>
       <input
-          jui-auto-complete
+          ng2-auto-complete
           [(ngModel)]="model2"
           [source]="arrayOfKeyValues"
           placeholder="enter text"/>
       <pre>selected: {{model2 | json}}</pre>
       <pre>&lt;input
-        jui-auto-complete
+        ng2-auto-complete
         [(ngModel)]="model2"
         [source]="arrayOfKeyValues"
         placeholder="enter text"/></pre>
@@ -41,13 +41,13 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
       <h3> Autocomplete From Local Source - key/name </h3>
       source:
       <pre>{{arrayOfKeyVaues2 | json}}</pre>
-      <input jui-auto-complete [source]="arrayOfKeyValues2"
+      <input ng2-auto-complete [source]="arrayOfKeyValues2"
              [(ngModel)]="model3"
              placeholder="enter text"
              value-property-name="key"
              display-property-name="name"/>
       <pre>selected: {{model3 | json}}</pre>
-      <pre> &lt;input jui-auto-complete [source]="arrayOfKeyValues2"
+      <pre> &lt;input ng2-auto-complete [source]="arrayOfKeyValues2"
         [(ngModel)]="model3"
         placeholder="enter text"
         value-property-name="key"
@@ -55,7 +55,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
 
       <h3> Autocomplete From Remote Source - Google GeoCode </h3>
       <pre>source: {{googleGeoCode}}</pre>
-      <input  jui-auto-complete
+      <input  ng2-auto-complete
               [(ngModel)]="model4"
               placeholder="Enter Address(min. 2 chars)"
               [source]="googleGeoCode"
@@ -63,7 +63,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
               path-to-data="results"
               min-chars="2" />
       <pre>selected: {{model4 | json}}</pre>
-      <pre>&lt;input  jui-auto-complete
+      <pre>&lt;input  ng2-auto-complete
         [(ngModel)]="model4"
         placeholder="Enter Address(min. 2 chars)"
         [source]="googleGeoCode"

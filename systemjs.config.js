@@ -1,8 +1,3 @@
-/**
- * PLUNKER VERSION (based on systemjs.config.js in angular.io)
- * System configuration for Angular 2 samples
- * Adjust as necessary for your application needs.
- */
 (function(global) {
 
   var ngVer = '@2.0.0-rc.2'; // lock in the angular package version; do not let it float to current!
@@ -10,8 +5,6 @@
 
   //map tells the System loader where to look for things
   var  map = {
-    'app':                        'app',
-
     '@angular':                   'https://npmcdn.com/@angular', // sufficient if we didn't pin the version
     '@angular/router':            'https://npmcdn.com/@angular/router' + routerVer,
     'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api', // get latest
@@ -59,8 +52,11 @@
   // from npm cdn 
   map['jsvalley-ui'] = 'https://npmcdn.com/jsvalley-ui';
   packages['jsvalley-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
+  
+  map['app'] = 'src';
+  packages['app'] =  { main: 'main.ts',  defaultExtension: 'ts' }; 
+  map['app'] = 'dist';
   packages['app'] =  { main: 'main.js',  defaultExtension: 'js' };
-  // packages['app'] =  { main: 'main.ts',  defaultExtension: 'ts' };  //comment it out for production
   
   var config = {
     //DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
@@ -80,10 +76,3 @@
   System.config(config);
 
 })(this);
-
-
-/*
- Copyright 2016 Google Inc. All Rights Reserved.
- Use of this source code is governed by an MIT-style license that
- can be found in the LICENSE file at http://angular.io/license
- */

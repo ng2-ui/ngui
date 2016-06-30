@@ -64,6 +64,24 @@ import { Component, enableProdMode } from '@angular/core';
       </pre>
       CSS:
       <pre>
+      .accordion {
+        list-style: none;
+        position: relative;
+      }
+      .accordion .header {
+        background-color: #dcdcdc;
+        border: 1px solid #ccc;
+      }
+      .accordion .header.current {
+        background-color: #00b3ee;
+        color: #fff;
+      }
+      .accordion .contents {
+        display: none;
+      }
+      .accordion .contents.current {
+        display: inherit;
+      }
       </pre>
     </div>
   `,

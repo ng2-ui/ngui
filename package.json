@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "build": "tsc"
+    "build": "cp -R src/* dist && tsc"
   },
   "repository": {
     "type": "git",

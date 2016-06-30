@@ -5,22 +5,22 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
   selector: 'partial-datetime-picker',
   template: `
     <h2 class="group-title">
-      <a name="jui-datetime-picker" href="https://github.com/jsvalley/ng2-datetime-picker">jui-datetime-picker</a>
+      <a name="ng2-datetime-picker" href="https://github.com/jsvalley/ng2-datetime-picker">jui-datetime-picker</a>
     </h2>
 
-    <div class="directive-group jui-datetime-picker">
+    <div class="directive-group ng2-datetime-picker">
 
       <h3>Date Only</h3>
-      <input [(ngModel)]="date1" jui-datetime-picker date-only="true" />
-      <pre>&lt;input [(ngModel)]="date1" jui-datetime-picker date-only="true" /&gt;</pre>
+      <input [(ngModel)]="date1" ng2-datetime-picker date-only="true" />
+      <pre>&lt;input [(ngModel)]="date1" ng2-datetime-picker date-only="true" /&gt;</pre>
 
       <h3>Current Date and Time</h3>
-      <input [(ngModel)]="date2" jui-datetime-picker [close-on-select]="false" />
-      <pre>&lt;input  [(ngModel)]="date2" jui-datetime-picker [close-on-select]="false" /&gt;</pre>
+      <input [(ngModel)]="date2" ng2-datetime-picker [close-on-select]="false" />
+      <pre>&lt;input  [(ngModel)]="date2" ng2-datetime-picker [close-on-select]="false" /&gt;</pre>
 
       <h3>Specific Date and Time</h3>
-      <input [(ngModel)]="date3" jui-datetime-picker year="2014" month="12" day="31" hour="23" minute='59'/>
-      <pre>&lt;input ng-model="date3" jui-datetime-picker year="2014" month="12" day="31" hour="23" minute='59'/&gt;</pre>
+      <input [(ngModel)]="date3" ng2-datetime-picker year="2014" month="12" day="31" hour="23" minute='59'/>
+      <pre>&lt;input ng-model="date3" ng2-datetime-picker year="2014" month="12" day="31" hour="23" minute='59'/&gt;</pre>
 
     </div>
   `,
