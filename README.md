@@ -2,7 +2,7 @@
 
 Collection of Quality Angular 2 UIs
 
-[Demo](http://plnkr.co/edit/BcGThZ?p=preview)
+[Demo](https://jsvalley.github.io/jsvalley-ui)
 
 
 ## Current Modules Included
