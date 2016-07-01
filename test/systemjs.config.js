@@ -18,8 +18,8 @@
   };
 
   // for development
-  // map['auto-complete'] = 'src';
-  // packages['auto-complete'] =  {main: 'index.ts', defaultExtension: 'ts'};
+  map['auto-complete'] = 'src';
+  packages['auto-complete'] =  {main: 'index.ts', defaultExtension: 'ts'};
 
   // for distribution
   map['jsvalley-ui'] = 'dist';

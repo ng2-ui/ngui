@@ -11,4 +11,6 @@ var index_3 = require('./ng2-map/index');
 exports.NG2_MAP_DIRECTIVES = index_3.NG2_MAP_DIRECTIVES;
 var jsvalley_directives_1 = require('./jsvalley_directives');
 exports.JSVALLEY_DIRECTIVES = jsvalley_directives_1.JSVALLEY_DIRECTIVES;
+var index_4 = require('./ng2-scrollable/index');
+exports.Ng2ScrollableDirective = index_4.Ng2ScrollableDirective;
 //# sourceMappingURL=directives.js.map
