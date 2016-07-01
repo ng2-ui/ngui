@@ -3,7 +3,7 @@
 set -e
 
 # empty dist directory
-rm -rf dist/*
+rm -rf dist/* src/ng2-*
 
 # Reinstall all packages
 declare -a packages=(
@@ -17,7 +17,8 @@ declare -a packages=(
 installPackage() {
   npm uninstall $1 --save-dev
   npm install $1 --save-dev
-  cp -R node_modules/$1/dist src/$1
+  mkdir src/$1
+  cp -R node_modules/$1/dist/* src/$1
 }
 
 for package in "${packages[@]}"
@@ -26,6 +27,6 @@ do
  installPackage $package
 done
 
-tsc --outDir dist --rootDir src
+tsc --outDir dist
 
 
