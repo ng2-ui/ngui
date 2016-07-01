@@ -49,7 +49,7 @@
     "ng2-datetime-picker": "^0.3.0",
     "ng2-map": "^0.1.4",
     "ng2-overlay": "^0.2.0",
-    "ng2-scrollable": "^0.1.0",
+    "ng2-scrollable": "^0.2.0",
     "plugin-typescript": "^4.0.10",
     "typescript": "^1.8.10"
   }
