@@ -3,7 +3,7 @@
 set -e
 
 # empty dist directory
-rm -rf dist/ng2-* dist/jui-*
+rm -rf dist
 
 # Reinstall all packages
 declare -a packages=(
