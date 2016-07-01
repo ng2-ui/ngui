@@ -3,7 +3,7 @@
 set -e
 
 # empty dist directory
-rm -rf dist
+rm -rf dist/*
 
 # Reinstall all packages
 declare -a packages=(
