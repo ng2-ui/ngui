@@ -54,10 +54,10 @@
   packages['jsvalley-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
   
   map['app'] = 'src';
-  packages['app'] =  { main: 'main.ts',  defaultExtension: 'ts' }; 
+  packages['app'] =  { main: 'main.ts',  defaultExtension: 'ts' };
   map['app'] = 'dist';
   packages['app'] =  { main: 'main.js',  defaultExtension: 'js' };
-  
+
   var config = {
     //DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
     transpiler: 'ts',

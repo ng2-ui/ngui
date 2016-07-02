@@ -5,7 +5,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
   selector: 'partial-datetime-picker',
   template: `
     <h2 class="group-title">
-      <a name="ng2-datetime-picker" href="https://github.com/jsvalley/ng2-datetime-picker">jui-datetime-picker</a>
+      <a name="ng2-datetime-picker" href="https://github.com/jsvalley/ng2-datetime-picker">ng2-datetime-picker</a>
     </h2>
 
     <div class="directive-group ng2-datetime-picker">

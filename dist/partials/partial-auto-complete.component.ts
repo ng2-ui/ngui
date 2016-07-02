@@ -5,7 +5,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
   selector: 'partial-auto-complete',
   template: `
     <h2 class="group-title">
-      <a name="ng2-auto-complete" href="https://github.com/jsvalley/ng2-auto-complete">jui-auto-complete</a>
+      <a name="ng2-auto-complete" href="https://github.com/jsvalley/ng2-auto-complete">ng2-auto-complete</a>
     </h2>
 
     <div class="directive-group ng2-auto-complete">

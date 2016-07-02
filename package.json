@@ -4,7 +4,9 @@
   "description": "Collection of Quality Angular2 Directives",
   "main": "index.html",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "jsvalley-ui": "^0.2.0"
+  },
   "scripts": {
     "build": "cp -R src/* dist && tsc"
   },

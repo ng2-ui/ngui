@@ -5,7 +5,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
   selector: 'partial-ng2-map',
   template: `
     <h2 class="group-title ng2-map">
-      <a name="ng2-map" href="https://github.com/jsvalley/ng2-map">jui-map</a>
+      <a name="ng2-map" href="https://github.com/jsvalley/ng2-map">ng2-map</a>
     </h2>
     <div class="directive-group">
       <ng2-map center="Brampton, Canada">
