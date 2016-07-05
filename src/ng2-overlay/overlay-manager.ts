@@ -11,14 +11,14 @@ export class OverlayManager {
     this.overlays[overlay.id] = overlay;
   }
 
-  open(id: string): void {
-    let overlay: Overlay = this.overlays[id];
+  open(arg: string | Overlay): void {
+    let overlay: Overlay = typeof arg === 'string' ? this.overlays[arg] : arg;
     overlay.element.style.display = overlay.position.inside ? 'flex': 'block';
     overlay.positionIt();
   }
 
-  close(id: string): void {
-    let overlay = this.overlays[id];
+  close(arg: string | Overlay): void {
+    let overlay: Overlay = typeof arg === 'string' ? this.overlays[arg] : arg;
     overlay.element.style.display = 'none'
   }
 }

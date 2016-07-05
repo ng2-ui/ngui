@@ -1,14 +1,14 @@
 import { Component, enableProdMode } from '@angular/core';
-import { JSVALLEY_DIRECTIVES, OverlayManager } from "jsvalley-ui";
+import { NG2_DIRECTIVES, OverlayManager } from "ng2-ui";
 import { HTTP_PROVIDERS } from '@angular/http';
 
-console.log('jsvalley_directives', JSVALLEY_DIRECTIVES);
+console.log('ng2_directives', NG2_DIRECTIVES);
 console.log('OverlayManager', OverlayManager);
 
 @Component({
   selector: 'my-app',
   templateUrl: './app/app.tpl.html',
-  directives: [ JSVALLEY_DIRECTIVES ],
+  directives: [ NG2_DIRECTIVES ],
   providers: [HTTP_PROVIDERS, OverlayManager]
 })
 export class AppComponent {

@@ -17,13 +17,13 @@ var OverlayManager = (function () {
     OverlayManager.prototype.register = function (overlay) {
         this.overlays[overlay.id] = overlay;
     };
-    OverlayManager.prototype.open = function (id) {
-        var overlay = this.overlays[id];
+    OverlayManager.prototype.open = function (arg) {
+        var overlay = typeof arg === 'string' ? this.overlays[arg] : arg;
         overlay.element.style.display = overlay.position.inside ? 'flex' : 'block';
         overlay.positionIt();
     };
-    OverlayManager.prototype.close = function (id) {
-        var overlay = this.overlays[id];
+    OverlayManager.prototype.close = function (arg) {
+        var overlay = typeof arg === 'string' ? this.overlays[arg] : arg;
         overlay.element.style.display = 'none';
     };
     OverlayManager = __decorate([

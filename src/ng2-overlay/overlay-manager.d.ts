@@ -4,6 +4,6 @@ export declare class OverlayManager {
         [id: string]: Overlay;
     };
     register(overlay: Overlay): void;
-    open(id: string): void;
-    close(id: string): void;
+    open(arg: string | Overlay): void;
+    close(arg: string | Overlay): void;
 }

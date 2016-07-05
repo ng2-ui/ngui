@@ -17,13 +17,10 @@
     'rxjs':                       { defaultExtension: 'js' }
   };
 
-  // for development
-  map['auto-complete'] = 'src';
-  packages['auto-complete'] =  {main: 'index.ts', defaultExtension: 'ts'};
-
-  // for distribution
-  map['jsvalley-ui'] = 'dist';
-  packages['jsvalley-ui'] =  { main: 'index.js', defaultExtension: 'js' };
+  map['ng2-ui'] = '../src';
+  packages['ng2-ui'] =  {main: 'index.ts', defaultExtension: 'ts'};
+  map['ng2-ui'] = '../dist';
+  packages['ng2-ui'] =  { main: 'index.js', defaultExtension: 'js' };
 
   var ngPackageNames = [
     'common',

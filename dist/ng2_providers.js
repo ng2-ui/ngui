@@ -1,6 +1,6 @@
 "use strict";
 var index_1 = require('./ng2-overlay/index');
-exports.JSVALLEY_PROVIDERS = [
+exports.NG2_PROVIDERS = [
     index_1.OverlayManager
 ];
-//# sourceMappingURL=jsvalley_providers.js.map
+//# sourceMappingURL=ng2_providers.js.map

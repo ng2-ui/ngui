@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jsvalley/jsvalley-ui.git"
+    "url": "git+https://github.com/jsvalley/ng2-ui.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/jsvalley/jsvalley-ui/issues"
+    "url": "https://github.com/jsvalley/ng2-ui/issues"
   },
-  "homepage": "https://github.com/jsvalley/jsvalley-ui#readme",
+  "homepage": "https://github.com/jsvalley/ng2-ui#readme",
   "keywords": [
     "angular2",
     "auto-complete",
@@ -45,10 +45,10 @@
     "angular2-in-memory-web-api": "0.0.9",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",
-    "ng2-auto-complete": "^0.2.0",
+    "ng2-auto-complete": "^0.2.1",
     "ng2-datetime-picker": "^0.3.0",
     "ng2-map": "^0.1.4",
-    "ng2-overlay": "^0.2.0",
+    "ng2-overlay": "^0.2.1",
     "ng2-scrollable": "^0.2.0",
     "plugin-typescript": "^4.0.10",
     "typescript": "^1.8.10"

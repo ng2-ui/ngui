@@ -1,8 +1,8 @@
-# JsValley User Interface
+# Angular2 User Interface
 
 Collection of Quality Angular 2 UIs
 
-[Demo](https://jsvalley.github.io/jsvalley-ui)
+[Demo](https://jsvalley.github.io/ng2-ui)
 
 
 ## Current Modules Included
@@ -16,7 +16,7 @@ Collection of Quality Angular 2 UIs
 
    * npm
    
-         $ npm install jsvalley-ui
+         $ npm install ng2-ui
    
    * update `config.js` map and packages
    
@@ -25,7 +25,7 @@ Collection of Quality Angular 2 UIs
            app: "./src",
            '@angular': 'https://npmcdn.com/@angular',
            ...
-           'jsvalley-ui': 'https://npmcdn.com/jsvalley-ui' // <----- this
+           'ng2-ui': 'https://npmcdn.com/ng2-ui' // <----- this
          },
     
          packages: {
@@ -34,7 +34,7 @@ Collection of Quality Angular 2 UIs
               defaultExtension: 'ts'
             },
             ...
-            'jsvalley-ui': {                              // <----- this
+            'ng2-ui': {                              // <----- this
               main: 'dist/index.js',
               defaultExtension: 'js'
             }
@@ -48,13 +48,13 @@ Import and include directives for your application
 
         //our root app component
         import {Component, enableProdMode} from '@angular/core'
-        import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
+        import { NG2_DIRECTIVES } from "ng2-ui";
         enableProdMode();
 
         @Component({
           selector: 'my-app',
           templateUrl: 'src/app.tpl.html',
-          directives: [ JSVALLEY_DIRECTIVES ]
+          directives: [ NG2_DIRECTIVES ]
         })
         export class App {
           arrayOfValues: any[] = ['a', 'b', 'c'];
@@ -77,7 +77,7 @@ Import and include directives for your application
 
 ## For Developer,
 
-To publish a directive as a part of Jsvalley UI, `jui`
+To publish a directive as a part of Ng2 UI, `ng2-*`
 
 1. Update `build.sh` by adding additional line, so it will be added to distribution
 
@@ -89,11 +89,11 @@ To publish a directive as a part of Jsvalley UI, `jui`
             ng2-scrollable
         )
 
-2. Update `dist/jsvalley-directives.ts`, so that it will included in `JSVALLEY_DIRECTIVES`
+2. Update `dist/ng2-directives.ts`, so that it will included in `NG2_DIRECTIVES`
 
         import { NG2_MAP_DIRECTIVES } from './ng2-map';
 
-        export const JSVALLEY_DIRECTIVES: any[] = [
+        export const NG2_DIRECTIVES: any[] = [
           ..
           NG2_MAP_DIRECTIVES
         ];
