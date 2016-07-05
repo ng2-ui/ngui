@@ -1,18 +1,18 @@
 {
-  "name": "jsvalleu-ui",
+  "name": "ng2-ui-web",
   "version": "1.3.0",
   "description": "Collection of Quality Angular2 Directives",
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
-    "jsvalley-ui": "^0.2.0"
+    "ng2-ui": "^0.3.0"
   },
   "scripts": {
     "build": "cp -R src/* dist && tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jsvalley/jui.git"
+    "url": "git+https://github.com/jsvalley/ng2-ui.git"
   },
   "keywords": [
     "Angular2",
@@ -23,7 +23,7 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jsvalley/jui/issues"
+    "url": "https://github.com/jsvalley/ng2-ui/issues"
   },
-  "homepage": "https://github.com/jsvalley/jui#readme"
+  "homepage": "https://github.com/jsvalley/ng2-ui#readme"
 }

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var jsvalley_ui_1 = require("jsvalley-ui");
+var ng2_ui_1 = require("ng2-ui");
 var PartialNg2MapComponent = (function () {
     function PartialNg2MapComponent() {
     }
@@ -17,7 +17,7 @@ var PartialNg2MapComponent = (function () {
         core_1.Component({
             selector: 'partial-ng2-map',
             template: "\n    <h2 class=\"group-title ng2-map\">\n      <a name=\"ng2-map\" href=\"https://github.com/jsvalley/ng2-map\">ng2-map</a>\n    </h2>\n    <div class=\"directive-group\">\n      <ng2-map center=\"Brampton, Canada\">\n        <marker position=\"Brampton, Canada\" draggable=\"true\"></marker>\n      </ng2-map>\n      <pre>  &lt;ng2-map center=\"Brampton, Canada\">\n        &lt;marker position=\"Brampton, Canada\" draggable=\"true\">&lt;/marker>\n      &lt;/ng2-map></pre>\n    </div>\n  ",
-            directives: [jsvalley_ui_1.JSVALLEY_DIRECTIVES]
+            directives: [ng2_ui_1.NG2_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], PartialNg2MapComponent);

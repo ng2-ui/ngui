@@ -6,8 +6,7 @@ import {PartialTabComponent} from "./partials/partial-tab.component";
 import {PartialAccordionComponent} from "./partials/partial-accordion.component";
 import {PartialOverlayComponent} from "./partials/partial-overlay.component";
 import {PartialScrollableComponent} from "./partials/partial-scrollable.component";
-import { Ng2ScrollableDirective } from "jsvalley-ui";
-
+import { Ng2ScrollableDirective } from "ng2-ui";
 
 enableProdMode();
 

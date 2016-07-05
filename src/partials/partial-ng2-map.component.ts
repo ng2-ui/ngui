@@ -1,5 +1,5 @@
 import { Component, enableProdMode } from '@angular/core';
-import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
+import { NG2_DIRECTIVES } from "ng2-ui";
 
 @Component({
   selector: 'partial-ng2-map',
@@ -16,7 +16,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
       &lt;/ng2-map></pre>
     </div>
   `,
-  directives: [ JSVALLEY_DIRECTIVES ]
+  directives: [ NG2_DIRECTIVES ]
 })
 export class PartialNg2MapComponent {
 }

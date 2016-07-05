@@ -1,5 +1,5 @@
 import { Component, enableProdMode } from '@angular/core';
-import { JSVALLEY_DIRECTIVES, Ng2ScrollableDirective } from "jsvalley-ui";
+import { NG2_DIRECTIVES, Ng2ScrollableDirective } from "ng2-ui";
 
 @Component({
   selector: 'partial-scrollable',
@@ -70,7 +70,7 @@ import { JSVALLEY_DIRECTIVES, Ng2ScrollableDirective } from "jsvalley-ui";
     ul.window li {display: block;}
     .scrollable.section {overflow:auto;}
   `],
-  directives: [ JSVALLEY_DIRECTIVES ]
+  directives: [ NG2_DIRECTIVES ]
 })
 export class PartialScrollableComponent {
   scrollTo(selector) {

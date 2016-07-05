@@ -1,10 +1,10 @@
 import { Component, enableProdMode } from '@angular/core';
-import { JSVALLEY_DIRECTIVES, OverlayManager } from "jsvalley-ui";
+import { NG2_DIRECTIVES, OverlayManager } from "ng2-ui";
 
 @Component({
   selector: 'partial-overlay',
   providers: [OverlayManager],
-  directives: [JSVALLEY_DIRECTIVES],
+  directives: [NG2_DIRECTIVES],
   template: `
     <h2 class="group-title ng2-overlay">
       <a name="ng2-overlay" href="https://github.com/jsvalley/ng2-overlay">ng2-overlay</a>

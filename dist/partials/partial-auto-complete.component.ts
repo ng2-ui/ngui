@@ -1,5 +1,5 @@
 import { Component, enableProdMode } from '@angular/core';
-import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
+import { NG2_DIRECTIVES } from "ng2-ui";
 
 @Component({
   selector: 'partial-auto-complete',
@@ -73,7 +73,7 @@ import { JSVALLEY_DIRECTIVES } from "jsvalley-ui";
 
     </div>
   `,
-  directives: [ JSVALLEY_DIRECTIVES ]
+  directives: [ NG2_DIRECTIVES ]
 })
 export class PartialAutoCompleteComponent {
   arrayOfStrings: string[] =
