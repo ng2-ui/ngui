@@ -9,11 +9,6 @@
   display-property-name="name"/>
 <br/> selected: {{model3 | json}}
 
-<h3>ng2-map</h3>
-<ng2-map center="Brampton, Canada">
-  <marker position="Brampton, Canada" draggable="true"></marker>
-</ng2-map>
-
 <h3>ng2-overlay</h3>
 <div id="window-loading" ng2-overlay-of="window">
   <div style="color:#fff">Loading</div>
@@ -28,3 +23,36 @@ currentSection: {{id}}
   <div id="s1">One</div> <div id="s2">Two</div> <div id="s3">Three</div> <div id="s4">Four</div> <div id="s5">Five</div>
   <div id="s6">Six</div> <div id="s7">Seven</div> <div id="s8">Eight</div> <div id="s9">Nine</div>
 </div>
+
+<h3>ng2-tooltop-overlay</h3>
+<div ng2-tooltip="This is my tooltip">
+  tooltip 1
+</div>
+
+<h3>ng2-menu</h3>
+<div class="dropdown-menu">Dropdown Menu
+  <ul class="horizontal-menu">
+    <li> Item 1
+      <ul ng2-menu="bottom">
+        <li> Menu Item 1-1 <li> Menu Item 1-2 <li> Menu Item 1-3
+      </ul>
+    <li> Item 2
+      <ul ng2-menu="bottom">
+        <li> Menu Item 2-1 <li> Item 2-2 <ul ng2-menu="right">
+            <li> Menu Item 2-2-1 <li> Menu Item 2-2-2 <li> Menu Item 2-2-3 </ul>
+        <li> Menu Item 2-3
+      </ul>
+    <li>Menu Item 3
+  </ul>
+</div>
+
+
+<h3>ng2-popup</h3>
+<ng2-popup #popup></ng2-popup>
+<button (click)="openPopup('small', 'Hello Small Popup')">open small message popup</button>
+
+<h3>ng2-map</h3>
+<ng2-map center="Brampton, Canada">
+  <marker position="Brampton, Canada" draggable="true"></marker>
+</ng2-map>
+

@@ -1,4 +1,6 @@
 "use strict";
+var util_1 = require('./util');
+exports.Util = util_1.Util;
 var overlay_1 = require('./overlay');
 exports.Overlay = overlay_1.Overlay;
 var overlay_manager_1 = require('./overlay-manager');

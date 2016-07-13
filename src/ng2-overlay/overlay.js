@@ -1,4 +1,5 @@
 "use strict";
+var util_1 = require('./util');
 var Overlay = (function () {
     function Overlay(el, options) {
         options = options || {};
@@ -10,12 +11,12 @@ var Overlay = (function () {
         this.windowOverlay = options.windowOverlay;
         this.position = this.getPositionProperty(options.position || 'center center');
     }
-    Overlay.prototype.positionIt = function () {
+    Overlay.prototype.positionIt = function (event) {
         if (this.position.inside) {
             this.positionItInside(this.position);
         }
         else {
-            this.positionItOutside(this.position);
+            this.positionItOutside(this.position, event);
         }
     };
     Overlay.prototype.getPositionProperty = function (positionStr) {
@@ -30,6 +31,7 @@ var Overlay = (function () {
         return position;
     };
     Overlay.prototype.positionItInside = function (position) {
+        this.element.style.display = 'flex';
         //top / left positioning
         if (this.windowOverlay) {
             this.element.style.position = 'fixed';
@@ -43,7 +45,7 @@ var Overlay = (function () {
         else {
             //adjust top/left to match to parentElement
             var parentEl = this.element.parentElement;
-            //works as a blocker 
+            //works as a blocker
             Object.assign(this.element.style, {
                 position: 'absolute',
                 // backgroundColor: 'transparent',
@@ -81,7 +83,7 @@ var Overlay = (function () {
                 break;
         }
     };
-    Overlay.prototype.positionItOutside = function (position) {
+    Overlay.prototype.positionItOutside = function (position, event) {
         //adjust top/left to match to parentElement
         var parentEl = this.element.parentElement;
         //works as guide line?
@@ -93,28 +95,27 @@ var Overlay = (function () {
             width: parentEl.offsetWidth + 'px',
             height: parentEl.offsetHeight + 'px'
         });
+        this.element.style.display = 'block';
         var elToPosition = (this.element.children[0]);
         elToPosition.style.position = 'absolute';
         elToPosition.style.pointerEvents = 'auto';
-        var childrenElBCR = elToPosition.getBoundingClientRect();
-        var contentsWidth = childrenElBCR.width, contentsHeight = childrenElBCR.height;
         switch (position.vertical) {
             case Overlay.TOP:
-                elToPosition.style.top = (contentsHeight * -1) + 'px';
+                elToPosition.style.bottom = this.element.offsetHeight + 'px';
                 break;
             case Overlay.BOTTOM:
-                elToPosition.style.bottom = (contentsHeight * -1) + 'px';
+                elToPosition.style.top = this.element.offsetHeight + 'px';
                 break;
             case Overlay.LEFT:
-                elToPosition.style.left = (contentsWidth * -1) + 'px';
+                elToPosition.style.right = this.element.offsetWidth + 'px';
                 break;
             case Overlay.RIGHT:
-                elToPosition.style.right = (contentsWidth * -1) + 'px';
+                elToPosition.style.left = this.element.offsetWidth + 'px';
                 break;
         }
         switch (position.horizontal) {
             case Overlay.CENTER:
-                elToPosition.style.left = (parentEl.offsetWidth - contentsWidth) / 2 + 'px';
+                elToPosition.style.left = (this.element.offsetWidth - elToPosition.offsetWidth) / 2 + 'px';
                 break;
             case Overlay.LEFT:
                 elToPosition.style.left = '0';
@@ -128,6 +129,18 @@ var Overlay = (function () {
             case Overlay.BOTTOM:
                 elToPosition.style.bottom = '0';
                 break;
+            case Overlay.CURSOR:
+                var mousePos = util_1.Util.getMousePositionInElement(event, this.element);
+                if ((mousePos.x + elToPosition.offsetWidth) > this.element.offsetWidth) {
+                    elToPosition.style.left = (this.element.offsetWidth - elToPosition.offsetWidth - 5) + 'px';
+                }
+                else if (mousePos.x < elToPosition.offsetWidth / 2) {
+                    elToPosition.style.left = '0px';
+                }
+                else {
+                    elToPosition.style.left = mousePos.x - elToPosition.offsetWidth / 2 + 'px';
+                }
+                break;
         }
     };
     Overlay.TOP = 11;
@@ -136,6 +149,7 @@ var Overlay = (function () {
     Overlay.LEFT = 21;
     Overlay.CENTER = 22;
     Overlay.RIGHT = 23;
+    Overlay.CURSOR = 31;
     return Overlay;
 }());
 exports.Overlay = Overlay;

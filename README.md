@@ -4,20 +4,22 @@ Collection of Quality Angular 2 UIs
 
 [Demo](https://jsvalley.github.io/ng2-ui)
 
-
-## Current Modules Included
+## Modules Included
   * ng2-auto-complete
   * ng2-datetime-picker
   * ng2-map
   * ng2-overlay
   * ng2-scrollable
+  * ng2-menu
+  * ng2-popup
+  * ng2-tooltip-overlay
 
 ## Install 
 
    * npm
    
          $ npm install ng2-ui
-   
+
    * update `config.js` map and packages
    
          //map tells the System loader where to look for things
@@ -74,6 +76,9 @@ Import and include directives for your application
  * `ng2-datetime-picker` Date picker, Time picker, or both
  * `ng2-overlay`  Generic overlays
  * `ng2-scrollable` Scroll Enabler and Sccoll Detector
+ * `ng2-menu`  Menu(Drop-down, left-side, right-side, bottom)
+ * `ng2-popup` Popup Modal
+ * `ng2-tooltop-overlay` Tooltip 
 
 ## For Developer,
 
@@ -89,7 +94,7 @@ To publish a directive as a part of Ng2 UI, `ng2-*`
             ng2-scrollable
         )
 
-2. Update `dist/ng2-directives.ts`, so that it will included in `NG2_DIRECTIVES`
+2. Update `src/ng2-directives.ts`, so that it will included in `NG2_DIRECTIVES`
 
         import { NG2_MAP_DIRECTIVES } from './ng2-map';
 

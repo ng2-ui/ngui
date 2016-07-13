@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-set -e
-
 # empty dist directory
-rm -rf dist/* src/ng2-*
+rm -rf dist/* 
 
 # Reinstall all packages
 declare -a packages=(
@@ -12,12 +10,16 @@ declare -a packages=(
     ng2-datetime-picker
     ng2-overlay
     ng2-scrollable
+    ng2-tooltip-overlay
+    ng2-menu
+    ng2-popup
 )
 
 installPackage() {
+  rm -rf src/$1
+  mkdir src/$1
   npm uninstall $1 --save-dev
   npm install $1 --save-dev
-  mkdir src/$1
   cp -R node_modules/$1/dist/* src/$1
 }
 
@@ -27,6 +29,13 @@ do
  installPackage $package
 done
 
-tsc --outDir dist
+typings install
+
+sed -i '' -e 's/ng2-overlay/..\/ng2-overlay\/index/g' src/ng2-popup/*.ts
+sed -i '' -e 's/ng2-overlay/..\/ng2-overlay\/index/g' src/ng2-tooltip-overlay/*.ts
+
+rm -rf dist
+cp -R src dist
+tsc --rootDir dist
 
 

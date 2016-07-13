@@ -7,7 +7,7 @@ import { GeoCoder } from "./geo-coder";
 export declare class OptionBuilder {
     private geoCoder;
     constructor(geoCoder: GeoCoder);
-    googlizeAllInputs(definedInputs: string[], userInputs: any): any;
+    googlizeAllInputs(definedInputs: string[], userInputs: any): google.maps.MarkerOptions;
     googlizeMultiple(inputs: any[], options?: IJson): any;
     googlize(input: any, options?: IJson): any;
     private getLatLng(input);
