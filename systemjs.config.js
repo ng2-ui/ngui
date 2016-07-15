@@ -50,7 +50,7 @@
   packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
   
   // from npm cdn 
-  map['ng2-ui'] = 'https://npmcdn.com/ng2-ui@0.3.0';
+  map['ng2-ui'] = 'https://npmcdn.com/ng2-ui';
   packages['ng2-ui'] =  {main: 'dist/index.js', defaultExtension: 'js'};
   
   map['app'] = 'src';

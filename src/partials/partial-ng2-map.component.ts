@@ -5,7 +5,7 @@ import { NG2_DIRECTIVES } from "ng2-ui";
   selector: 'partial-ng2-map',
   template: `
     <h2 class="group-title ng2-map">
-      <a name="ng2-map" href="https://github.com/jsvalley/ng2-map">ng2-map</a>
+      <a name="ng2-map" href="https://github.com/ng2-ui/ng2-map">ng2-map</a>
     </h2>
     <div class="directive-group">
       <ng2-map center="Brampton, Canada">

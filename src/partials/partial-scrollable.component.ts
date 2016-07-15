@@ -5,7 +5,7 @@ import { NG2_DIRECTIVES, Ng2ScrollableDirective } from "ng2-ui";
   selector: 'partial-scrollable',
   template: `
     <h2 class="group-title ng2-scrollable">
-      <a name="ng2-overlay" href="https://github.com/jsvalley/ng2-scrollable">ng2-scrollable</a>
+      <a name="ng2-overlay" href="https://github.com/ng2-ui/ng2-scrollable">ng2-scrollable</a>
     </h2>
     <div class="directive-group">
       <ul style="padding-left: 25%">

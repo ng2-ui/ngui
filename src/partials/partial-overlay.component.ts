@@ -7,7 +7,7 @@ import { NG2_DIRECTIVES, OverlayManager } from "ng2-ui";
   directives: [NG2_DIRECTIVES],
   template: `
     <h2 class="group-title ng2-overlay">
-      <a name="ng2-overlay" href="https://github.com/jsvalley/ng2-overlay">ng2-overlay</a>
+      <a name="ng2-overlay" href="https://github.com/ng2-ui/ng2-overlay">ng2-overlay</a>
     </h2>
     <div class="directive-group">
       <h3>Open Inside Overlay For Window - Modal</h3>
