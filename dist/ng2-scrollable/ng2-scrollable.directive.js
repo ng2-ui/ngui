@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var util_1 = require('./util');
 var Ng2ScrollableDirective = (function () {
     function Ng2ScrollableDirective(el) {
-        this.scrolledTo = new core_1.EventEmitter();
+        this.scrolledToVisible = new core_1.EventEmitter();
+        this.scrolledToHidden = new core_1.EventEmitter();
         this.sections = [];
         this.el = el.nativeElement;
         this.el.style.position = 'relative';
@@ -28,63 +30,31 @@ var Ng2ScrollableDirective = (function () {
     };
     Ng2ScrollableDirective.prototype.listenScrollOn = function (el) {
         var _this = this;
-        console.log('adding scroll listener on', el, this.sections);
         el.addEventListener('scroll', function () {
-            var scrolledTo = null;
+            var elScrolledToVisible = null;
+            var elScrolledToHidden = null;
             for (var i = 0; i < _this.sections.length; i++) {
-                if (_this.isElementVisible(_this.sections[i], el)) {
-                    scrolledTo = _this.sections[i];
+                if (util_1.isElementPartlyVisible(_this.sections[i], el)) {
+                    elScrolledToVisible = _this.sections[i];
                     break;
                 }
+                if (util_1.isElementNotVisible(_this.sections[i], el)) {
+                    elScrolledToHidden = _this.sections[i];
+                }
             }
-            ;
-            scrolledTo && _this.scrolledTo.emit(scrolledTo.id);
+            elScrolledToVisible && _this.scrolledToVisible.emit(elScrolledToVisible.id);
+            elScrolledToHidden && _this.scrolledToHidden.emit(elScrolledToHidden.id);
         });
     };
-    Ng2ScrollableDirective.scrollTo = function (selector) {
-        var parentEl, targetEl;
-        targetEl = document.querySelector(selector);
-        if (!targetEl) {
-            throw "Invalid selector " + selector;
-        }
-        parentEl = targetEl.parentElement;
-        do {
-            if (parentEl.getAttribute('ng2-scrollable') !== undefined) {
-                break;
-            }
-        } while (parentEl = parentEl.parentElement);
-        var parentElStyle = window.getComputedStyle(parentEl);
-        parentEl = parentElStyle.overflow === 'auto' ? parentEl : document.body;
-        var currentScrollTop = parentEl.scrollTop;
-        var targetOffsetTop = targetEl.offsetTop;
-        if (parentEl === document.body) {
-            var bodyRect = document.body.getBoundingClientRect();
-            var targetRect = targetEl.getBoundingClientRect();
-            targetOffsetTop = targetRect.top - bodyRect.top;
-        }
-        var step = (targetOffsetTop - currentScrollTop) / 10;
-        (function loop(i) {
-            setTimeout(function main() {
-                parentEl.scrollTop += step;
-                i > 1 && loop(i - 1);
-            }, 50);
-        }(10));
-    };
-    Ng2ScrollableDirective.prototype.isElementVisible = function (innerEl, outerEl) {
-        var innerRect = innerEl.getBoundingClientRect();
-        if (outerEl === window) {
-            return innerRect.top > 0 &&
-                innerRect.top < window.innerHeight;
-        }
-        else {
-            var outerRect = outerEl.getBoundingClientRect();
-            return innerRect.top >= outerRect.top && innerRect.top <= outerRect.bottom;
-        }
-    };
+    Ng2ScrollableDirective.scrollTo = util_1.scrollTo;
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], Ng2ScrollableDirective.prototype, "scrolledTo", void 0);
+    ], Ng2ScrollableDirective.prototype, "scrolledToVisible", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], Ng2ScrollableDirective.prototype, "scrolledToHidden", void 0);
     Ng2ScrollableDirective = __decorate([
         core_1.Directive({
             selector: '[ng2-scrollable]'
