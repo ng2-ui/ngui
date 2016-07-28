@@ -50,7 +50,7 @@
   "devDependencies": {
     "ng2-auto-complete": "^0.4.1",
     "ng2-datetime-picker": "^0.5.1",
-    "ng2-map": "^0.3.1",
+    "ng2-map": "^0.3.2",
     "ng2-menu": "^0.2.0",
     "ng2-overlay": "^0.5.0",
     "ng2-popup": "^0.2.0",
