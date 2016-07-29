@@ -82,9 +82,17 @@ Import and include directives for your application
 
 ## For Developer,
 
-To publish a directive as a part of Ng2 UI, `ng2-*`
+### To start
 
-1. Update `build.sh` by adding additional line, so it will be added to distribution
+    $ git clone https://github.com/ng2-ui/ng2-map.git
+    $ cd ng2-popup
+    $ npm install
+    $ npm start
+
+
+### To publish a new directive as a part of `ng2-ui`
+
+1. Update `build.sh` by adding additional line, so it will do automatically `npm uninstall` and `npm install`
 
         declare -a packages=(
             ng2-map
@@ -94,13 +102,29 @@ To publish a directive as a part of Ng2 UI, `ng2-*`
             ng2-scrollable
         )
 
-2. Update `src/ng2-directives.ts`, so that it will included in `NG2_DIRECTIVES`
+2. Update `src/index.ts` and `src/ng2-directives.ts`, so that it will included in `NG2_DIRECTIVES`
 
-        import { NG2_MAP_DIRECTIVES } from './ng2-map';
+   **src/index.ts**
+
+        export * from './ng2-auto-complete/index';
+        export * from './ng2-datetime-picker/index';
+        export * from './ng2-map/index';                // <--- this
+        export * from './ng2-menu/index';
+        export * from './ng2-overlay/index';
+        export * from './ng2-popup/index';
+        export * from './ng2-scrollable/index';
+        export * from './ng2-tooltip-overlay/index';
+
+        export * from './directives';
+        export * from './providers';
+
+  **src/ng2-directives.ts**
+
+        import { NG2_MAP_DIRECTIVES } from './ng2-map';   // <--- this
 
         export const NG2_DIRECTIVES: any[] = [
           ..
-          NG2_MAP_DIRECTIVES
+          NG2_MAP_DIRECTIVES                             // <--- this
         ];
 
 3. Build again

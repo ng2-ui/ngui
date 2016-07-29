@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
+    "start": "http-server -o",
     "build": "./build.sh"
   },
   "repository": {
@@ -48,6 +49,7 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "http-server": "^0.9.0",
     "ng2-auto-complete": "^0.4.1",
     "ng2-datetime-picker": "^0.5.1",
     "ng2-map": "^0.3.2",
