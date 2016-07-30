@@ -13,6 +13,8 @@ declare -a packages=(
     ng2-tooltip-overlay
     ng2-menu
     ng2-popup
+    ng2-utils
+    ng2-infinite-list
 )
 
 installPackage() {
@@ -31,11 +33,21 @@ done
 
 typings install
 
-sed -i '' -e 's/ng2-overlay/..\/ng2-overlay\/index/g' src/ng2-popup/*.ts
-sed -i '' -e 's/ng2-overlay/..\/ng2-overlay\/index/g' src/ng2-tooltip-overlay/*.ts
 
+echo "Replacing ng2-overlay and ng2-utils to local"
+# change all ng2-overlay npm module dependency to local dependency
+sed -i '' -e 's/ng2-overlay/..\/ng2-overlay\/index/g' src/*/*.ts
+# change all ng2-utils npm module dependency to local dependency
+sed -i '' -e 's/ng2-utils/..\/ng2-utils\/g' src/*/*.ts
+echo "Replacing Done"
+
+echo "Deleting dist directory"
 rm -rf dist
+
+echo "Copying all source to dist directory"
 cp -R src dist
+
+echo "Compiling dist directory"
 tsc --rootDir dist
 
 

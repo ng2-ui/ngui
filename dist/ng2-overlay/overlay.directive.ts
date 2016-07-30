@@ -4,15 +4,15 @@ import {OverlayManager} from './overlay-manager';
 import {Overlay} from './overlay';
 
 @Directive({
-  selector: '[ng2-overlay], [ng2-overlay-of], [ng2-overlay-position]',
+  selector: '[../ng2-overlay/index], [../ng2-overlay/index-of], [../ng2-overlay/index-position]',
 })
 export class OverlayDirective {
 
-  @Input('ng2-overlay-of') overlayOf: string;
-  @Input('ng2-overlay-position') overlayPosition: string;
+  @Input('../ng2-overlay/index-of') overlayOf: string;
+  @Input('../ng2-overlay/index-position') overlayPosition: string;
 
   el: HTMLElement;        // the element this directive is assigned to
-  overlayEl: HTMLElement; // <ng2-overlay> in <ng2-overlay>this.el</ng2-overlay>
+  overlayEl: HTMLElement; // <../ng2-overlay/index> in <../ng2-overlay/index>this.el</../ng2-overlay/index>
 
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -27,8 +27,8 @@ export class OverlayDirective {
   }
 
   wrapItWithOverlayTag() {
-    //console.log('wrapped overlay directive element with <ng2-overlay>');
-    this.overlayEl = document.createElement('ng2-overlay');
+    //console.log('wrapped overlay directive element with <../ng2-overlay/index>');
+    this.overlayEl = document.createElement('../ng2-overlay/index');
     this.overlayEl.style.display = 'none';
 
     this.el.parentElement.insertBefore(
