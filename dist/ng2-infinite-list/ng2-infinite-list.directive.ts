@@ -1,5 +1,5 @@
 import {Directive, ElementRef, EventEmitter, Output, Input} from '@angular/core';
-import { elementVisible } from "../ng2-utils//index";
+import { elementVisible } from "../ng2-utils/index";
 
 @Directive({ selector: '[ng2-infinite-list]' })
 export class Ng2InfiniteListDirective {
