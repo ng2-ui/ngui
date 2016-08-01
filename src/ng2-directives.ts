@@ -9,6 +9,7 @@ import { Ng2PopupComponent, Ng2MessagePopupComponent } from "./ng2-popup/index";
 import { Ng2InfiniteListDirective } from "./ng2-infinite-list/index";
 import { Ng2TabComponent } from "./ng2-tab/index";
 import { Ng2CollapsableComponent } from "./ng2-collapsable/index";
+import { Ng2ParallaxScrollDirective } from "./ng2-parallax-scroll/index";
 
 export const NG2_DIRECTIVES: any[] = [
   AutoCompleteDirective,
@@ -23,5 +24,6 @@ export const NG2_DIRECTIVES: any[] = [
   Ng2InfiniteListDirective,
   Ng2TabComponent,
   Ng2CollapsableComponent,
+  Ng2ParallaxScrollDirective
 ];
 

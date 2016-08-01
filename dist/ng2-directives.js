@@ -10,6 +10,7 @@ var index_8 = require("./ng2-popup/index");
 var index_9 = require("./ng2-infinite-list/index");
 var index_10 = require("./ng2-tab/index");
 var index_11 = require("./ng2-collapsable/index");
+var index_12 = require("./ng2-parallax-scroll/index");
 exports.NG2_DIRECTIVES = [
     index_1.AutoCompleteDirective,
     index_2.DateTimePickerDirective,
@@ -23,5 +24,6 @@ exports.NG2_DIRECTIVES = [
     index_9.Ng2InfiniteListDirective,
     index_10.Ng2TabComponent,
     index_11.Ng2CollapsableComponent,
+    index_12.Ng2ParallaxScrollDirective
 ];
 //# sourceMappingURL=ng2-directives.js.map

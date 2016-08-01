@@ -15,7 +15,7 @@ console.log('OverlayManager', OverlayManager);
   selector: 'my-app',
   templateUrl: './app/app.tpl.html',
   directives: [ NG2_DIRECTIVES ],
-  providers: [HTTP_PROVIDERS, OverlayManager]
+  providers: [ HTTP_PROVIDERS, OverlayManager ]
 })
 export class AppComponent {
   constructor(public overlayManager: OverlayManager) {

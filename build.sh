@@ -17,6 +17,7 @@ declare -a packages=(
     ng2-infinite-list
     ng2-tab
     ng2-collapsable
+    ng2-parallax-scroll
 )
 
 installPackage() {
