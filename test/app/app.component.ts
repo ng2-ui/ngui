@@ -1,5 +1,11 @@
 import { Component, enableProdMode, ViewChild } from '@angular/core';
-import { NG2_DIRECTIVES, Ng2MapComponent, OverlayManager, Ng2PopupComponent, Ng2MessagePopupComponent } from "ng2-ui";
+import {
+  NG2_DIRECTIVES,
+  Ng2MapComponent,
+  OverlayManager,
+  Ng2PopupComponent,
+  Ng2MessagePopupComponent
+} from "ng2-ui";
 import { HTTP_PROVIDERS } from '@angular/http';
 
 console.log('ng2_directives', NG2_DIRECTIVES);

@@ -7,5 +7,7 @@ export * from './ng2-popup/index';
 export * from './ng2-scrollable/index';
 export * from './ng2-tooltip-overlay/index';
 export * from './ng2-infinite-list/index';
+export * from './ng2-tab/index';
+export * from './ng2-collapsable/index';
 export * from './directives';
 export * from './providers';

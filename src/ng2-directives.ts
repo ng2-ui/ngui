@@ -6,7 +6,9 @@ import { Ng2ScrollableDirective } from './ng2-scrollable/index';
 import { Ng2TooltipDirective } from "./ng2-tooltip-overlay/index";
 import { Ng2MenuDirective } from "./ng2-menu/index";
 import { Ng2PopupComponent, Ng2MessagePopupComponent } from "./ng2-popup/index";
-import {Ng2InfiniteListDirective} from "./ng2-infinite-list/ng2-infinite-list.directive";
+import { Ng2InfiniteListDirective } from "./ng2-infinite-list/index";
+import { Ng2TabComponent } from "./ng2-tab/index";
+import { Ng2CollapsableComponent } from "./ng2-collapsable/index";
 
 export const NG2_DIRECTIVES: any[] = [
   AutoCompleteDirective,
@@ -18,6 +20,8 @@ export const NG2_DIRECTIVES: any[] = [
   Ng2MenuDirective,
   Ng2PopupComponent,
   Ng2MessagePopupComponent,
-  Ng2InfiniteListDirective
+  Ng2InfiniteListDirective,
+  Ng2TabComponent,
+  Ng2CollapsableComponent,
 ];
 

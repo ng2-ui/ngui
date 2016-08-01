@@ -52,9 +52,40 @@ currentSection: {{id}}
 <button (click)="openPopup('small', 'Hello Small Popup')">open small message popup</button>
 
 <h3>ng2-map</h3>
-<ng2-map center="Brampton, Canada">
+<ng2-map center="Brampton, Canada" scrollwheel="false">
   <marker position="Brampton, Canada" draggable="true"></marker>
 </ng2-map>
 
 <h3>ng2-infinite-list</h3>
+
+<h3>ng2-tab</h3>
+<ng2-tab
+    selected="js"
+    selected-index-class="selected"
+    selected-contents-class="fadeIn animated">
+  <div class="tabs">
+    <div index="html">HTML</div>
+    <div index="js">Javascript</div>
+  </div>
+  <div class="tab-contents">
+    <div contents="html">HTML {{1}}</div>
+    <div contents="js">Javascript {{1}}</div>
+  </div>
+</ng2-tab>
+
+<h3>ng2-collapsable</h3>
+<div ng2-collapsable
+     selected="js"
+     selected-index-class="selected"
+     selected-contents-class="selected">
+  <div index="html">HTML</div>
+  <div contents="html">HTML {{foo}}</div>
+
+  <div index="js">Javascript</div>
+  <div contents="js">Javascript {{bar}}</div>
+
+  <div index="css">Css</div>
+  <div contents="css">Style Sheet</div>
+</div>
+
 

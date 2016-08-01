@@ -7,7 +7,9 @@ var index_5 = require('./ng2-scrollable/index');
 var index_6 = require("./ng2-tooltip-overlay/index");
 var index_7 = require("./ng2-menu/index");
 var index_8 = require("./ng2-popup/index");
-var ng2_infinite_list_directive_1 = require("./ng2-infinite-list/ng2-infinite-list.directive");
+var index_9 = require("./ng2-infinite-list/index");
+var index_10 = require("./ng2-tab/index");
+var index_11 = require("./ng2-collapsable/index");
 exports.NG2_DIRECTIVES = [
     index_1.AutoCompleteDirective,
     index_2.DateTimePickerDirective,
@@ -18,6 +20,8 @@ exports.NG2_DIRECTIVES = [
     index_7.Ng2MenuDirective,
     index_8.Ng2PopupComponent,
     index_8.Ng2MessagePopupComponent,
-    ng2_infinite_list_directive_1.Ng2InfiniteListDirective
+    index_9.Ng2InfiniteListDirective,
+    index_10.Ng2TabComponent,
+    index_11.Ng2CollapsableComponent,
 ];
 //# sourceMappingURL=ng2-directives.js.map
