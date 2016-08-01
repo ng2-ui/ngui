@@ -15,6 +15,8 @@ declare -a packages=(
     ng2-popup
     ng2-utils
     ng2-infinite-list
+    ng2-tab
+    ng2-collapsable
 )
 
 installPackage() {
@@ -27,8 +29,8 @@ installPackage() {
 
 for package in "${packages[@]}"
 do
- echo ">>>>>>>>>>>$package<<<<<<<<<"
- installPackage $package
+  echo ">>>>>>>>>>>$package<<<<<<<<<"
+  installPackage $package
 done
 
 typings install
