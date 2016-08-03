@@ -2,7 +2,6 @@
 
 Collection of Quality Angular 2 UIs
 
-[Demo](https://jsvalley.github.io/ng2-ui)
 
 ## Modules Included
   * ng2-auto-complete
@@ -13,6 +12,9 @@ Collection of Quality Angular 2 UIs
   * ng2-menu
   * ng2-popup
   * ng2-tooltip-overlay
+  * ng2-collapsable
+  * ng2-tab
+  * ng2-parallax-scrolll
 
 ## Install 
 
