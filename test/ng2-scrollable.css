@@ -1,0 +1,28 @@
+fieldset {background: #f0f0f0;}
+legend {background: #fff; padding: 0 10px;}
+ul {list-style: none}
+ul li {display: inline-block; border: 1px solid #999; padding: 10px; cursor: pointer;}
+ul li.current { background: #333; color: #fff}
+.scrollable { height: 200px; border: 1px solid #999; position: relative;}
+.scrollable > div {height: 110px}
+.scrollable > div:nth-child(odd) { background-color: #ccc}
+
+ul.window {position: fixed; top: 0; left: 0; background: yellow; z-index: 1;}
+ul.window li {display: block; }
+.scrollable.section {overflow:auto;}
+
+.horizontal {
+  height: 100px;
+  width: 100%;
+  max-width: 450px;
+  white-space: nowrap;
+  overflow-y: hidden !important;
+}
+.horizontal > div {
+  border: 1px solid #666;
+  width: 200px;
+  height: 80px;
+  display: inline-block;
+  text-align: center;
+}
+

@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var util_1 = require('./util');
+var index_1 = require('ng2-utils/index');
 var Ng2ScrollableDirective = (function () {
     function Ng2ScrollableDirective(el) {
-        this.scrolledToVisible = new core_1.EventEmitter();
-        this.scrolledToHidden = new core_1.EventEmitter();
+        this.elementVisible = new core_1.EventEmitter();
         this.sections = [];
+        this.visible = index_1.elementVisible;
         this.el = el.nativeElement;
         this.el.style.position = 'relative';
     }
     // setup list of sections
-    Ng2ScrollableDirective.prototype.ngAfterViewInit = function () {
+    Ng2ScrollableDirective.prototype.ngOnInit = function () {
         for (var i = 0; i < this.el.children.length; i++) {
             var childEl = this.el.children[i];
             childEl.id && this.sections.push(childEl);
@@ -32,29 +32,76 @@ var Ng2ScrollableDirective = (function () {
         var _this = this;
         el.addEventListener('scroll', function () {
             var elScrolledToVisible = null;
-            var elScrolledToHidden = null;
             for (var i = 0; i < _this.sections.length; i++) {
-                if (util_1.isElementPartlyVisible(_this.sections[i], el)) {
-                    elScrolledToVisible = _this.sections[i];
+                var section = _this.sections[i];
+                var visible = _this.visible(section, el);
+                if (_this.horizontal && (visible.left || visible.right)) {
+                    elScrolledToVisible = section;
                     break;
                 }
-                if (util_1.isElementNotVisible(_this.sections[i], el)) {
-                    elScrolledToHidden = _this.sections[i];
+                else if (!_this.horizontal && (visible.top || visible.bottom)) {
+                    elScrolledToVisible = section;
+                    break;
                 }
             }
-            elScrolledToVisible && _this.scrolledToVisible.emit(elScrolledToVisible.id);
-            elScrolledToHidden && _this.scrolledToHidden.emit(elScrolledToHidden.id);
+            elScrolledToVisible && _this.elementVisible.emit(elScrolledToVisible);
         });
     };
-    Ng2ScrollableDirective.scrollTo = util_1.scrollTo;
+    Ng2ScrollableDirective.scrollTo = function (selector, parentSelector, horizontal, distance) {
+        // argument validation
+        var parentEl, targetEl;
+        parentSelector = parentSelector || 'body';
+        targetEl = document.querySelector(selector);
+        if (!targetEl) {
+            throw "Invalid selector " + selector;
+        }
+        parentEl = document.querySelector(parentSelector);
+        if (!parentEl) {
+            throw "Invalid parent selector " + parentSelector;
+        }
+        // detect the current environment
+        var parentElStyle = window.getComputedStyle(parentEl);
+        var scrollContainerEl = parentElStyle.overflow === 'auto' ?
+            parentEl : document.body;
+        var currentScrollTop = scrollContainerEl.scrollTop;
+        var currentScrollLeft = scrollContainerEl.scrollLeft;
+        // determine targetOffsetTop(or Left);
+        var targetOffsetTop;
+        var targetOffsetLeft;
+        if (scrollContainerEl === document.body) {
+            var bodyRect = document.body.getBoundingClientRect();
+            var targetRect = targetEl.getBoundingClientRect();
+            targetOffsetTop = targetRect.top - bodyRect.top;
+            targetOffsetLeft = targetRect.left - bodyRect.left;
+        }
+        else {
+            targetOffsetTop = targetEl.offsetTop;
+            targetOffsetLeft = targetEl.offsetLeft;
+        }
+        if (distance) {
+            currentScrollTop += distance;
+            currentScrollLeft += distance;
+        }
+        // start scrolling
+        var step = horizontal ?
+            Math.ceil((targetOffsetLeft - currentScrollLeft) / 10) :
+            Math.ceil((targetOffsetTop - currentScrollTop) / 10);
+        var scrollProp = horizontal ? 'scrollLeft' : 'scrollTop';
+        (function loop(i, prop) {
+            setTimeout(function main() {
+                scrollContainerEl[prop] += step;
+                i > 1 && loop(i - 1, prop);
+            }, 50);
+        }(10, scrollProp));
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], Ng2ScrollableDirective.prototype, "horizontal", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], Ng2ScrollableDirective.prototype, "scrolledToVisible", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], Ng2ScrollableDirective.prototype, "scrolledToHidden", void 0);
+    ], Ng2ScrollableDirective.prototype, "elementVisible", void 0);
     Ng2ScrollableDirective = __decorate([
         core_1.Directive({
             selector: '[ng2-scrollable]'

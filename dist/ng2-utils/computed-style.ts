@@ -5,7 +5,7 @@
  * @returns {any}
  */
 export function computedStyle(el: HTMLElement, styleProp: string): string {
-  var value, defaultView = (el.ownerDocument || document).defaultView;
+  var value: any, defaultView: any = (el.ownerDocument || document).defaultView;
   // W3C standard way:
   if (defaultView && defaultView.getComputedStyle) {
     // sanitize property name to css notation
@@ -20,7 +20,7 @@ export function computedStyle(el: HTMLElement, styleProp: string): string {
     value = el['currentStyle'][styleProp];
     // convert other units to pixels on IE
     if (/^\d+(em|pt|%|ex)?$/i.test(value)) {
-      return (function(value) {
+      return (function(value: any) {
         var oldLeft = el.style.left, oldRsLeft = el['runtimeStyle'].left;
         el['runtimeStyle'].left = el['currentStyle'].left;
         el.style.left = value || 0;

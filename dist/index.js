@@ -14,6 +14,9 @@ __export(require('./ng2-infinite-list/index'));
 __export(require('./ng2-tab/index'));
 __export(require('./ng2-collapsable/index'));
 __export(require('./ng2-parallax-scroll/index'));
+__export(require('./ng2-popup/index'));
+__export(require('./ng2-sticky/index'));
+__export(require('./ng2-scrollable/index'));
 __export(require('./directives'));
 __export(require('./providers'));
 //# sourceMappingURL=index.js.map

@@ -1,12 +1,12 @@
 import { ElementRef, EventEmitter } from '@angular/core';
-import { scrollTo } from './util';
 export declare class Ng2ScrollableDirective {
-    scrolledToVisible: EventEmitter<{}>;
-    scrolledToHidden: EventEmitter<{}>;
+    horizontal: boolean;
+    elementVisible: EventEmitter<{}>;
     sections: Element[];
     el: HTMLElement;
-    static scrollTo: typeof scrollTo;
+    visible: any;
     constructor(el: ElementRef);
-    private ngAfterViewInit();
+    ngOnInit(): void;
     private listenScrollOn(el);
+    static scrollTo(selector: string, parentSelector?: string, horizontal?: boolean, distance?: number): void;
 }

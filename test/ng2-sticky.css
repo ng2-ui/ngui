@@ -1,0 +1,35 @@
+.ng2-sticky .container {
+  margin: 0 auto;
+  padding: 10px;
+  min-width: 640px;
+  max-width: 960px;
+  background-color: #eee;
+}
+.ng2-sticky .container > div {
+  margin: 20px;
+  border: 1px solid #333;
+  background-image: linear-gradient(rgba(255, 255, 255, 1) 50%, transparent 50%, transparent);
+  background-size: 50px 50px;
+  height: 1000px;
+}
+.ng2-sticky .float-left {
+  background-color: rgba(255,0,0, .2);
+}
+.ng2-sticky .float-right {
+  background-color: rgba(0,255,0, .2);
+}
+.ng2-sticky .div-middle {
+  background-color: rgba(0,0,255, .2);
+}
+.ng2-sticky div[ng2-sticky] {
+  margin: 30px 10px 10px 10px;
+  min-width: 400px;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px;
+}
+.ng2-sticky .div-middle div[ng2-sticky] {
+  margin: 0;
+}

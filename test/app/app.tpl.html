@@ -47,10 +47,6 @@ currentSection: {{id}}
 </div>
 
 
-<h3>ng2-popup</h3>
-<ng2-popup #popup></ng2-popup>
-<button (click)="openPopup('small', 'Hello Small Popup')">open small message popup</button>
-
 <h3>ng2-map</h3>
 <ng2-map center="Brampton, Canada" scrollwheel="false">
   <marker position="Brampton, Canada" draggable="true"></marker>
@@ -93,4 +89,42 @@ currentSection: {{id}}
   <div contents="css">Style Sheet</div>
 </div>
 
+<h3>ng2-popup</h3>
+<ng2-popup #popup></ng2-popup>
+<button (click)="openPopup('small', 'Hello Small Popup')">open small message popup</button>
 
+
+<h3>ng2-sticky</h3>
+<div class="ng2-sticky">
+  <div class="container">
+    <div class="float-right">
+      <div ng2-sticky style="float: right"> float: right </div>
+    </div>
+  </div>
+</div>
+
+
+<h3>ng2-scrollable</h3>
+<fieldset>
+  <legend>Scroll Within a Section Vertically</legend>
+  <ul>
+    <li *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]"
+        [class.current]="id == 's'+ num "
+        (click)="scrollTo('#s'+num, '#v-scrollable')">{{num}}
+  </ul>
+
+  scrolled to: {{id}}
+  <div id="v-scrollable" class="scrollable section"
+       ng2-scrollable (elementVisible)="id = $event.id">
+    <div id="s1">Section 1  (scroll to here)</div>
+    <div id="s2">Section 2  (scroll to here)</div>
+    <div id="s3">Section 3  (scroll to here)</div>
+    <div id="s4">Section 4  (scroll to here)</div>
+    <div id="s5">Section 5  (scroll to here)</div>
+    <div id="s6">Section 6  (scroll to here)</div>
+    <div id="s7">Section 7  (scroll to here)</div>
+    <div id="s8">Section 8  (scroll to here)</div>
+    <div id="s9">Section 9  (scroll to here)</div>
+    <div id="s10">Section 10  (scroll to here)</div>
+  </div>
+</fieldset>

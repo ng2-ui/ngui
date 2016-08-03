@@ -12,12 +12,14 @@ declare -a packages=(
     ng2-scrollable
     ng2-tooltip-overlay
     ng2-menu
-    ng2-popup
     ng2-utils
     ng2-infinite-list
     ng2-tab
     ng2-collapsable
     ng2-parallax-scroll
+    ng2-popup
+    ng2-sticky
+    ng2-scrollable
 )
 
 installPackage() {

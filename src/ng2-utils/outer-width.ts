@@ -1,8 +1,8 @@
-export function outerWidth(el) {
+export function outerWidth(el: any) {
     var style = getComputedStyle(el);
     
     return el.offsetWidth  +
-      parseInt(style.marginLeft) +
-      parseInt(style.marginRight);
-  }
+      parseInt(style.getPropertyValue('marginLeft')) +
+      parseInt(style.getPropertyValue('marginRight'));
+}
   
