@@ -1,28 +1,21 @@
 import { Component, enableProdMode, ViewChild } from '@angular/core';
-import {
-  NG2_DIRECTIVES,
-  Ng2MapComponent,
+//import { HTTP_PROVIDERS } from '@angular/http';
+import { Ng2MapComponent,
   OverlayManager,
+  Ng2ScrollableDirective,
   Ng2PopupComponent,
-  Ng2MessagePopupComponent,
-  Ng2ScrollableDirective
-} from "ng2-ui";
-import { HTTP_PROVIDERS } from '@angular/http';
-
-console.log('ng2_directives', NG2_DIRECTIVES);
-console.log('OverlayManager', OverlayManager);
+  Ng2MessagePopupComponent
+} from "../../src/index";
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app/app.tpl.html',
-  directives: [ NG2_DIRECTIVES ],
-  providers: [ HTTP_PROVIDERS, OverlayManager ]
+  templateUrl: './app/app.tpl.html'
 })
 export class AppComponent {
   id: string = 's1';
 
   constructor(public overlayManager: OverlayManager) {
-    Ng2MapComponent.apiUrl = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
+    Ng2MapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
   }
 
   scrollTo(selector, parentSelector, horizontal) {
@@ -49,3 +42,4 @@ export class AppComponent {
   }
   
 }
+
