@@ -1,11 +1,12 @@
 import { Component, enableProdMode, ViewChild } from '@angular/core';
-//import { HTTP_PROVIDERS } from '@angular/http';
-import { Ng2MapComponent,
+// import { HTTP_PROVIDERS } from '@angular/http';
+import {
+  Ng2MapComponent,
   OverlayManager,
   Ng2ScrollableDirective,
   Ng2PopupComponent,
   Ng2MessagePopupComponent
-} from "../../src/index";
+} from 'ng2-ui';
 
 @Component({
   selector: 'my-app',
@@ -15,11 +16,12 @@ export class AppComponent {
   id: string = 's1';
 
   constructor(public overlayManager: OverlayManager) {
+    console.log('overlayManager', overlayManager);
     Ng2MapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
   }
 
   scrollTo(selector, parentSelector, horizontal) {
-    console.log('selector', selector, parentSelector, horizontal)
+    console.log('selector', selector, parentSelector, horizontal);
     Ng2ScrollableDirective.scrollTo(
       selector,       // scroll to this
       parentSelector, // scroll within (null if window scrolling)

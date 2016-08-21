@@ -41,9 +41,9 @@ typings install
 
 echo "Replacing ng2-overlay and ng2-utils to local"
 # change all ng2-overlay npm module dependency to local dependency
-sed -i '' -e 's/ng2-overlay/..\/ng2-overlay\/index/g' src/*/*.ts
+sed -i '' -e "s/from 'ng2-overlay/..\/from 'ng2-overlay\/index/g" src/*/*.ts
 # change all ng2-utils npm module dependency to local dependency
-sed -i '' -e 's/ng2-utils/..\/ng2-utils/g' src/*/*.ts
+sed -i '' -e "s/from 'ng2-utils/..\/from 'ng2-utils/g" src/*/*.ts
 echo "Replacing Done"
 
 echo "Deleting dist directory"

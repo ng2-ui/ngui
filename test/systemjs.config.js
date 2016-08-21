@@ -3,8 +3,8 @@
     app: "app",
     '@angular': '../node_modules/@angular',
     'rxjs': '../node_modules/rxjs',
-    'ng2-ui': '../src'
-    // 'ng2-ui': '../dist'
+    // 'ng2-ui': '../src'
+    'ng2-ui': '../dist'
   };
   var packages = {
     app: { main: './main.ts', defaultExtension: 'ts' },
@@ -17,8 +17,8 @@
     '@angular/platform-browser': { main: 'bundles/platform-browser.umd.js', defaultExtension: 'js' },
     '@angular/platform-browser-dynamic': { main: 'bundles/platform-browser-dynamic.umd.js', defaultExtension: 'js' },
     rxjs: { defaultExtension: 'js' },
-    'ng2-ui': {main: 'index.ts', defaultExtension: 'ts'}
-    // 'ng2-ui': {main: 'index.js', defaultExtension: 'js'}
+    // 'ng2-ui': {main: 'index.ts', defaultExtension: 'ts'}
+    'ng2-ui': {main: 'index.js', defaultExtension: 'js'}
   };
 
   System.config({

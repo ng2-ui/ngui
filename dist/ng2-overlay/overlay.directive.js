@@ -22,8 +22,8 @@ var OverlayDirective = (function () {
         this.registerToOverlayManager();
     };
     OverlayDirective.prototype.wrapItWithOverlayTag = function () {
-        //console.log('wrapped overlay directive element with <../ng2-overlay/index>');
-        this.overlayEl = document.createElement('../ng2-overlay/index');
+        //console.log('wrapped overlay directive element with <ng2-overlay>');
+        this.overlayEl = document.createElement('ng2-overlay');
         this.overlayEl.style.display = 'none';
         this.el.parentElement.insertBefore(this.overlayEl, this.el.nextSibling);
         this.overlayEl.appendChild(this.el);
@@ -40,16 +40,16 @@ var OverlayDirective = (function () {
         this.overlayManager.register(overlay);
     };
     __decorate([
-        core_1.Input('../ng2-overlay/index-of'), 
+        core_1.Input('ng2-overlay-of'), 
         __metadata('design:type', String)
     ], OverlayDirective.prototype, "overlayOf", void 0);
     __decorate([
-        core_1.Input('../ng2-overlay/index-position'), 
+        core_1.Input('ng2-overlay-position'), 
         __metadata('design:type', String)
     ], OverlayDirective.prototype, "overlayPosition", void 0);
     OverlayDirective = __decorate([
         core_1.Directive({
-            selector: '[../ng2-overlay/index], [../ng2-overlay/index-of], [../ng2-overlay/index-position]',
+            selector: '[ng2-overlay], [ng2-overlay-of], [ng2-overlay-position]',
         }), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, overlay_manager_1.OverlayManager])
     ], OverlayDirective);

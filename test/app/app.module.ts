@@ -4,7 +4,7 @@ import { FormsModule }    from "@angular/forms";
 import { HTTP_PROVIDERS } from "@angular/http";
 
 import { AppComponent }   from './app.component';
-import { Ng2UIModule }    from "../../src/ng2-ui.module";
+import { Ng2UIModule }    from 'ng2-ui';
 
 @NgModule({
   imports: [BrowserModule, Ng2UIModule, FormsModule],
