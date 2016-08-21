@@ -16,8 +16,9 @@ import {Ng2StickyDirective}                                         from './ng2-
 import {Ng2TabComponent}                                            from './ng2-tab/index';
 import {Ng2TooltipDirective}                                        from './ng2-tooltip-overlay/index';
 
+import {Ng2AutoCompleteModule} from "./ng2-auto-complete/index";
+
 var directives = [
-  AutoCompleteComponent, AutoCompleteDirective,
   Ng2CollapsableComponent,
   DateTimePickerDirective, DateTimePickerComponent,
   Ng2InfiniteListDirective,
@@ -33,8 +34,8 @@ var directives = [
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
   declarations: [directives],
-  exports: [directives],
+  exports: [directives, Ng2AutoCompleteModule ],
   providers: [ OverlayManager ]
 })
-export class Ng2UIModule { }
+export class Ng2UIModule {}
 

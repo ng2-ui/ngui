@@ -21,6 +21,9 @@ declare -a packages=(
     ng2-sticky
     ng2-scrollable
 )
+if [ -z ${var+x} ]; then
+    packages=($1)
+fi
 
 installPackage() {
   rm -rf src/$1

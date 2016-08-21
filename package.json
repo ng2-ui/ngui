@@ -31,7 +31,7 @@
     "overlay",
     "scrollable"
   ],
- "dependencies": {
+  "dependencies": {
     "@angular/common": "2.0.0-rc.5",
     "@angular/compiler": "2.0.0-rc.5",
     "@angular/core": "2.0.0-rc.5",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "http-server": "^0.9.0",
-    "ng2-auto-complete": "^0.4.2",
+    "ng2-auto-complete": "^0.5.2",
     "ng2-collapsable": "^0.1.1",
     "ng2-datetime-picker": "^0.5.4",
     "ng2-infinite-list": "^0.2.2",

@@ -25,7 +25,6 @@ var index_11 = require('./ng2-sticky/index');
 var index_12 = require('./ng2-tab/index');
 var index_13 = require('./ng2-tooltip-overlay/index');
 var directives = [
-    index_1.AutoCompleteComponent, index_1.AutoCompleteDirective,
     index_2.Ng2CollapsableComponent,
     index_3.DateTimePickerDirective, index_3.DateTimePickerComponent,
     index_4.Ng2InfiniteListDirective,
@@ -43,7 +42,11 @@ var Ng2UIModule = (function () {
     }
     Ng2UIModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
+            imports: [
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                index_1.Ng2AutoCompleteModule
+            ],
             declarations: [directives],
             exports: [directives],
             providers: [index_7.OverlayManager]
