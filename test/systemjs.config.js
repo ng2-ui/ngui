@@ -8,7 +8,6 @@
   };
   var packages = {
     app: { main: './main.ts', defaultExtension: 'ts' },
-    '@angular': 'https://npmcdn.com/@angular',
     '@angular/common': { main: 'bundles/common.umd.js', defaultExtension: 'js' },
     '@angular/compiler': { main: 'bundles/compiler.umd.js', defaultExtension: 'js' },
     '@angular/core': { main: 'bundles/core.umd.js', defaultExtension: 'js' },

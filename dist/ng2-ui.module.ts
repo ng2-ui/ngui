@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { BrowserModule  } from '@angular/platform-browser';
 
-import {Ng2AutoCompleteModule} from './ng2-auto-complete/index';
+import {AutoCompleteComponent, AutoCompleteDirective, AutoComplete} from './ng2-auto-complete/index';
 import {Ng2CollapsableComponent}                                    from './ng2-collapsable/index';
 import {DateTime, DateTimePickerComponent, DateTimePickerDirective} from './ng2-datetime-picker/index';
 import {Ng2InfiniteListDirective}                                   from './ng2-infinite-list/index';
@@ -15,6 +15,8 @@ import {Ng2ScrollableDirective}                                     from './ng2-
 import {Ng2StickyDirective}                                         from './ng2-sticky/index';
 import {Ng2TabComponent}                                            from './ng2-tab/index';
 import {Ng2TooltipDirective}                                        from './ng2-tooltip-overlay/index';
+
+import {Ng2AutoCompleteModule} from "./ng2-auto-complete/index";
 
 var directives = [
   Ng2CollapsableComponent,
@@ -30,14 +32,10 @@ var directives = [
   Ng2TabComponent,
   Ng2TooltipDirective];
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    Ng2AutoCompleteModule
-  ],
+  imports: [ BrowserModule, FormsModule ],
   declarations: [directives],
-  exports: [directives],
+  exports: [directives, Ng2AutoCompleteModule ],
   providers: [ OverlayManager ]
 })
-export class Ng2UIModule { }
+export class Ng2UIModule {}
 

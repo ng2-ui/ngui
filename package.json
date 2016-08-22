@@ -54,7 +54,7 @@
     "http-server": "^0.9.0",
     "ng2-auto-complete": "^0.5.2",
     "ng2-collapsable": "^0.1.1",
-    "ng2-datetime-picker": "^0.5.4",
+    "ng2-datetime-picker": "^0.5.5",
     "ng2-infinite-list": "^0.2.2",
     "ng2-map": "^0.3.3",
     "ng2-menu": "^0.2.0",

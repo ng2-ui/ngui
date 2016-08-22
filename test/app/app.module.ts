@@ -7,7 +7,7 @@ import { AppComponent }   from './app.component';
 import { Ng2UIModule }    from 'ng2-ui';
 
 @NgModule({
-  imports: [BrowserModule, Ng2UIModule, FormsModule],
+  imports: [BrowserModule, FormsModule, Ng2UIModule],
   declarations: [AppComponent],
   providers: [HTTP_PROVIDERS],
   bootstrap: [ AppComponent ]
