@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "http-server": "^0.9.0",
-    "ng2-auto-complete": "^0.5.3",
+    "ng2-auto-complete": "^0.5.4",
     "ng2-collapsable": "^0.2.0",
     "ng2-datetime-picker": "^0.5.8",
     "ng2-infinite-list": "^0.3.0",
