@@ -1,6 +1,6 @@
 {
   "name": "ng2-ui",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Collection of Quality Angular2 User Interfaces",
   "license": "MIT",
   "main": "dist/index.js",
