@@ -12,5 +12,6 @@ export {Ng2StickyDirective}                                         from './ng2-
 export {Ng2TabComponent}                                            from './ng2-tab/index';
 export {Ng2TooltipDirective}                                        from './ng2-tooltip-overlay/index';
 export {computedStyle, elementVisible, scrollTo, outerHeight, outerWidth} from './ng2-utils/index';
+export {Ng2SortableDirective}                                       from './ng2-ui-sortable/index';
 
 export {Ng2UIModule} from './ng2-ui.module';

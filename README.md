@@ -126,15 +126,6 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
         export * from './directives';
         export * from './providers';
 
-  **src/ng2-directives.ts**
-
-        import { NG2_MAP_DIRECTIVES } from './ng2-map';   // <--- this
-
-        export const NG2_DIRECTIVES: any[] = [
-          ..
-          NG2_MAP_DIRECTIVES                             // <--- this
-        ];
-
 3. Build again
         
         $ npm run build

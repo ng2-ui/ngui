@@ -18,8 +18,8 @@
 
   map['ng2-ui'] = '../dist';
   packages['ng2-ui'] = {main: 'index.js', defaultExtension: 'js'};
-  // map['ng2-ui'] = '../src';
-  // packages['ng2-ui'] = {main: 'index.ts', defaultExtension: 'ts'};
+  map['ng2-ui'] = '../src';
+  packages['ng2-ui'] = {main: 'index.ts', defaultExtension: 'ts'};
 
   System.config({
     transpiler: 'typescript', //use typescript for compilation

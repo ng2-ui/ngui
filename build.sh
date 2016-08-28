@@ -20,6 +20,7 @@ declare -a packages=(
     ng2-popup
     ng2-sticky
     ng2-scrollable
+    ng2-ui-sortable
 )
 if [ -z ${1+x} ]; then
   echo "no package given, skipping package rebuilding";

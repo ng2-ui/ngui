@@ -25,6 +25,7 @@ var index_11 = require("./ng2-tab/index");
 var index_12 = require("./ng2-tooltip-overlay/index");
 var index_13 = require("./ng2-overlay/index");
 var index_14 = require("./ng2-scrollable/index");
+var index_15 = require("./ng2-ui-sortable/index");
 var Ng2UIModule = (function () {
     function Ng2UIModule() {
     }
@@ -44,7 +45,8 @@ var Ng2UIModule = (function () {
                 index_11.Ng2TabModule,
                 index_14.Ng2ScrollableModule,
                 index_12.Ng2TooltipOverlayModule,
-                index_13.Ng2OverlayModule
+                index_13.Ng2OverlayModule,
+                index_15.Ng2SortableModule
             ],
             providers: [index_1.OverlayManager]
         }), 

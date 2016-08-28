@@ -67,6 +67,7 @@
     "ng2-sticky": "^0.2.1",
     "ng2-tab": "^0.2.0",
     "ng2-tooltip-overlay": "^0.2.1",
+    "ng2-ui-sortable": "^0.1.0",
     "ng2-utils": "^0.2.0",
     "plugin-typescript": "^4.0.10",
     "typescript": "^1.8.10"
