@@ -1,5 +1,5 @@
 import { Type, ComponentResolver } from '@angular/core';
-import { OverlayManager } from '../ng2-overlay/index';
+import { OverlayManager } from 'ng2-overlay/index';
 export declare class Ng2PopupComponent {
     componentResolver: ComponentResolver;
     overlayManager: OverlayManager;

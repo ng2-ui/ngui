@@ -9,11 +9,13 @@ export class Overlay {
   element: HTMLElement;
   windowOverlay: boolean;
   opened: boolean;
+  type: string;  //tooltip, menu, popup
   position: any; //vertical, horizontal, inside
 
   constructor(el, options?: any) {
     options = options || {};
     this.id = options.id;
+    this.type = options.type;
     if (!this.id) { throw "Invalid overlay id"}
     this.element = el;  // overlay wrapper element with table dsplay
     this.windowOverlay = options.windowOverlay;

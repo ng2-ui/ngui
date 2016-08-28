@@ -1,6 +1,6 @@
 import { Directive, ViewContainerRef, Input } from '@angular/core';
 
-import {OverlayManager, Overlay} from '../ng2-overlay/index';
+import {OverlayManager, Overlay} from 'ng2-overlay/index';
 
 @Directive({
   selector: '[ng2-tooltip]',
@@ -14,7 +14,7 @@ export class Ng2TooltipDirective {
   @Input('ng2-tooltip') tooltip: string;
 
   el: HTMLElement;
-  overlay: Overlay;    
+  overlay: Overlay;
 
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -26,17 +26,17 @@ export class Ng2TooltipDirective {
   ngAfterViewInit(): void {
     this.overlay = this.getTooltipOverlay(this.el, this.tooltip);
   }
-  
+
   showTooltip($event) {
     this.overlayManager.open(this.overlay, $event);
     $event.stopPropagation();
   }
-  
+
   hideTooltip($event) {
     this.overlayManager.close(this.overlay);
     $event.stopPropagation();
   }
-  
+
   getTooltipOverlay(el, tooltip) {
     let tooltipEl = document.createElement('ng2-tooltip');
     tooltipEl.style.display = 'none';

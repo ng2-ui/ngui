@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var index_1 = require('../ng2-overlay/index');
+var index_1 = require('ng2-overlay/index');
 var Ng2TooltipDirective = (function () {
     function Ng2TooltipDirective(viewContainerRef, overlayManager) {
         this.viewContainerRef = viewContainerRef;
@@ -59,4 +59,4 @@ var Ng2TooltipDirective = (function () {
     return Ng2TooltipDirective;
 }());
 exports.Ng2TooltipDirective = Ng2TooltipDirective;
-//# sourceMappingURL=tooltip-directive.js.map
+//# sourceMappingURL=ng2-tooltip-directive.js.map

@@ -1,6 +1,6 @@
 import { Overlay } from "./overlay";
 export declare class OverlayManager {
-    overlays: {
+    static overlays: {
         [id: string]: Overlay;
     };
     register(overlay: Overlay): void;

@@ -11,24 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var OverlayManager = (function () {
     function OverlayManager() {
-        //list of overlay objects
-        this.overlays = {};
     }
     OverlayManager.prototype.register = function (overlay) {
-        this.overlays[overlay.id] = overlay;
+        OverlayManager.overlays[overlay.id] = overlay;
+        // console.log('overlay.register, OverlayManager.overlays', OverlayManager.overlays);
     };
     OverlayManager.prototype.open = function (arg, event) {
-        var overlay = typeof arg === 'string' ? this.overlays[arg] : arg;
+        var overlay = typeof arg === 'string' ? OverlayManager.overlays[arg] : arg;
         if (!overlay.opened) {
             overlay.positionIt(event);
             overlay.opened = true;
         }
     };
     OverlayManager.prototype.close = function (arg) {
-        var overlay = typeof arg === 'string' ? this.overlays[arg] : arg;
+        var overlay = typeof arg === 'string' ? OverlayManager.overlays[arg] : arg;
         overlay.element.style.display = 'none';
         overlay.opened = false;
     };
+    //list of overlay objects
+    OverlayManager.overlays = {};
     OverlayManager = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

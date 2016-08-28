@@ -16,18 +16,21 @@ export class Ng2ParallaxScrollDirective {
   
   ngAfterViewInit() {
     this.img = <HTMLImageElement>this.el.querySelector("img");
-    this.imgOrgWidth = this.imgOrgWidth || this.img.offsetWidth;
-    this.imgOrgHeight = this.imgOrgHeight || this.img.offsetHeight;
-    
-    this.setParallaxImage();
-    this.updateParallaxImage();
-    window.addEventListener('scroll', () => {
-      this.updateParallaxImage();
-    });
-    window.addEventListener('resize', () => {
+    this.img.onload = () => {
+      this.imgOrgWidth = this.imgOrgWidth || this.img.offsetWidth;
+      this.imgOrgHeight = this.imgOrgHeight || this.img.offsetHeight;
+      console.log(this.img.offsetWidth, this.img.offsetHeight, this.img.width, this.img.height);
+
       this.setParallaxImage();
       this.updateParallaxImage();
-    })
+      window.addEventListener('scroll', () => {
+        this.updateParallaxImage();
+      });
+      window.addEventListener('resize', () => {
+        this.setParallaxImage();
+        this.updateParallaxImage();
+      })
+    }
   }
   
   private setParallaxImage() {

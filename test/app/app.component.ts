@@ -1,11 +1,11 @@
 import { Component, enableProdMode, ViewChild } from '@angular/core';
 // import { HTTP_PROVIDERS } from '@angular/http';
 import {
-  Ng2MapComponent,
   OverlayManager,
-  Ng2ScrollableDirective,
   Ng2PopupComponent,
-  Ng2MessagePopupComponent
+  Ng2MessagePopupComponent,
+  Ng2MapComponent,
+  Ng2ScrollableDirective
 } from 'ng2-ui';
 
 @Component({

@@ -17,17 +17,20 @@ var Ng2ParallaxScrollDirective = (function () {
     Ng2ParallaxScrollDirective.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.img = this.el.querySelector("img");
-        this.imgOrgWidth = this.imgOrgWidth || this.img.offsetWidth;
-        this.imgOrgHeight = this.imgOrgHeight || this.img.offsetHeight;
-        this.setParallaxImage();
-        this.updateParallaxImage();
-        window.addEventListener('scroll', function () {
-            _this.updateParallaxImage();
-        });
-        window.addEventListener('resize', function () {
+        this.img.onload = function () {
+            _this.imgOrgWidth = _this.imgOrgWidth || _this.img.offsetWidth;
+            _this.imgOrgHeight = _this.imgOrgHeight || _this.img.offsetHeight;
+            console.log(_this.img.offsetWidth, _this.img.offsetHeight, _this.img.width, _this.img.height);
             _this.setParallaxImage();
             _this.updateParallaxImage();
-        });
+            window.addEventListener('scroll', function () {
+                _this.updateParallaxImage();
+            });
+            window.addEventListener('resize', function () {
+                _this.setParallaxImage();
+                _this.updateParallaxImage();
+            });
+        };
     };
     Ng2ParallaxScrollDirective.prototype.setParallaxImage = function () {
         //set img style

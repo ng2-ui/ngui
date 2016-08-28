@@ -4,6 +4,7 @@ var Overlay = (function () {
     function Overlay(el, options) {
         options = options || {};
         this.id = options.id;
+        this.type = options.type;
         if (!this.id) {
             throw "Invalid overlay id";
         }

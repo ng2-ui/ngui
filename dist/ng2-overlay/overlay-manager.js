@@ -14,7 +14,7 @@ var OverlayManager = (function () {
     }
     OverlayManager.prototype.register = function (overlay) {
         OverlayManager.overlays[overlay.id] = overlay;
-        console.log('overlay.register, OverlayManager.overlays', OverlayManager.overlays);
+        // console.log('overlay.register, OverlayManager.overlays', OverlayManager.overlays);
     };
     OverlayManager.prototype.open = function (arg, event) {
         var overlay = typeof arg === 'string' ? OverlayManager.overlays[arg] : arg;

@@ -1,5 +1,5 @@
 import { ViewContainerRef } from '@angular/core';
-import { OverlayManager, Overlay } from '../ng2-overlay/index';
+import { OverlayManager, Overlay } from 'ng2-overlay/index';
 export declare class Ng2TooltipDirective {
     viewContainerRef: ViewContainerRef;
     overlayManager: OverlayManager;

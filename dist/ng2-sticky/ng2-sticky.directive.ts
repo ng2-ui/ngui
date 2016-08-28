@@ -1,7 +1,7 @@
 'use strict';
 
 import { Directive, ElementRef, Input } from '@angular/core';
-import { computedStyle } from '../ng2-utils/index';
+import { computedStyle } from 'ng2-utils/index';
 
 @Directive({
   selector: '[ng2-sticky]'

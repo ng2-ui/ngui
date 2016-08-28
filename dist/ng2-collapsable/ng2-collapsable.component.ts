@@ -32,15 +32,17 @@ import {
       border-top: 0;
       background: #ffffff;
       color: #333333;
+      padding: 0px;
       border-radius: 0 0 2px 2px;
-      transition: height 0.3s ease-in;
       height: 0;
       border: 0;
       font-size: 0;
     }
     [ng2-collapsable] [contents].selected {
       height: 50px;
+      padding: 10px;
       border: 1px solid #dddddd;
+      transition: font-size 0.3s ease-in, height 0.3s ease-in;
       font-size: inherit;
     }
   `],

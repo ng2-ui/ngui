@@ -9,7 +9,7 @@ export class OverlayManager {
 
   register(overlay: Overlay): void {
     OverlayManager.overlays[overlay.id] = overlay;
-    console.log('overlay.register, OverlayManager.overlays', OverlayManager.overlays);
+    // console.log('overlay.register, OverlayManager.overlays', OverlayManager.overlays);
   }
 
   open(arg: string | Overlay, event: Event): void {
@@ -26,3 +26,4 @@ export class OverlayManager {
     overlay.opened = false;
   }
 }
+
