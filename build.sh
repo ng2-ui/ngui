@@ -22,9 +22,12 @@ declare -a packages=(
     ng2-scrollable
 )
 if [ -z ${1+x} ]; then
-  echo "no package given, processing all packages";
+  echo "no package given, skipping package rebuilding";
+  packages=()
+elif [ '$1' == 'all' ]; then
+  echo "rebuilding all packages";
 else
-  echo "processing package '$1'";
+  echo "reguilding package '$1'";
   packages=($1)
 fi
 echo $packages
@@ -62,5 +65,3 @@ cp -R src dist
 
 echo "Compiling dist directory"
 tsc --rootDir dist
-
-

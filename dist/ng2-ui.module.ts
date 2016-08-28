@@ -16,6 +16,7 @@ import {Ng2StickyModule}         from "./ng2-sticky/index";
 import {Ng2TabModule}            from "./ng2-tab/index";
 import {Ng2TooltipOverlayModule} from "./ng2-tooltip-overlay/index";
 import {Ng2OverlayModule}        from "./ng2-overlay/index";
+import {Ng2ScrollableModule}     from "./ng2-scrollable/index";
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
@@ -30,6 +31,7 @@ import {Ng2OverlayModule}        from "./ng2-overlay/index";
     Ng2PopupModule,
     Ng2StickyModule,
     Ng2TabModule,
+    Ng2ScrollableModule,
     Ng2TooltipOverlayModule,
     Ng2OverlayModule
   ],

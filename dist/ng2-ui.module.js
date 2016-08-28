@@ -24,6 +24,7 @@ var index_10 = require("./ng2-sticky/index");
 var index_11 = require("./ng2-tab/index");
 var index_12 = require("./ng2-tooltip-overlay/index");
 var index_13 = require("./ng2-overlay/index");
+var index_14 = require("./ng2-scrollable/index");
 var Ng2UIModule = (function () {
     function Ng2UIModule() {
     }
@@ -41,6 +42,7 @@ var Ng2UIModule = (function () {
                 index_9.Ng2PopupModule,
                 index_10.Ng2StickyModule,
                 index_11.Ng2TabModule,
+                index_14.Ng2ScrollableModule,
                 index_12.Ng2TooltipOverlayModule,
                 index_13.Ng2OverlayModule
             ],
