@@ -21,9 +21,13 @@ declare -a packages=(
     ng2-sticky
     ng2-scrollable
 )
-if [ -z ${var+x} ]; then
-    packages=($1)
+if [ -z ${1+x} ]; then
+  echo "no package given, processing all packages";
+else
+  echo "processing package '$1'";
+  packages=($1)
 fi
+echo $packages
 
 installPackage() {
   rm -rf src/$1
@@ -42,12 +46,13 @@ done
 typings install
 
 
-#echo "Replacing ng2-overlay and ng2-utils to local"
-## change all ng2-overlay npm module dependency to local dependency
-#sed -i '' -e "s/from 'ng2-overlay/..\/from 'ng2-overlay\/index/g" src/*/*.ts
-## change all ng2-utils npm module dependency to local dependency
-#sed -i '' -e "s/from 'ng2-utils/..\/from 'ng2-utils/g" src/*/*.ts
-#echo "Replacing Done"
+echo "Replacing ng2-overlay and ng2-utils to local"
+# change all ng2-overlay npm module dependency to local dependency
+sed -i '' -e "s/from ['\"]ng2-overlay\/index['\"]/from '..\/ng2-overlay\/index'/g" src/*/*.ts
+sed -i '' -e "s/from ['\"]ng2-overlay['\"]/from '..\/ng2-overlay\/index'/g" src/*/*.ts
+# change all ng2-utils npm module dependency to local dependency
+sed -i '' -e "s/from ['\"]ng2-utils\/index['\"]/from '..\/ng2-utils\/index'/g" src/*/*.ts
+echo "Replacing Done"
 
 echo "Deleting dist directory"
 rm -rf dist

@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var forms_1 = require("@angular/forms");
 var platform_browser_1 = require('@angular/platform-browser');
+var index_1 = require('../ng2-overlay/index');
 var ng2_popup_component_1 = require("./ng2-popup.component");
 var ng2_message_popup_component_1 = require("./ng2-message-popup.component");
-var index_1 = require('ng2-overlay/index');
 var Ng2PopupModule = (function () {
     function Ng2PopupModule() {
     }

@@ -7,7 +7,7 @@ import {
   ComponentResolver, 
   ViewEncapsulation
 } from '@angular/core';
-import { OverlayManager, Overlay, OverlayDirective } from 'ng2-overlay/index';
+import { OverlayManager, Overlay, OverlayDirective } from '../ng2-overlay/index';
 
 @Component({
   selector: 'ng2-popup',

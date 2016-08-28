@@ -3,7 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule  } from '@angular/platform-browser';
 
 import {Ng2TooltipDirective} from "./ng2-tooltip-directive";
-import {Ng2OverlayModule} from 'ng2-overlay/index';
+import {Ng2OverlayModule} from '../ng2-overlay/index';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule, Ng2OverlayModule ],

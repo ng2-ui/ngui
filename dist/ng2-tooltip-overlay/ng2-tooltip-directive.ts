@@ -1,6 +1,6 @@
 import { Directive, ViewContainerRef, Input } from '@angular/core';
 
-import {OverlayManager, Overlay} from 'ng2-overlay/index';
+import {OverlayManager, Overlay} from '../ng2-overlay/index';
 
 @Directive({
   selector: '[ng2-tooltip]',

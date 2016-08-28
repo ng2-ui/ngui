@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var forms_1 = require("@angular/forms");
 var platform_browser_1 = require('@angular/platform-browser');
 var ng2_tooltip_directive_1 = require("./ng2-tooltip-directive");
-var index_1 = require('ng2-overlay/index');
+var index_1 = require('../ng2-overlay/index');
 var Ng2TooltipOverlayModule = (function () {
     function Ng2TooltipOverlayModule() {
     }
