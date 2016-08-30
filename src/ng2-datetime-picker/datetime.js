@@ -73,15 +73,19 @@ var DateTime = (function () {
         return monthData;
     };
     ;
-    //return date as given from given string
-    // without considering timezone and day light saving time considered
-    DateTime.prototype.fromString = function (dateStr) {
-        dateStr = this.removeTimezone(dateStr);
-        dateStr = dateStr + this.addDSTOffset(dateStr);
-        var tmp = dateStr.split(/[\+\-:\ T]/); // split by dash, colon or space
-        return this.getDate(dateStr);
+    DateTime.momentFormatDate = function (d, dateFormat) {
+        if (!moment) {
+            console.error("momentjs is required with dateFormat.\n        please add <script src=\"moment.min.js\"></script>\"> in your html.");
+        }
+        return moment(d).format(dateFormat);
     };
-    DateTime.prototype.formatDate = function (d, dateOnly) {
+    DateTime.momentParse = function (dateStr) {
+        if (!moment) {
+            console.error("momentjs is required with dateFormat.\n        please add <script src=\"moment.min.js\"></script>\"> in your html.");
+        }
+        return moment(dateStr).toDate();
+    };
+    DateTime.formatDate = function (d, dateOnly) {
         // return d.toLocaleString('en-us', hash); // IE11 does not understand this
         var pad0 = function (number) {
             return ("0" + number).slice(-2);
@@ -92,8 +96,15 @@ var DateTime = (function () {
         }
         return ret;
     };
+    //return date as given from given string
+    // without considering timezone and day light saving time considered
+    DateTime.parse = function (dateStr) {
+        dateStr = DateTime.removeTimezone(dateStr);
+        dateStr = dateStr + DateTime.addDSTOffset(dateStr);
+        return DateTime.getDateFromString(dateStr);
+    };
     //remove timezone
-    DateTime.prototype.removeTimezone = function (dateStr) {
+    DateTime.removeTimezone = function (dateStr) {
         // if no time is given, add 00:00:00 at the end
         var matches = dateStr.match(/[0-9]{2}:/);
         dateStr += matches ? '' : ' 00:00:00';
@@ -104,8 +115,8 @@ var DateTime = (function () {
             .replace(/[\-\+][0-9]{2}:?[0-9]{2}$/, '') //remove timezone
             .replace(/000Z$/, '00'); //remove timezone
     };
-    DateTime.prototype.addDSTOffset = function (dateStr) {
-        var date = this.getDate(dateStr);
+    DateTime.addDSTOffset = function (dateStr) {
+        var date = DateTime.getDateFromString(dateStr);
         var jan = new Date(date.getFullYear(), 0, 1);
         var jul = new Date(date.getFullYear(), 6, 1);
         var stdTimezoneOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
@@ -118,7 +129,7 @@ var DateTime = (function () {
             ('0' + (offset % 60)).slice(-2);
     };
     ;
-    DateTime.prototype.getDate = function (dateStr) {
+    DateTime.getDateFromString = function (dateStr) {
         var tmp = dateStr.split(/[\+\-:\ T]/); // split by dash, colon or space
         return new Date(parseInt(tmp[0], 10), parseInt(tmp[1], 10) - 1, parseInt(tmp[2], 10), parseInt(tmp[3] || '0', 10), parseInt(tmp[4] || '0', 10), parseInt(tmp[5] || '0', 10));
     };
