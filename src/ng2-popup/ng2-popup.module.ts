@@ -9,6 +9,7 @@ import {Ng2MessagePopupComponent} from "./ng2-message-popup.component";
 @NgModule({
   imports: [ BrowserModule, FormsModule, Ng2OverlayModule ],
   declarations: [Ng2MessagePopupComponent, Ng2PopupComponent],
-  exports: [ Ng2MessagePopupComponent, Ng2PopupComponent ]
+  exports: [ Ng2MessagePopupComponent, Ng2PopupComponent ],
+  entryComponents: [Ng2MessagePopupComponent]
 })
 export class Ng2PopupModule {}

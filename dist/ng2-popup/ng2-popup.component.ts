@@ -1,11 +1,11 @@
 import {
-  Component, 
-  Type, 
-  ViewChild, 
+  Component,
+  Type,
+  ViewChild,
   Input,
-  ViewContainerRef, 
-  ComponentResolver, 
-  ViewEncapsulation
+  ViewContainerRef,
+  ViewEncapsulation,
+  ComponentFactoryResolver
 } from '@angular/core';
 import { OverlayManager, Overlay, OverlayDirective } from '../ng2-overlay/index';
 
@@ -56,9 +56,10 @@ export class Ng2PopupComponent {
   opened: boolean;
   closeButton: boolean;
   classNames: string;
-  
+
+
   constructor(
-    public componentResolver: ComponentResolver,
+    private componentResolver: ComponentFactoryResolver,
     public overlayManager: OverlayManager
   ) {}
   
@@ -73,17 +74,17 @@ export class Ng2PopupComponent {
     this.overlayManager.register(overlay);
   }
 
-  open(component: Type, options: any) {
+  open(component: any, options: any) {
     this.close();
     this.opened = true;
     this.classNames = options.classNames;
     this.closeButton = options.closeButton;
-    this.componentResolver.resolveComponent(component).then(factory => {
-      let componentRef = this.marker.createComponent(factory);
-      componentRef.instance.popupOptions = options;
-      componentRef.instance.popup = this;
-      this.overlayManager.open('ng2-popup-overlay', null); //(id, event)
-    });
+
+    let factory = this.componentResolver.resolveComponentFactory(component);
+    let componentRef = this.marker.createComponent(factory);
+    componentRef.instance.popupOptions = options;
+    componentRef.instance.popup = this;
+    this.overlayManager.open('ng2-popup-overlay', null); //(id, event)
   }
 
   close() {

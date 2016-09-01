@@ -1,14 +1,14 @@
-import { Type, ComponentResolver } from '@angular/core';
+import { ComponentFactoryResolver } from '@angular/core';
 import { OverlayManager } from '../ng2-overlay/index';
 export declare class Ng2PopupComponent {
-    componentResolver: ComponentResolver;
+    private componentResolver;
     overlayManager: OverlayManager;
     marker: any;
     opened: boolean;
     closeButton: boolean;
     classNames: string;
-    constructor(componentResolver: ComponentResolver, overlayManager: OverlayManager);
+    constructor(componentResolver: ComponentFactoryResolver, overlayManager: OverlayManager);
     ngAfterViewInit(): void;
-    open(component: Type, options: any): void;
+    open(component: any, options: any): void;
     close(): void;
 }

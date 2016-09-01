@@ -66,3 +66,4 @@ cp -R src dist
 
 echo "Compiling dist directory"
 tsc --rootDir dist
+

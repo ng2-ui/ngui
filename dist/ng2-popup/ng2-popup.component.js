@@ -25,17 +25,15 @@ var Ng2PopupComponent = (function () {
         this.overlayManager.register(overlay);
     };
     Ng2PopupComponent.prototype.open = function (component, options) {
-        var _this = this;
         this.close();
         this.opened = true;
         this.classNames = options.classNames;
         this.closeButton = options.closeButton;
-        this.componentResolver.resolveComponent(component).then(function (factory) {
-            var componentRef = _this.marker.createComponent(factory);
-            componentRef.instance.popupOptions = options;
-            componentRef.instance.popup = _this;
-            _this.overlayManager.open('ng2-popup-overlay', null); //(id, event)
-        });
+        var factory = this.componentResolver.resolveComponentFactory(component);
+        var componentRef = this.marker.createComponent(factory);
+        componentRef.instance.popupOptions = options;
+        componentRef.instance.popup = this;
+        this.overlayManager.open('ng2-popup-overlay', null); //(id, event)
     };
     Ng2PopupComponent.prototype.close = function () {
         this.opened = false;
@@ -58,7 +56,7 @@ var Ng2PopupComponent = (function () {
             styles: ["\n    .popup-container { \n      background: #fff;\n      border: 1px solid #ccc;\n      box-shadow: 0 5px 15px rgba(0,0,0,.5);\n      border-radius: 5px;\n      width: 600px;\n      display: none;\n    }\n    .popup-container.opened { \n      display: block;\n    }\n    .close-popup {\n      font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n      float: right; \n      cursor: pointer; \n      font-size: 21px;\n      line-height: 1;\n      text-shadow: 0 1px 0 #fff;\n      opacity: 0.2;\n      padding: 10px;\n    }\n    /*.marker ~ * { display:block; background: #fff}*/\n    .popup-container.small { width: 300px}\n    .popup-container.large { width: 900px}\n  "],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [core_1.ComponentResolver, index_1.OverlayManager])
+        __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, index_1.OverlayManager])
     ], Ng2PopupComponent);
     return Ng2PopupComponent;
 }());

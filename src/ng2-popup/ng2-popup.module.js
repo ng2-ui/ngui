@@ -21,7 +21,8 @@ var Ng2PopupModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, index_1.Ng2OverlayModule],
             declarations: [ng2_message_popup_component_1.Ng2MessagePopupComponent, ng2_popup_component_1.Ng2PopupComponent],
-            exports: [ng2_message_popup_component_1.Ng2MessagePopupComponent, ng2_popup_component_1.Ng2PopupComponent]
+            exports: [ng2_message_popup_component_1.Ng2MessagePopupComponent, ng2_popup_component_1.Ng2PopupComponent],
+            entryComponents: [ng2_message_popup_component_1.Ng2MessagePopupComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], Ng2PopupModule);
