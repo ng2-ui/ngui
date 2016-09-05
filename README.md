@@ -30,8 +30,8 @@ Collection of Quality Angular 2 UIs
          //map tells the System loader where to look for things
          map: {
            app: "./src",
-           '@angular': 'https://npmcdn.com/@angular',
-           'ng2-ui': 'https://npmcdn.com/ng2-ui/dist'             // <----- this
+           '@angular': 'node_modules/@angular',
+           'ng2-ui': 'node_modules/ng2-ui/dist'             // <----- this
          },
     
          packages: {
