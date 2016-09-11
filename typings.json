@@ -1,9 +1,0 @@
-{
-  "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
-    "google.maps": "registry:dt/google.maps#3.20.0+20160626235650",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "hammerjs": "github:DefinitelyTyped/DefinitelyTyped/hammerjs/hammerjs.d.ts#de8e80dfe5360fef44d00c41257d5ef37add000a",
-    "node": "registry:dt/node#4.0.0+20160423143914"
-  }
-}

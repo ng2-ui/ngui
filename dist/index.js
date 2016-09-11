@@ -1,47 +1,63 @@
 "use strict";
-var index_1 = require('./ng2-auto-complete/index');
-exports.AutoCompleteComponent = index_1.AutoCompleteComponent;
-exports.AutoCompleteDirective = index_1.AutoCompleteDirective;
-exports.AutoComplete = index_1.AutoComplete;
-var index_2 = require('./ng2-collapsable/index');
-exports.Ng2CollapsableComponent = index_2.Ng2CollapsableComponent;
-var index_3 = require('./ng2-datetime-picker/index');
-exports.DateTime = index_3.DateTime;
-exports.DateTimePickerComponent = index_3.DateTimePickerComponent;
-exports.DateTimePickerDirective = index_3.DateTimePickerDirective;
-var index_4 = require('./ng2-infinite-list/index');
-exports.Ng2InfiniteListDirective = index_4.Ng2InfiniteListDirective;
-var index_5 = require('./ng2-map/index');
-exports.InfoWindow = index_5.InfoWindow;
-exports.Ng2MapComponent = index_5.Ng2MapComponent;
-exports.Marker = index_5.Marker;
-var index_6 = require('./ng2-menu/index');
-exports.Ng2MenuDirective = index_6.Ng2MenuDirective;
-var index_7 = require('./ng2-overlay/index');
-exports.OverlayDirective = index_7.OverlayDirective;
-exports.OverlayManager = index_7.OverlayManager;
-exports.Overlay = index_7.Overlay;
-var index_8 = require('./ng2-parallax-scroll/index');
-exports.Ng2ParallaxScrollDirective = index_8.Ng2ParallaxScrollDirective;
-var index_9 = require('./ng2-popup/index');
-exports.Ng2MessagePopupComponent = index_9.Ng2MessagePopupComponent;
-exports.Ng2PopupComponent = index_9.Ng2PopupComponent;
-var index_10 = require('./ng2-scrollable/index');
-exports.Ng2ScrollableDirective = index_10.Ng2ScrollableDirective;
-var index_11 = require('./ng2-sticky/index');
-exports.Ng2StickyDirective = index_11.Ng2StickyDirective;
-var index_12 = require('./ng2-tab/index');
-exports.Ng2TabComponent = index_12.Ng2TabComponent;
-var index_13 = require('./ng2-tooltip-overlay/index');
-exports.Ng2TooltipDirective = index_13.Ng2TooltipDirective;
-var index_14 = require('./ng2-utils/index');
-exports.computedStyle = index_14.computedStyle;
-exports.elementVisible = index_14.elementVisible;
-exports.scrollTo = index_14.scrollTo;
-exports.outerHeight = index_14.outerHeight;
-exports.outerWidth = index_14.outerWidth;
-var index_15 = require('./ng2-ui-sortable/index');
-exports.Ng2SortableDirective = index_15.Ng2SortableDirective;
-var ng2_ui_module_1 = require('./ng2-ui.module');
-exports.Ng2UIModule = ng2_ui_module_1.Ng2UIModule;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+///<reference path="../node_modules/@types/hammerjs/index.d.ts"/>
+var core_1 = require('@angular/core');
+var forms_1 = require("@angular/forms");
+var platform_browser_1 = require('@angular/platform-browser');
+var ng2_overlay_1 = require('ng2-overlay');
+exports.OverlayManager = ng2_overlay_1.OverlayManager;
+var ng2_auto_complete_1 = require("ng2-auto-complete");
+var ng2_datetime_picker_1 = require("ng2-datetime-picker");
+var ng2_collapsable_1 = require("ng2-collapsable");
+var ng2_infinite_list_1 = require("ng2-infinite-list");
+var ng2_map_1 = require("ng2-map");
+exports.Ng2MapComponent = ng2_map_1.Ng2MapComponent;
+var ng2_menu_1 = require("ng2-menu");
+var ng2_parallax_scroll_1 = require("ng2-parallax-scroll");
+var ng2_popup_1 = require("ng2-popup");
+exports.Ng2MessagePopupComponent = ng2_popup_1.Ng2MessagePopupComponent;
+exports.Ng2PopupComponent = ng2_popup_1.Ng2PopupComponent;
+var ng2_sticky_1 = require("ng2-sticky");
+var ng2_tab_1 = require("ng2-tab");
+var ng2_tooltip_overlay_1 = require("ng2-tooltip-overlay");
+var ng2_scrollable_1 = require("ng2-scrollable");
+exports.Ng2ScrollableDirective = ng2_scrollable_1.Ng2ScrollableDirective;
+var ng2_ui_sortable_1 = require("ng2-ui-sortable");
+var Ng2UIModule = (function () {
+    function Ng2UIModule() {
+    }
+    Ng2UIModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
+            exports: [
+                ng2_auto_complete_1.Ng2AutoCompleteModule,
+                ng2_datetime_picker_1.Ng2DatetimePickerModule,
+                ng2_collapsable_1.Ng2CollapsableModule,
+                ng2_infinite_list_1.Ng2InfiniteListModule,
+                ng2_map_1.Ng2MapModule,
+                ng2_menu_1.Ng2MenuModule,
+                ng2_parallax_scroll_1.Ng2ParallaxScrollModule,
+                ng2_popup_1.Ng2PopupModule,
+                ng2_sticky_1.Ng2StickyModule,
+                ng2_tab_1.Ng2TabModule,
+                ng2_scrollable_1.Ng2ScrollableModule,
+                ng2_tooltip_overlay_1.Ng2TooltipOverlayModule,
+                ng2_overlay_1.Ng2OverlayModule,
+                ng2_ui_sortable_1.Ng2SortableModule
+            ],
+            providers: [ng2_overlay_1.OverlayManager]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Ng2UIModule);
+    return Ng2UIModule;
+}());
+exports.Ng2UIModule = Ng2UIModule;
 //# sourceMappingURL=index.js.map

@@ -1,8 +1,5 @@
 app
 node_modules
-typings
 .idea
-build.sh
-index.html
 systemjs.config.js
 tsconfig.json
