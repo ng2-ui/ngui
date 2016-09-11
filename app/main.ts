@@ -5,15 +5,14 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from "@angular/forms";
-import { HTTP_PROVIDERS } from "@angular/http";
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }   from './app.component';
 import { Ng2UIModule }    from 'ng2-ui';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, Ng2UIModule],
+  imports: [BrowserModule, FormsModule, HttpModule, Ng2UIModule],
   declarations: [AppComponent],
-  providers: [HTTP_PROVIDERS],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
