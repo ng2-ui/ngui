@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/@types/hammerjs/index.d.ts" />
 import { OverlayManager } from 'ng2-overlay';
 import { Ng2MapComponent } from "ng2-map";
 import { Ng2MessagePopupComponent, Ng2PopupComponent } from "ng2-popup";

@@ -64,7 +64,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	///<reference path="../node_modules/@types/hammerjs/index.d.ts"/>
 	var core_1 = __webpack_require__(1);
 	var forms_1 = __webpack_require__(2);
 	var platform_browser_1 = __webpack_require__(3);
