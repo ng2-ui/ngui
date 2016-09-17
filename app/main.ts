@@ -6,9 +6,10 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from "@angular/forms";
 import { HttpModule } from '@angular/http';
+import { Ng2UIModule }    from 'ng2-ui';
 
 import { AppComponent }   from './app.component';
-import { Ng2UIModule }    from 'ng2-ui';
+
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, Ng2UIModule],
