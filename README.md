@@ -83,7 +83,7 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
 ### To start
 
     $ git clone https://github.com/ng2-ui/ng2-map.git
-    $ cd ng2-popup
+    $ cd ng2-ui
     $ npm install
     $ npm run build
     $ npm start
