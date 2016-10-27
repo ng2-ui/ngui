@@ -5,20 +5,23 @@ Collection of Quality Angular 2 UIs
 
 ## Modules Included
 
-  * ng2-auto-complete
-    [![npm version](https://badge.fury.io/js/ng2-auto-complete.svg)](https://badge.fury.io/js/ng2-auto-complete)
-  * ng2-collapsable
-  * ng2-datetime-picker
-  * ng2-infinite-list
-  * ng2-map
-  * ng2-menu
-  * ng2-overlay
-  * ng2-parallax-scroll
-  * ng2-popup
-  * ng2-scrollable
-  * ng2-sticky
-  * ng2-tab
-  * ng2-tooltip-overlay
+| module             | version | most-recent version                                                                 |
+| ------------------ | ------- | ----------------------------------------------------------------------------------- |
+| ng2-auto-complete  | 0.6.6   | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
+| ng2-datetime-picker| 0.8.3   | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
+| ng2-collapsable    | 0.3.1   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
+| ng2-infinite-list  | 0.4.1   | ![](https://badge.fury.io/js/ng2-infinite-list.svg)                                 |
+| ng2-map            | 0.5.1   | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
+| ng2-menu           | 0.4.1   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
+| ng2-overlay        | 0.6.1   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
+| ng2-parallax-scroll| 0.3.1   | ![](https://badge.fury.io/js/ng2-parallax-xcroll.svg)                               |
+| ng2-popup          | 0.3.1   | ![](https://badge.fury.io/js/ng2-popup.svg)                                         |
+| ng2-scrollable     | 0.6.1   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
+| ng2-sticky         | 0.3.1   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
+| ng2-tab            | 0.3.1   | ![](https://badge.fury.io/js/ng2-tab.svg)                                           |
+| ng2-tooltip-overlay| 0.3.1   | ![](https://badge.fury.io/js/ng2-tooltip-overlay.svg)                               |
+| ng2-ui-sortable    | 0.2.3   | ![](https://badge.fury.io/js/ng2-ui-sortable.svg)                                   |
+
 
 ## Install 
 
