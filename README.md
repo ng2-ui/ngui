@@ -6,6 +6,7 @@ Collection of Quality Angular 2 UIs
 ## Modules Included
 
   * ng2-auto-complete
+    [![npm version](https://badge.fury.io/js/ng2-auto-complete.svg)](https://badge.fury.io/js/ng2-auto-complete)
   * ng2-collapsable
   * ng2-datetime-picker
   * ng2-infinite-list
