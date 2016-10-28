@@ -14,7 +14,7 @@ Collection of Quality Angular 2 UIs
 | ng2-map            | 0.5.3   | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
 | ng2-menu           | 0.4.2   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
 | ng2-overlay        | 0.6.2   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
-| ng2-parallax-scroll| 0.3.2   | ![](https://badge.fury.io/js/ng2-parallax-xcroll.svg)                               |
+| ng2-parallax-scroll| 0.3.2   | ![](https://badge.fury.io/js/ng2-parallax-scroll.svg)                               |
 | ng2-popup          | 0.3.2   | ![](https://badge.fury.io/js/ng2-popup.svg)                                         |
 | ng2-scrollable     | 0.6.3   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
 | ng2-sticky         | 0.3.2   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
