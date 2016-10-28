@@ -647,22 +647,22 @@ return /******/ (function(modules) { // webpackBootstrap
 		var core_1 = __webpack_require__(1);
 		var forms_1 = __webpack_require__(2);
 		var common_1 = __webpack_require__(3);
-		var auto_complete_1 = __webpack_require__(4);
-		exports.AutoComplete = auto_complete_1.AutoComplete;
-		var auto_complete_component_1 = __webpack_require__(7);
-		exports.AutoCompleteComponent = auto_complete_component_1.AutoCompleteComponent;
-		var auto_complete_directive_1 = __webpack_require__(9);
-		exports.AutoCompleteDirective = auto_complete_directive_1.AutoCompleteDirective;
+		var ng2_auto_complete_1 = __webpack_require__(4);
+		exports.Ng2AutoComplete = ng2_auto_complete_1.Ng2AutoComplete;
+		var ng2_auto_complete_component_1 = __webpack_require__(7);
+		exports.Ng2AutoCompleteComponent = ng2_auto_complete_component_1.Ng2AutoCompleteComponent;
+		var ng2_auto_complete_directive_1 = __webpack_require__(9);
+		exports.Ng2AutoCompleteDirective = ng2_auto_complete_directive_1.Ng2AutoCompleteDirective;
 		var Ng2AutoCompleteModule = (function () {
 		    function Ng2AutoCompleteModule() {
 		    }
 		    Ng2AutoCompleteModule = __decorate([
 		        core_1.NgModule({
 		            imports: [common_1.CommonModule, forms_1.FormsModule],
-		            declarations: [auto_complete_component_1.AutoCompleteComponent, auto_complete_directive_1.AutoCompleteDirective],
-		            exports: [auto_complete_component_1.AutoCompleteComponent, auto_complete_directive_1.AutoCompleteDirective],
-		            entryComponents: [auto_complete_component_1.AutoCompleteComponent],
-		            providers: [auto_complete_1.AutoComplete]
+		            declarations: [ng2_auto_complete_component_1.Ng2AutoCompleteComponent, ng2_auto_complete_directive_1.Ng2AutoCompleteDirective],
+		            exports: [ng2_auto_complete_component_1.Ng2AutoCompleteComponent, ng2_auto_complete_directive_1.Ng2AutoCompleteDirective],
+		            entryComponents: [ng2_auto_complete_component_1.Ng2AutoCompleteComponent],
+		            providers: [ng2_auto_complete_1.Ng2AutoComplete]
 		        }), 
 		        __metadata('design:paramtypes', [])
 		    ], Ng2AutoCompleteModule);
@@ -709,12 +709,12 @@ return /******/ (function(modules) { // webpackBootstrap
 		/**
 		 * provides auto-complete related utility functions
 		 */
-		var AutoComplete = (function () {
-		    function AutoComplete(http) {
+		var Ng2AutoComplete = (function () {
+		    function Ng2AutoComplete(http) {
 		        this.http = http;
 		        // ...
 		    }
-		    AutoComplete.prototype.filter = function (list, keyword) {
+		    Ng2AutoComplete.prototype.filter = function (list, keyword) {
 		        return list.filter(function (el) {
 		            return !!JSON.stringify(el).match(new RegExp(keyword, "i"));
 		        });
@@ -727,7 +727,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		     *
 		     * @memberOf AutoComplete
 		     */
-		    AutoComplete.prototype.getRemoteData = function (options) {
+		    Ng2AutoComplete.prototype.getRemoteData = function (options) {
 		        var _this = this;
 		        var keyValues = [];
 		        var url = "";
@@ -760,13 +760,13 @@ return /******/ (function(modules) { // webpackBootstrap
 		        });
 		    };
 		    ;
-		    AutoComplete = __decorate([
+		    Ng2AutoComplete = __decorate([
 		        core_1.Injectable(), 
 		        __metadata('design:paramtypes', [http_1.Http])
-		    ], AutoComplete);
-		    return AutoComplete;
+		    ], Ng2AutoComplete);
+		    return Ng2AutoComplete;
 		}());
-		exports.AutoComplete = AutoComplete;
+		exports.Ng2AutoComplete = Ng2AutoComplete;
 	
 	
 	/***/ },
@@ -797,22 +797,23 @@ return /******/ (function(modules) { // webpackBootstrap
 		};
 		var core_1 = __webpack_require__(1);
 		var Subject_1 = __webpack_require__(8);
-		var auto_complete_1 = __webpack_require__(4);
+		var ng2_auto_complete_1 = __webpack_require__(4);
 		/**
 		 * show a selected date in monthly calendar
 		 * Each filteredList item has the following property in addition to data itself
 		 *   1. displayValue as string e.g. Allen Kim
 		 *   2. dataValue as any e.g.
 		 */
-		var AutoCompleteComponent = (function () {
+		var Ng2AutoCompleteComponent = (function () {
 		    /**
 		     * constructor
 		     */
-		    function AutoCompleteComponent(elementRef, autoComplete) {
+		    function Ng2AutoCompleteComponent(elementRef, autoComplete) {
 		        this.autoComplete = autoComplete;
 		        this.minChars = 0;
 		        this.valuePropertyName = "id";
 		        this.displayPropertyName = "value";
+		        this.closeToBottom = false;
 		        this.dropdownVisible = false;
 		        this.isLoading = false;
 		        this.filteredList = [];
@@ -827,35 +828,38 @@ return /******/ (function(modules) { // webpackBootstrap
 		        })();
 		        this.el = elementRef.nativeElement;
 		    }
-		    AutoCompleteComponent.prototype.isSrcArr = function () {
+		    Ng2AutoCompleteComponent.prototype.isSrcArr = function () {
 		        return (this.source.constructor.name === "Array");
 		    };
 		    /**
 		     * user enters into input el, shows list to select, then select one
 		     */
-		    AutoCompleteComponent.prototype.ngOnInit = function () {
+		    Ng2AutoCompleteComponent.prototype.ngOnInit = function () {
 		        this.inputEl = (this.el.querySelector("input"));
+		        this.userInputEl = this.el.parentElement.querySelector("input");
 		        this.autoComplete.source = this.source;
 		        this.autoComplete.pathToData = this.pathToData;
 		    };
-		    AutoCompleteComponent.prototype.reloadListInDelay = function () {
+		    Ng2AutoCompleteComponent.prototype.reloadListInDelay = function () {
 		        var _this = this;
 		        var delayMs = this.isSrcArr() ? 10 : 500;
 		        // executing after user stopped typing
 		        this.delay(function () { return _this.reloadList(); }, delayMs);
 		    };
-		    AutoCompleteComponent.prototype.showDropdownList = function () {
+		    Ng2AutoCompleteComponent.prototype.showDropdownList = function () {
 		        this.keyword = "";
 		        this.inputEl.focus();
+		        this.userInputElTabIndex = this.userInputEl['tabIndex'];
+		        this.userInputEl['tabIndex'] = -100; //disable tab focus for <shift-tab> pressed
 		        this.reloadList();
 		    };
-		    AutoCompleteComponent.prototype.hideDropdownList = function () {
+		    Ng2AutoCompleteComponent.prototype.hideDropdownList = function () {
 		        this.dropdownVisible = false;
+		        this.userInputEl['tabIndex'] = this.userInputElTabIndex; // enable tab focus
 		    };
-		    AutoCompleteComponent.prototype.reloadList = function () {
+		    Ng2AutoCompleteComponent.prototype.reloadList = function () {
 		        var _this = this;
 		        var keyword = this.inputEl.value;
-		        this.hideDropdownList();
 		        this.dropdownVisible = true;
 		        if (this.isSrcArr()) {
 		            // local source 
@@ -887,12 +891,12 @@ return /******/ (function(modules) { // webpackBootstrap
 		            }
 		        }
 		    };
-		    AutoCompleteComponent.prototype.selectOne = function (data) {
+		    Ng2AutoCompleteComponent.prototype.selectOne = function (data) {
 		        this.hideDropdownList();
 		        this.valueSelected.next(data);
 		    };
 		    ;
-		    AutoCompleteComponent.prototype.inputElKeyHandler = function (evt) {
+		    Ng2AutoCompleteComponent.prototype.inputElKeyHandler = function (evt) {
 		        var totalNumItem = this.filteredList.length;
 		        switch (evt.keyCode) {
 		            case 27:
@@ -914,11 +918,11 @@ return /******/ (function(modules) { // webpackBootstrap
 		        }
 		    };
 		    ;
-		    AutoCompleteComponent.prototype.getFormattedList = function (data) {
+		    Ng2AutoCompleteComponent.prototype.getFormattedList = function (data) {
 		        var formatter = this.listFormatter || this.defaultListFormatter;
 		        return formatter.apply(this, [data]);
 		    };
-		    AutoCompleteComponent.prototype.defaultListFormatter = function (data) {
+		    Ng2AutoCompleteComponent.prototype.defaultListFormatter = function (data) {
 		        var html = "";
 		        html += data[this.valuePropertyName] ? "<b>(" + data[this.valuePropertyName] + ")</b>" : "";
 		        html += data[this.displayPropertyName] ? "<span>" + data[this.displayPropertyName] + "</span>" : data;
@@ -927,45 +931,49 @@ return /******/ (function(modules) { // webpackBootstrap
 		    __decorate([
 		        core_1.Input("list-formatter"), 
 		        __metadata('design:type', Function)
-		    ], AutoCompleteComponent.prototype, "listFormatter", void 0);
+		    ], Ng2AutoCompleteComponent.prototype, "listFormatter", void 0);
 		    __decorate([
 		        core_1.Input("source"), 
 		        __metadata('design:type', Object)
-		    ], AutoCompleteComponent.prototype, "source", void 0);
+		    ], Ng2AutoCompleteComponent.prototype, "source", void 0);
 		    __decorate([
 		        core_1.Input("path-to-data"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteComponent.prototype, "pathToData", void 0);
+		    ], Ng2AutoCompleteComponent.prototype, "pathToData", void 0);
 		    __decorate([
 		        core_1.Input("min-chars"), 
 		        __metadata('design:type', Number)
-		    ], AutoCompleteComponent.prototype, "minChars", void 0);
+		    ], Ng2AutoCompleteComponent.prototype, "minChars", void 0);
 		    __decorate([
 		        core_1.Input("value-property-name"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteComponent.prototype, "valuePropertyName", void 0);
+		    ], Ng2AutoCompleteComponent.prototype, "valuePropertyName", void 0);
 		    __decorate([
 		        core_1.Input("display-property-name"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteComponent.prototype, "displayPropertyName", void 0);
+		    ], Ng2AutoCompleteComponent.prototype, "displayPropertyName", void 0);
 		    __decorate([
 		        core_1.Input("placeholder"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteComponent.prototype, "placeholder", void 0);
-		    AutoCompleteComponent = __decorate([
+		    ], Ng2AutoCompleteComponent.prototype, "placeholder", void 0);
+		    __decorate([
+		        core_1.Input("blank-option-text"), 
+		        __metadata('design:type', String)
+		    ], Ng2AutoCompleteComponent.prototype, "blankOptionText", void 0);
+		    Ng2AutoCompleteComponent = __decorate([
 		        core_1.Component({
-		            selector: "auto-complete",
-		            template: "\n  <div class=\"auto-complete\">\n\n    <!-- keyword input -->\n    <input class=\"keyword\"\n           placeholder=\"{{placeholder}}\"\n           (focus)=\"showDropdownList()\"\n           (blur)=\"dropdownVisible=false\"\n           (keydown)=\"inputElKeyHandler($event)\"\n           (input)=\"reloadListInDelay()\"\n           [(ngModel)]=\"keyword\" />\n\n    <!-- dropdown that user can select -->\n    <ul *ngIf=\"dropdownVisible\">\n      <li *ngIf=\"isLoading\" class=\"loading\">Loading</li>\n      <li class=\"item\"\n          *ngFor=\"let item of filteredList; let i=index\"\n          (mousedown)=\"selectOne(item)\"\n          [ngClass]=\"{selected: i === itemIndex}\"\n          [innerHtml]=\"getFormattedList(item)\">\n      </li>\n    </ul>\n\n  </div>",
-		            providers: [auto_complete_1.AutoComplete],
-		            styles: ["\n  @keyframes slideDown {\n    0% {\n      transform:  translateY(-10px);\n    }\n    100% {\n      transform: translateY(0px);\n    }\n  }\n  .auto-complete input {\n    outline: none;\n    border: 2px solid transparent;\n    border-width: 3px 2px;\n    margin: 0;\n    box-sizing: border-box;\n    background-clip: content-box;\n  }\n\n  .auto-complete ul {\n    background-color: #fff;\n    margin: 0;\n    width : 100%;\n    overflow-y: auto;\n    list-style-type: none;\n    padding: 0;\n    border: 1px solid #ccc;\n    box-sizing: border-box;\n    animation: slideDown 0.1s;\n  }\n\n  .auto-complete ul li {\n    padding: 2px 5px;\n    border-bottom: 1px solid #eee;\n  }\n\n  .auto-complete ul li.selected {\n    background-color: #ccc;\n  }\n\n  .auto-complete ul li:last-child {\n    border-bottom: none;\n  }\n\n  .auto-complete ul li:hover {\n    background-color: #ccc;\n  }"
+		            selector: "ng2-auto-complete",
+		            template: "\n  <div class=\"ng2-auto-complete\">\n\n    <!-- keyword input -->\n    <input class=\"keyword\"\n           placeholder=\"{{placeholder}}\"\n           (focus)=\"showDropdownList()\"\n           (blur)=\"hideDropdownList()\"\n           (keydown)=\"inputElKeyHandler($event)\"\n           (input)=\"reloadListInDelay()\"\n           [(ngModel)]=\"keyword\" />\n\n    <!-- dropdown that user can select -->\n    <ul *ngIf=\"dropdownVisible\"\n        [style.bottom]=\"inputEl.style.height\"\n        [style.position]=\"closeToBottom ? 'absolute': ''\">\n      <li *ngIf=\"isLoading\" class=\"loading\">Loading</li>\n      <li *ngIf=\"blankOptionText\"\n          (mousedown)=\"selectOne('')\"\n          class=\"blank-item\">{{blankOptionText}}</li>\n      <li class=\"item\"\n          *ngFor=\"let item of filteredList; let i=index\"\n          (mousedown)=\"selectOne(item)\"\n          [ngClass]=\"{selected: i === itemIndex}\"\n          [innerHtml]=\"getFormattedList(item)\">\n      </li>\n    </ul>\n\n  </div>",
+		            providers: [ng2_auto_complete_1.Ng2AutoComplete],
+		            styles: ["\n  @keyframes slideDown {\n    0% {\n      transform:  translateY(-10px);\n    }\n    100% {\n      transform: translateY(0px);\n    }\n  }\n  .ng2-auto-complete ng2-auto-complete {\n    background-color: transparent;\n  }\n  .ng2-auto-complete ng2-auto-complete input {\n    outline: none;\n    border: 0px;\n    padding: 2px; \n    box-sizing: border-box;\n    background-clip: content-box;\n  }\n\n  .ng2-auto-complete ng2-auto-complete ul {\n    background-color: #fff;\n    margin: 0;\n    width : 100%;\n    overflow-y: auto;\n    list-style-type: none;\n    padding: 0;\n    border: 1px solid #ccc;\n    box-sizing: border-box;\n    animation: slideDown 0.1s;\n  }\n\n  .ng2-auto-complete ng2-auto-complete ul li {\n    padding: 2px 5px;\n    border-bottom: 1px solid #eee;\n  }\n\n  .ng2-auto-complete ng2-auto-complete ul li.selected {\n    background-color: #ccc;\n  }\n\n  .ng2-auto-complete ng2-auto-complete ul li:last-child {\n    border-bottom: none;\n  }\n\n  .ng2-auto-complete ng2-auto-complete ul li:hover {\n    background-color: #ccc;\n  }"
 		            ],
 		            encapsulation: core_1.ViewEncapsulation.None
 		        }), 
-		        __metadata('design:paramtypes', [core_1.ElementRef, auto_complete_1.AutoComplete])
-		    ], AutoCompleteComponent);
-		    return AutoCompleteComponent;
+		        __metadata('design:paramtypes', [core_1.ElementRef, ng2_auto_complete_1.Ng2AutoComplete])
+		    ], Ng2AutoCompleteComponent);
+		    return Ng2AutoCompleteComponent;
 		}());
-		exports.AutoCompleteComponent = AutoCompleteComponent;
+		exports.Ng2AutoCompleteComponent = Ng2AutoCompleteComponent;
 	
 	
 	/***/ },
@@ -990,12 +998,12 @@ return /******/ (function(modules) { // webpackBootstrap
 		};
 		var core_1 = __webpack_require__(1);
 		__webpack_require__(6);
-		var auto_complete_component_1 = __webpack_require__(7);
+		var ng2_auto_complete_component_1 = __webpack_require__(7);
 		/**
 		 * display auto-complete section with input and dropdown list when it is clicked
 		 */
-		var AutoCompleteDirective = (function () {
-		    function AutoCompleteDirective(resolver, viewContainerRef) {
+		var Ng2AutoCompleteDirective = (function () {
+		    function Ng2AutoCompleteDirective(resolver, viewContainerRef) {
 		        var _this = this;
 		        this.resolver = resolver;
 		        this.viewContainerRef = viewContainerRef;
@@ -1016,39 +1024,36 @@ return /******/ (function(modules) { // webpackBootstrap
 		            }
 		        };
 		        this.styleAutoCompleteDropdown = function () {
-		            var component = _this.componentRef.instance;
-		            /* setting width/height auto complete */
-		            var thisElBCR = _this.el.getBoundingClientRect();
-		            _this.acDropdownEl.style.width = thisElBCR.width + "px";
-		            _this.acDropdownEl.style.position = "absolute";
-		            _this.acDropdownEl.style.zIndex = "1";
-		            _this.acDropdownEl.style.top = "0";
-		            _this.acDropdownEl.style.left = "0";
-		            _this.acDropdownEl.style.display = "inline-block";
-		            var thisInputElBCR = _this.inputEl.getBoundingClientRect();
-		            component.inputEl.style.width = (thisInputElBCR.width - 30) + "px";
-		            component.inputEl.style.height = thisInputElBCR.height + "px";
-		            component.inputEl.focus();
+		            if (_this.componentRef) {
+		                var component = _this.componentRef.instance;
+		                /* setting width/height auto complete */
+		                var thisElBCR = _this.el.getBoundingClientRect();
+		                _this.acDropdownEl.style.width = thisElBCR.width + "px";
+		                _this.acDropdownEl.style.position = "absolute";
+		                _this.acDropdownEl.style.zIndex = "1";
+		                _this.acDropdownEl.style.top = "0";
+		                _this.acDropdownEl.style.left = "0";
+		                _this.acDropdownEl.style.display = "inline-block";
+		                var thisInputElBCR = _this.inputEl.getBoundingClientRect();
+		                component.inputEl.style.width = thisInputElBCR.width + "px";
+		                component.inputEl.style.height = thisInputElBCR.height + "px";
+		                component.inputEl.focus();
+		                component.closeToBottom =
+		                    !!(thisInputElBCR.bottom + 100 > window.innerHeight);
+		            }
 		        };
 		        this.selectNewValue = function (val) {
-		            /* modify toString function of value if value is an object */
-		            if (val && typeof val === "object") {
-		                var displayVal_1 = val[_this.displayPropertyName || "value"];
-		                val.toString = function () { return displayVal_1; };
+		            if (val !== '') {
+		                val = _this.addToStringFunction(val);
 		            }
-		            /* emit ngModelChange and valueChanged */
-		            if (val !== _this.ngModel) {
-		                _this.ngModelChange.emit(val);
-		            }
-		            if (val) {
-		                _this.valueChanged.emit(val);
-		            }
-		            /* hide dropdown */
+		            (val !== _this.ngModel) && _this.ngModelChange.emit(val);
+		            _this.valueChanged.emit(val);
+		            _this.inputEl && (_this.inputEl.value = '' + val);
 		            _this.hideAutoCompleteDropdown();
 		        };
 		        this.el = this.viewContainerRef.element.nativeElement;
 		    }
-		    AutoCompleteDirective.prototype.ngOnInit = function () {
+		    Ng2AutoCompleteDirective.prototype.ngOnInit = function () {
 		        // wrap this element with <div class="ng2-auto-complete">
 		        var divEl = document.createElement("div");
 		        divEl.className = "ng2-auto-complete";
@@ -1061,16 +1066,21 @@ return /******/ (function(modules) { // webpackBootstrap
 		        // when somewhere else clicked, hide this autocomplete
 		        document.addEventListener("click", this.hideAutoCompleteDropdown);
 		    };
-		    AutoCompleteDirective.prototype.ngOnDestroy = function () {
+		    Ng2AutoCompleteDirective.prototype.ngOnDestroy = function () {
 		        if (this.componentRef) {
 		            this.componentRef.instance.valueSelected.unsubscribe();
 		        }
 		        document.removeEventListener("click", this.hideAutoCompleteDropdown);
 		    };
+		    Ng2AutoCompleteDirective.prototype.ngOnChanges = function (changes) {
+		        if (changes['ngModel']) {
+		            this.ngModel = this.addToStringFunction(changes['ngModel'].currentValue);
+		        }
+		    };
 		    //show auto-complete list below the current element
-		    AutoCompleteDirective.prototype.showAutoCompleteDropdown = function () {
+		    Ng2AutoCompleteDirective.prototype.showAutoCompleteDropdown = function () {
 		        this.hideAutoCompleteDropdown();
-		        var factory = this.resolver.resolveComponentFactory(auto_complete_component_1.AutoCompleteComponent);
+		        var factory = this.resolver.resolveComponentFactory(ng2_auto_complete_component_1.Ng2AutoCompleteComponent);
 		        this.componentRef = this.viewContainerRef.createComponent(factory);
 		        var component = this.componentRef.instance;
 		        component.listFormatter = this.listFormatter;
@@ -1081,6 +1091,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		        component.displayPropertyName = this.displayPropertyName || "value";
 		        component.source = this.source;
 		        component.placeholder = this.autoCompletePlaceholder;
+		        component.blankOptionText = this.blankOptionText;
 		        component.valueSelected.subscribe(this.selectNewValue);
 		        this.acDropdownEl = this.componentRef.location.nativeElement;
 		        this.acDropdownEl.style.display = "none";
@@ -1089,14 +1100,21 @@ return /******/ (function(modules) { // webpackBootstrap
 		        this.moveAutocompleteDropDownAfterInputEl();
 		        setTimeout(this.styleAutoCompleteDropdown);
 		    };
-		    AutoCompleteDirective.prototype.moveAutocompleteDropDownAfterInputEl = function () {
+		    Ng2AutoCompleteDirective.prototype.addToStringFunction = function (val) {
+		        if (val && typeof val === "object") {
+		            var displayVal_1 = val[this.displayPropertyName || "value"];
+		            val.toString = function () { return displayVal_1; };
+		        }
+		        return val;
+		    };
+		    Ng2AutoCompleteDirective.prototype.moveAutocompleteDropDownAfterInputEl = function () {
 		        this.inputEl = this.el;
 		        if (this.el.tagName !== "INPUT" && this.acDropdownEl) {
 		            this.inputEl = this.el.querySelector("input");
 		            this.inputEl.parentElement.insertBefore(this.acDropdownEl, this.inputEl.nextSibling);
 		        }
 		    };
-		    AutoCompleteDirective.prototype.elementIn = function (el, containerEl) {
+		    Ng2AutoCompleteDirective.prototype.elementIn = function (el, containerEl) {
 		        while (el = el.parentNode) {
 		            if (el === containerEl) {
 		                return true;
@@ -1108,55 +1126,60 @@ return /******/ (function(modules) { // webpackBootstrap
 		    __decorate([
 		        core_1.Input("auto-complete-placeholder"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteDirective.prototype, "autoCompletePlaceholder", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "autoCompletePlaceholder", void 0);
 		    __decorate([
 		        core_1.Input("list-formatter"), 
 		        __metadata('design:type', Function)
-		    ], AutoCompleteDirective.prototype, "listFormatter", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "listFormatter", void 0);
 		    __decorate([
 		        core_1.Input("source"), 
 		        __metadata('design:type', Object)
-		    ], AutoCompleteDirective.prototype, "source", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "source", void 0);
 		    __decorate([
 		        core_1.Input("path-to-data"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteDirective.prototype, "pathToData", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "pathToData", void 0);
 		    __decorate([
 		        core_1.Input("min-chars"), 
 		        __metadata('design:type', Number)
-		    ], AutoCompleteDirective.prototype, "minChars", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "minChars", void 0);
 		    __decorate([
 		        core_1.Input("value-property-name"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteDirective.prototype, "valuePropertyName", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "valuePropertyName", void 0);
 		    __decorate([
 		        core_1.Input("display-property-name"), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteDirective.prototype, "displayPropertyName", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "displayPropertyName", void 0);
+		    __decorate([
+		        core_1.Input("blank-option-text"), 
+		        __metadata('design:type', String)
+		    ], Ng2AutoCompleteDirective.prototype, "blankOptionText", void 0);
 		    __decorate([
 		        core_1.Input(), 
 		        __metadata('design:type', String)
-		    ], AutoCompleteDirective.prototype, "ngModel", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "ngModel", void 0);
 		    __decorate([
 		        core_1.Output(), 
 		        __metadata('design:type', Object)
-		    ], AutoCompleteDirective.prototype, "ngModelChange", void 0);
+		    ], Ng2AutoCompleteDirective.prototype, "ngModelChange", void 0);
 		    __decorate([
-		        core_1.Output("value-changed"), 
+		        core_1.Output(), 
 		        __metadata('design:type', Object)
-		    ], AutoCompleteDirective.prototype, "valueChanged", void 0);
-		    AutoCompleteDirective = __decorate([
+		    ], Ng2AutoCompleteDirective.prototype, "valueChanged", void 0);
+		    Ng2AutoCompleteDirective = __decorate([
 		        core_1.Directive({
 		            selector: "[auto-complete], [ng2-auto-complete]",
 		            host: {
-		                "(click)": "showAutoCompleteDropdown()"
+		                "(click)": "showAutoCompleteDropdown()",
+		                "(focus)": "showAutoCompleteDropdown()"
 		            }
 		        }), 
 		        __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, core_1.ViewContainerRef])
-		    ], AutoCompleteDirective);
-		    return AutoCompleteDirective;
+		    ], Ng2AutoCompleteDirective);
+		    return Ng2AutoCompleteDirective;
 		}());
-		exports.AutoCompleteDirective = AutoCompleteDirective;
+		exports.Ng2AutoCompleteDirective = Ng2AutoCompleteDirective;
 	
 	
 	/***/ }
@@ -1407,11 +1430,16 @@ return /******/ (function(modules) { // webpackBootstrap
 		        }
 		        return moment(d).format(dateFormat);
 		    };
-		    DateTime.momentParse = function (dateStr) {
+		    DateTime.momentParse = function (dateStr, dateFormat) {
 		        if (typeof moment === 'undefined') {
 		            console.error("momentjs is required with dateFormat.\n        please add <script src=\"moment.min.js\"></script>\"> in your html.");
 		        }
-		        return moment(dateStr).toDate();
+		        //return moment(dateStr).toDate();
+		        var date = moment(dateStr, dateFormat).toDate();
+		        if (isNaN(date.getTime())) {
+		            date = moment(dateStr).toDate(); //parse as ISO format
+		        }
+		        return date;
 		    };
 		    DateTime.formatDate = function (d, dateOnly) {
 		        // return d.toLocaleString('en-us', hash); // IE11 does not understand this
@@ -1549,6 +1577,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		        configurable: true
 		    });
 		    DateTimePickerComponent.prototype.initDateTime = function (date) {
+		        date = date || new Date();
 		        this.selectedDate = date;
 		        this.hour = this.selectedDate.getHours();
 		        this.minute = this.selectedDate.getMinutes();
@@ -1568,11 +1597,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		        if (dayNum) {
 		            this.selectedDate = new Date(this.monthData.year, this.monthData.month, dayNum);
 		        }
-		        this.changes.emit({
-		            selectedDate: this.selectedDate,
-		            hour: this.hour,
-		            minute: this.minute
-		        });
+		        this.selectedDate.setHours(parseInt('' + this.hour || '0', 10));
+		        this.selectedDate.setMinutes(parseInt('' + this.minute || '0', 10));
+		        this.changes.emit(this.selectedDate);
 		        this.closing.emit(true);
 		    };
 		    ;
@@ -1594,9 +1621,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		        core_1.Component({
 		            providers: [datetime_1.DateTime],
 		            selector: 'datetime-picker',
-		            template: "\n<div class=\"datetime-picker\" tabindex=\"0\">\n\n  <!-- Month - Year  -->\n  <div class=\"month\">\n    <button type=\"button\" class=\"prev\" (click)=\"updateMonthData(-1)\">&laquo;</button>\n     <span title=\"{{dateTime.months[monthData.month].fullName}}\">\n           {{dateTime.months[monthData.month].shortName}}\n     </span>\n    {{monthData.year}}\n    <button type=\"button\" class=\"next\" (click)=\"updateMonthData(+1)\">&raquo;</button>\n  </div>\n\n  <div class=\"days\">\n\n    <!-- Su Mo Tu We Th Fr Sa -->\n    <div class=\"day-of-week\"\n         *ngFor=\"let dayOfWeek of dateTime.localizedDaysOfWeek\"\n         [ngClass]=\"{weekend: dayOfWeek.weekend}\"\n         title=\"{{dayOfWeek.fullName}}\">\n      {{dayOfWeek.shortName}}\n    </div>\n\n    <!-- Fill up blank days for this month -->\n    <div *ngIf=\"monthData.leadingDays.length < 7\">\n      <div class=\"day\" *ngFor=\"let dayNum of monthData.leadingDays\"\n           [ngClass]=\"{weekend: [0,6].indexOf(toDate(monthData.year, monthData.month-1, dayNum).getDay()) !== -1}\">\n        {{dayNum}}\n      </div>\n    </div>\n\n    <div class=\"day selectable\"\n         *ngFor=\"let dayNum of monthData.days\"\n         (click)=\"selectDate(dayNum)\"\n         title=\"{{monthData.year}}-{{monthData.month+1}}-{{dayNum}}\"\n         [ngClass]=\"{\n           selected:\n             toDate(monthData.year, monthData.month, dayNum).getTime() === toDateOnly(selectedDate).getTime(),\n           today:\n             toDate(monthData.year, monthData.month, dayNum).getTime() === today.getTime(),\n           weekend:\n             [0,6].indexOf(toDate(monthData.year, monthData.month, dayNum).getDay()) !== -1\n         }\">\n      {{dayNum}}\n    </div>\n\n    <!-- Fill up blank days for this month -->\n    <div *ngIf=\"monthData.trailingDays.length < 7\">\n      <div class=\"day\"\n           *ngFor=\"let dayNum of monthData.trailingDays\"\n           [ngClass]=\"{weekend: [0,6].indexOf(toDate(monthData.year, monthData.month+1, dayNum).getDay()) !== -1}\">\n        {{dayNum}}\n      </div>\n    </div>\n  </div>\n\n  <!-- Time -->\n  <div class=\"days\" id=\"time\" *ngIf=\"!dateOnly\">\n    <label class=\"timeLabel\">Time:</label>\n    <span class=\"timeValue\">\n      {{(\"0\"+hour).slice(-2)}} : {{(\"0\"+minute).slice(-2)}}\n    </span><br/>\n    <label class=\"hourLabel\">Hour:</label>\n    <input #hours class=\"hourInput\"\n           (change)=\"selectDate()\"\n           type=\"range\" min=\"0\" max=\"23\" [(ngModel)]=\"hour\" />\n    <label class=\"minutesLabel\">Min:</label>\n    <input #minutes class=\"minutesInput\"\n           (change)=\"selectDate()\"\n           type=\"range\" min=\"0\" max=\"59\" range=\"10\" [(ngModel)]=\"minute\"/>\n  </div>\n</div>\n\n<!--<hr/>-->\n<!--Date: {{selectedDate}}<br/>-->\n<!--Hour: {{hour}} Minute: {{minute}}<br/>-->\n  ",
+		            template: "\n<div class=\"datetime-picker\" tabindex=\"0\">\n\n  <!-- Month - Year  -->\n  <div class=\"month\">\n    <button type=\"button\" class=\"prev\" (click)=\"updateMonthData(-1)\">&laquo;</button>\n     <span title=\"{{dateTime.months[monthData.month]?.fullName}}\">\n           {{dateTime.months[monthData.month]?.shortName}}\n     </span>\n    {{monthData.year}}\n    <button type=\"button\" class=\"next\" (click)=\"updateMonthData(+1)\">&raquo;</button>\n  </div>\n\n  <div class=\"days\">\n\n    <!-- Su Mo Tu We Th Fr Sa -->\n    <div class=\"day-of-week\"\n         *ngFor=\"let dayOfWeek of dateTime.localizedDaysOfWeek\"\n         [ngClass]=\"{weekend: dayOfWeek.weekend}\"\n         title=\"{{dayOfWeek.fullName}}\">\n      {{dayOfWeek.shortName}}\n    </div>\n\n    <!-- Fill up blank days for this month -->\n    <div *ngIf=\"monthData.leadingDays.length < 7\">\n      <div class=\"day\" *ngFor=\"let dayNum of monthData.leadingDays\"\n           [ngClass]=\"{weekend: [0,6].indexOf(toDate(monthData.year, monthData.month-1, dayNum).getDay()) !== -1}\">\n        {{dayNum}}\n      </div>\n    </div>\n\n    <div class=\"day selectable\"\n         *ngFor=\"let dayNum of monthData.days\"\n         (click)=\"selectDate(dayNum)\"\n         title=\"{{monthData.year}}-{{monthData.month+1}}-{{dayNum}}\"\n         [ngClass]=\"{\n           selected:\n             toDate(monthData.year, monthData.month, dayNum).getTime() === toDateOnly(selectedDate).getTime(),\n           today:\n             toDate(monthData.year, monthData.month, dayNum).getTime() === today.getTime(),\n           weekend:\n             [0,6].indexOf(toDate(monthData.year, monthData.month, dayNum).getDay()) !== -1\n         }\">\n      {{dayNum}}\n    </div>\n\n    <!-- Fill up blank days for this month -->\n    <div *ngIf=\"monthData.trailingDays.length < 7\">\n      <div class=\"day\"\n           *ngFor=\"let dayNum of monthData.trailingDays\"\n           [ngClass]=\"{weekend: [0,6].indexOf(toDate(monthData.year, monthData.month+1, dayNum).getDay()) !== -1}\">\n        {{dayNum}}\n      </div>\n    </div>\n  </div>\n\n  <!-- Time -->\n  <div class=\"days\" id=\"time\" *ngIf=\"!dateOnly\">\n    <label class=\"timeLabel\">Time:</label>\n    <span class=\"timeValue\">\n      {{(\"0\"+hour).slice(-2)}} : {{(\"0\"+minute).slice(-2)}}\n    </span><br/>\n    <label class=\"hourLabel\">Hour:</label>\n    <input #hours class=\"hourInput\"\n           (change)=\"selectDate()\"\n           type=\"range\" min=\"0\" max=\"23\" [(ngModel)]=\"hour\" />\n    <label class=\"minutesLabel\">Min:</label>\n    <input #minutes class=\"minutesInput\"\n           (change)=\"selectDate()\"\n           type=\"range\" min=\"0\" max=\"59\" range=\"10\" [(ngModel)]=\"minute\"/>\n  </div>\n</div>\n\n<!--<hr/>-->\n<!--Date: {{selectedDate}}<br/>-->\n<!--Hour: {{hour}} Minute: {{minute}}<br/>-->\n  ",
 		            styles: [
-		                "\n @keyframes slideDown {\n  0% {\n    transform:  translateY(-10px);\n  }\n  100% {\n    transform: translateY(0px);\n  }\n}\n\n.datetime-picker {\n    color: #333;\n    outline-width: 0;\n    font: normal 14px sans-serif;\n    border: 1px solid #ddd;\n    display: inline-block;\n    background: #fff;\n    animation: slideDown 0.1s ease-in-out;\n    animation-fill-mode: both;\n}\n.datetime-picker > .month {\n    text-align: center;\n    line-height: 22px;\n    padding: 10px;\n    background: #fcfcfc;\n    text-transform: uppercase;\n    font-weight: bold;\n    border-bottom: 1px solid #ddd;\n    position: relative;\n}\n.datetime-picker > .month > button {\n    color: #555;\n    font: normal 14px sans-serif;\n    outline: none;\n    position: absolute;\n    background: transparent;\n    border: none;\n    cursor: pointer;\n}\n.datetime-picker > .month > button:hover {\n    color: #333;\n}\n.datetime-picker > .month > button.prev {\n    left: 10px;\n}\n.datetime-picker > .month > button.next {\n    right: 10px;\n}\n.datetime-picker > .days {\n    width: 210px; /* 30 x 7 */\n    margin: 10px;\n    text-align: center;\n}\n.datetime-picker > .days .day-of-week,\n.datetime-picker > .days .day {\n    box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    border: 1px solid transparent;\n    width: 30px;\n    line-height: 28px;\n    float: left;\n}\n.datetime-picker > .days .day-of-week {\n    font-weight: bold;\n}\n.datetime-picker > .days .day-of-week.weekend {\n    color: #ccc;\n    background-color: inherit;\n}\n.datetime-picker > .days .day:not(.selectable) {\n    color: #ccc;\n    cursor: default;\n}\n.datetime-picker > .days .weekend {\n    color: #ccc;\n    background-color: #eee;\n}\n.datetime-picker > .days .day.selectable  {\n    cursor: pointer;\n}\n.datetime-picker > .days .day.selected {\n    background: gray;\n    color: #fff;\n}\n.datetime-picker > .days .day:not(.selected).selectable:hover {\n    background: #eee;\n}\n.datetime-picker > .days:after {\n    content: '';\n    display: block;\n    clear: left;\n    height: 0;\n}\n.datetime-picker .hourLabel,\n.datetime-picker .minutesLabel {\n    display: inline-block;\n    width: 40px;\n    text-align: right;\n}\n.datetime-picker input[type=range] {\n    width: 150px;\n}\n  "
+		                "\n @keyframes slideDown {\n  0% {\n    transform:  translateY(-10px);\n  }\n  100% {\n    transform: translateY(0px);\n  }\n}\n\n.ng2-datetime-picker {\n    display: inline-block;\n    position: relative;\n}\n\n.datetime-picker {\n    color: #333;\n    outline-width: 0;\n    font: normal 14px sans-serif;\n    border: 1px solid #ddd;\n    display: inline-block;\n    background: #fff;\n    animation: slideDown 0.1s ease-in-out;\n    animation-fill-mode: both;\n}\n.datetime-picker > .month {\n    text-align: center;\n    line-height: 22px;\n    padding: 10px;\n    background: #fcfcfc;\n    text-transform: uppercase;\n    font-weight: bold;\n    border-bottom: 1px solid #ddd;\n    position: relative;\n}\n.datetime-picker > .month > button {\n    color: #555;\n    font: normal 14px sans-serif;\n    outline: none;\n    position: absolute;\n    background: transparent;\n    border: none;\n    cursor: pointer;\n}\n.datetime-picker > .month > button:hover {\n    color: #333;\n}\n.datetime-picker > .month > button.prev {\n    left: 10px;\n}\n.datetime-picker > .month > button.next {\n    right: 10px;\n}\n.datetime-picker > .days {\n    width: 210px; /* 30 x 7 */\n    margin: 10px;\n    text-align: center;\n}\n.datetime-picker > .days .day-of-week,\n.datetime-picker > .days .day {\n    box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    border: 1px solid transparent;\n    width: 30px;\n    line-height: 28px;\n    float: left;\n}\n.datetime-picker > .days .day-of-week {\n    font-weight: bold;\n}\n.datetime-picker > .days .day-of-week.weekend {\n    color: #ccc;\n    background-color: inherit;\n}\n.datetime-picker > .days .day:not(.selectable) {\n    color: #ccc;\n    cursor: default;\n}\n.datetime-picker > .days .weekend {\n    color: #ccc;\n    background-color: #eee;\n}\n.datetime-picker > .days .day.selectable  {\n    cursor: pointer;\n}\n.datetime-picker > .days .day.selected {\n    background: gray;\n    color: #fff;\n}\n.datetime-picker > .days .day:not(.selected).selectable:hover {\n    background: #eee;\n}\n.datetime-picker > .days:after {\n    content: '';\n    display: block;\n    clear: left;\n    height: 0;\n}\n.datetime-picker .hourLabel,\n.datetime-picker .minutesLabel {\n    display: inline-block;\n    width: 40px;\n    text-align: right;\n}\n.datetime-picker input[type=range] {\n    width: 150px;\n}\n  "
 		            ],
 		            encapsulation: core_1.ViewEncapsulation.None
 		        }), 
@@ -1621,196 +1648,204 @@ return /******/ (function(modules) { // webpackBootstrap
 		var __metadata = (this && this.__metadata) || function (k, v) {
 		    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 		};
+		var __param = (this && this.__param) || function (paramIndex, decorator) {
+		    return function (target, key) { decorator(target, key, paramIndex); }
+		};
 		var core_1 = __webpack_require__(1);
+		var forms_1 = __webpack_require__(2);
 		var datetime_picker_component_1 = __webpack_require__(5);
 		var datetime_1 = __webpack_require__(4);
 		/**
-		 * To simplify the implementation, it limits the type if value to string only, not a date
 		 * If the given string is not a valid date, it defaults back to today
 		 */
 		var DateTimePickerDirective = (function () {
-		    function DateTimePickerDirective(_resolver, _viewContainerRef) {
+		    function DateTimePickerDirective(resolver, viewContainerRef, parent) {
 		        var _this = this;
-		        this._resolver = _resolver;
-		        this._viewContainerRef = _viewContainerRef;
-		        /**
-		         * @deprecated
-		         */
+		        this.resolver = resolver;
+		        this.viewContainerRef = viewContainerRef;
+		        this.parent = parent;
 		        this.ngModelChange = new core_1.EventEmitter();
-		        this.valueChange = new core_1.EventEmitter();
-		        this._keyEventListener = function (e) {
-		            if (e.keyCode === 27) {
-		                _this.hideDatetimePicker();
+		        /* input element string value is changed */
+		        this.valueChanged = function (date) {
+		            _this.setElement(date);
+		            _this.el.value = _this.getFormattedDateStr();
+		            if (_this.ctrl) {
+		                _this.ctrl.patchValue(_this.el.value);
+		            }
+		            _this.ngModel = _this.el['dateValue'];
+		            if (_this.ngModel) {
+		                _this.ngModel.toString = function () { return _this.el.value; };
+		                _this.ngModelChange.emit(_this.ngModel);
 		            }
 		        };
 		        this.hideDatetimePicker = function (event) {
-		            if (_this._componentRef) {
-		                if (event && event.type === 'click' &&
-		                    event.target !== _this._el && !_this._elementIn(event.target, _this._datetimePicker)) {
-		                    _this._componentRef.destroy();
-		                    _this._componentRef = undefined;
+		            if (_this.componentRef) {
+		                if (event &&
+		                    event.type === 'click' &&
+		                    event.target !== _this.el &&
+		                    !_this.elementIn(event.target, _this.datetimePickerEl)) {
+		                    _this.componentRef.destroy();
+		                    _this.componentRef = undefined;
 		                }
 		                else if (!event) {
-		                    _this._componentRef.destroy();
-		                    _this._componentRef = undefined;
+		                    _this.componentRef.destroy();
+		                    _this.componentRef = undefined;
 		                }
 		            }
 		        };
-		        this._el = this._viewContainerRef.element.nativeElement;
+		        this.keyEventListener = function (e) {
+		            if (e.keyCode === 27 || e.keyCode === 9 || e.keyCode === 13) {
+		                _this.hideDatetimePicker();
+		            }
+		        };
+		        this.el = this.viewContainerRef.element.nativeElement;
 		    }
 		    DateTimePickerDirective.prototype.ngOnInit = function () {
+		        var _this = this;
+		        if (this.parent && this.parent["form"] && this.formControlName) {
+		            this.ctrl = this.parent["form"].get(this.formControlName);
+		            this.sub = this.ctrl.valueChanges.subscribe(function (date) {
+		                _this.setElement(date);
+		                _this.updateDatepicker();
+		            });
+		        }
 		        //wrap this element with a <div> tag, so that we can position dynamic elememnt correctly
 		        var wrapper = document.createElement("div");
 		        wrapper.className = 'ng2-datetime-picker';
-		        wrapper.style.display = 'inline-block';
-		        wrapper.style.position = 'relative';
-		        this._el.parentElement.insertBefore(wrapper, this._el.nextSibling);
-		        wrapper.appendChild(this._el);
-		        this._registerEventListeners();
+		        this.el.parentElement.insertBefore(wrapper, this.el.nextSibling);
+		        wrapper.appendChild(this.el);
+		        // add a click listener to document, so that it can hide when others clicked
+		        document.body.addEventListener('click', this.hideDatetimePicker);
+		        this.el.addEventListener('keyup', this.keyEventListener);
+		        setTimeout(function () {
+		            _this.valueChanged(_this.el.value);
+		            if (_this.ctrl) {
+		                _this.ctrl.markAsPristine();
+		            }
+		        });
 		    };
 		    DateTimePickerDirective.prototype.ngOnChanges = function (changes) {
-		        var _this = this;
-		        if (changes['value'] !== undefined || changes['ngModel'] !== undefined) {
-		            if (changes['ngModel'] !== undefined) {
-		                this.value = this.ngModel;
-		            }
-		            var dateNgModel_1;
-		            if (typeof this.value === 'string') {
-		                //remove timezone and respect day light saving time
-		                dateNgModel_1 = this.dateFormat ?
-		                    datetime_1.DateTime.momentParse('' + this.value) :
-		                    datetime_1.DateTime.parse('' + this.value);
-		            }
-		            else if (this.value instanceof Date) {
-		                dateNgModel_1 = this.value;
-		            }
-		            else {
-		                dateNgModel_1 = new Date();
-		            }
-		            var formatted = void 0;
-		            if (this.dateFormat) {
-		                formatted = datetime_1.DateTime.momentFormatDate(dateNgModel_1, this.dateFormat);
-		            }
-		            else {
-		                formatted = datetime_1.DateTime.formatDate(dateNgModel_1, this.dateOnly);
-		            }
-		            this._el['value'] = formatted;
-		            this._value = dateNgModel_1;
-		            // @deprecated
-		            if (this.dateFormat) {
-		                dateNgModel_1.toString = function () {
-		                    return datetime_1.DateTime.momentFormatDate(dateNgModel_1, _this.dateFormat);
-		                };
-		            }
-		            else {
-		                dateNgModel_1.toString = function () {
-		                    return datetime_1.DateTime.formatDate(dateNgModel_1, _this.dateOnly);
-		                };
-		            }
-		            setTimeout(function () {
-		                _this.ngModelChange.emit(dateNgModel_1);
-		            });
-		            this._initDate();
+		        var date;
+		        if (changes && changes['ngModel']) {
+		            date = changes['ngModel'].currentValue;
+		        }
+		        this.setElement(date);
+		        this.updateDatepicker();
+		    };
+		    DateTimePickerDirective.prototype.updateDatepicker = function () {
+		        if (this.componentRef) {
+		            var component = this.componentRef.instance;
+		            component.initDateTime(this.el['dateValue']);
+		        }
+		    };
+		    DateTimePickerDirective.prototype.setElement = function (date) {
+		        if (typeof date === 'string' && date) {
+		            this.el['dateValue'] = this.getDate(date);
+		        }
+		        else if (typeof date === 'object') {
+		            this.el['dateValue'] = date;
+		        }
+		        else if (typeof date === 'undefined') {
+		            this.el['dateValue'] = null;
+		        }
+		        if (this.ctrl) {
+		            this.ctrl.markAsDirty();
 		        }
 		    };
 		    DateTimePickerDirective.prototype.ngOnDestroy = function () {
+		        if (this.sub) {
+		            this.sub.unsubscribe();
+		        }
 		        // add a click listener to document, so that it can hide when others clicked
 		        document.body.removeEventListener('click', this.hideDatetimePicker);
-		        this._el.removeEventListener('keyup', this._keyEventListener);
-		        if (this._datetimePicker) {
-		            this._datetimePicker.removeEventListener('keyup', this._keyEventListener);
+		        this.el.removeEventListener('keyup', this.keyEventListener);
+		        if (this.datetimePickerEl) {
+		            this.datetimePickerEl.removeEventListener('keyup', this.keyEventListener);
 		        }
 		    };
-		    //show datetimePicker below the current element
+		    //show datetimePicker element below the current element
 		    DateTimePickerDirective.prototype.showDatetimePicker = function () {
 		        var _this = this;
-		        if (this._componentRef) {
+		        if (this.componentRef) {
 		            return;
 		        }
-		        var factory = this._resolver.resolveComponentFactory(datetime_picker_component_1.DateTimePickerComponent);
-		        this._componentRef = this._viewContainerRef.createComponent(factory);
-		        this._datetimePicker = this._componentRef.location.nativeElement;
-		        this._datetimePicker.addEventListener('keyup', this._keyEventListener);
-		        this._initDate();
-		        this._styleDatetimePicker();
-		        var component = this._componentRef.instance;
-		        component.changes.subscribe(function (changes) {
-		            var newNgModel = new Date(changes.selectedDate);
-		            newNgModel.setHours(parseInt(changes.hour, 10));
-		            newNgModel.setMinutes(parseInt(changes.minute, 10));
-		            var formatted;
-		            if (_this.dateFormat) {
-		                formatted = datetime_1.DateTime.momentFormatDate(newNgModel, _this.dateFormat);
-		            }
-		            else {
-		                formatted = datetime_1.DateTime.formatDate(newNgModel, _this.dateOnly);
-		            }
-		            _this._el['value'] = formatted;
-		            _this._value = newNgModel;
-		            _this.valueChange.emit(newNgModel);
-		            // @deprecated
-		            if (_this.dateFormat) {
-		                newNgModel.toString = function () {
-		                    return datetime_1.DateTime.momentFormatDate(newNgModel, _this.dateFormat);
-		                };
-		            }
-		            else {
-		                newNgModel.toString = function () {
-		                    return datetime_1.DateTime.formatDate(newNgModel, _this.dateOnly);
-		                };
-		            }
-		            _this.ngModelChange.emit(newNgModel);
-		        });
+		        var factory = this.resolver.resolveComponentFactory(datetime_picker_component_1.DateTimePickerComponent);
+		        this.componentRef = this.viewContainerRef.createComponent(factory);
+		        this.datetimePickerEl = this.componentRef.location.nativeElement;
+		        this.datetimePickerEl.addEventListener('keyup', this.keyEventListener);
+		        var component = this.componentRef.instance;
+		        component.initDateTime(this.el['dateValue']);
+		        component.dateOnly = this.dateOnly;
+		        this.styleDatetimePicker();
+		        component.changes.subscribe(this.valueChanged);
 		        component.closing.subscribe(function () {
-		            if (_this.closeOnSelect !== "false") {
-		                _this.hideDatetimePicker();
-		            }
+		            _this.closeOnSelect !== "false" && _this.hideDatetimePicker();
 		        });
 		    };
-		    DateTimePickerDirective.prototype._elementIn = function (el, containerEl) {
+		    DateTimePickerDirective.prototype.elementIn = function (el, containerEl) {
 		        while (el = el.parentNode) {
 		            if (el === containerEl)
 		                return true;
 		        }
 		        return false;
 		    };
-		    DateTimePickerDirective.prototype._initDate = function () {
-		        if (this._componentRef) {
-		            var component = this._componentRef.instance;
-		            component.initDateTime(this._value);
-		            component.dateOnly = this.dateOnly;
-		        }
-		    };
-		    DateTimePickerDirective.prototype._registerEventListeners = function () {
-		        // add a click listener to document, so that it can hide when others clicked
-		        document.body.addEventListener('click', this.hideDatetimePicker);
-		        this._el.addEventListener('keyup', this._keyEventListener);
-		    };
-		    DateTimePickerDirective.prototype._styleDatetimePicker = function () {
+		    DateTimePickerDirective.prototype.styleDatetimePicker = function () {
 		        var _this = this;
-		        // setting width/height auto complete
-		        var thisElBCR = this._el.getBoundingClientRect();
-		        this._datetimePicker.style.width = thisElBCR.width + 'px';
-		        this._datetimePicker.style.position = 'absolute';
-		        this._datetimePicker.style.zIndex = '1000';
-		        this._datetimePicker.style.left = '0';
-		        this._datetimePicker.style.transition = 'height 0.3s ease-in';
-		        this._datetimePicker.style.visibility = 'hidden';
+		        // setting position, width, and height of auto complete dropdown
+		        var thisElBCR = this.el.getBoundingClientRect();
+		        this.datetimePickerEl.style.width = thisElBCR.width + 'px';
+		        this.datetimePickerEl.style.position = 'absolute';
+		        this.datetimePickerEl.style.zIndex = '1000';
+		        this.datetimePickerEl.style.left = '0';
+		        this.datetimePickerEl.style.transition = 'height 0.3s ease-in';
+		        this.datetimePickerEl.style.visibility = 'hidden';
 		        setTimeout(function () {
-		            var thisElBcr = _this._el.getBoundingClientRect();
-		            var datetimePickerElBcr = _this._datetimePicker.getBoundingClientRect();
+		            var thisElBcr = _this.el.getBoundingClientRect();
+		            var datetimePickerElBcr = _this.datetimePickerEl.getBoundingClientRect();
 		            if (thisElBcr.bottom + datetimePickerElBcr.height > window.innerHeight) {
-		                // if not enough space to show on below, show above
-		                _this._datetimePicker.style.bottom = '0';
+		                _this.datetimePickerEl.style.bottom =
+		                    (thisElBcr.bottom - window.innerHeight + 15) + 'px';
 		            }
 		            else {
 		                // otherwise, show below
-		                _this._datetimePicker.style.top = thisElBcr.height + 'px';
+		                _this.datetimePickerEl.style.top = thisElBcr.height + 'px';
 		            }
-		            _this._datetimePicker.style.visibility = 'visible';
+		            _this.datetimePickerEl.style.visibility = 'visible';
 		        });
 		    };
 		    ;
+		    /**
+		     *  returns toString function of date object
+		     */
+		    DateTimePickerDirective.prototype.getFormattedDateStr = function () {
+		        if (this.el['dateValue']) {
+		            if (this.dateFormat) {
+		                return datetime_1.DateTime.momentFormatDate(this.el['dateValue'], this.dateFormat);
+		            }
+		            else {
+		                return datetime_1.DateTime.formatDate(this.el['dateValue'], this.dateOnly);
+		            }
+		        }
+		        else {
+		            return null;
+		        }
+		    };
+		    DateTimePickerDirective.prototype.getDate = function (arg) {
+		        var date;
+		        if (typeof arg === 'string') {
+		            if (this.dateFormat) {
+		                date = datetime_1.DateTime.momentParse(arg, this.dateFormat);
+		            }
+		            else {
+		                //remove timezone and respect day light saving time
+		                date = datetime_1.DateTime.parse(arg);
+		            }
+		        }
+		        else {
+		            date = arg;
+		        }
+		        return date;
+		    };
 		    __decorate([
 		        core_1.Input('date-format'), 
 		        __metadata('design:type', String)
@@ -1825,29 +1860,29 @@ return /******/ (function(modules) { // webpackBootstrap
 		    ], DateTimePickerDirective.prototype, "closeOnSelect", void 0);
 		    __decorate([
 		        core_1.Input(), 
-		        __metadata('design:type', Date)
+		        __metadata('design:type', String)
+		    ], DateTimePickerDirective.prototype, "formControlName", void 0);
+		    __decorate([
+		        core_1.Input('ngModel'), 
+		        __metadata('design:type', Object)
 		    ], DateTimePickerDirective.prototype, "ngModel", void 0);
 		    __decorate([
-		        core_1.Output(), 
-		        __metadata('design:type', core_1.EventEmitter)
-		    ], DateTimePickerDirective.prototype, "ngModelChange", void 0);
-		    __decorate([
-		        core_1.Input('value'), 
+		        core_1.Output('ngModelChange'), 
 		        __metadata('design:type', Object)
-		    ], DateTimePickerDirective.prototype, "value", void 0);
-		    __decorate([
-		        core_1.Output('valueChange'), 
-		        __metadata('design:type', core_1.EventEmitter)
-		    ], DateTimePickerDirective.prototype, "valueChange", void 0);
+		    ], DateTimePickerDirective.prototype, "ngModelChange", void 0);
 		    DateTimePickerDirective = __decorate([
 		        core_1.Directive({
 		            selector: '[datetime-picker], [ng2-datetime-picker]',
 		            providers: [datetime_1.DateTime],
 		            host: {
-		                '(click)': 'showDatetimePicker()'
+		                '(click)': 'showDatetimePicker()',
+		                '(focus)': 'showDatetimePicker()'
 		            }
-		        }), 
-		        __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, core_1.ViewContainerRef])
+		        }),
+		        __param(2, core_1.Optional()),
+		        __param(2, core_1.Host()),
+		        __param(2, core_1.SkipSelf()), 
+		        __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, core_1.ViewContainerRef, forms_1.ControlContainer])
 		    ], DateTimePickerDirective);
 		    return DateTimePickerDirective;
 		}());
@@ -3098,7 +3133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var ng2_map_1 = __webpack_require__(8);
 		var Rx_1 = __webpack_require__(6);
 		var INPUTS = "\n  backgroundColor, center, disableDefaultUI, disableDoubleClickZoom, draggable, draggableCursor,\n  draggingCursor, heading, keyboardShortcuts, mapMaker, mapTypeControl, mapTypeId, maxZoom, minZoom,\n  noClear, overviewMapControl, panControl, panControlOptions, rotateControl, scaleControl, scrollwheel,\n  streetView, styles, tilt, zoom, streetViewControl, zoomControl, mapTypeControlOptions,\n  overviewMapControlOptions, rotateControlOptions, scaleControlOptions, streetViewControlOptions,\n  zoomControlOptions".split(',').map(function (el) { return el.trim(); });
-		var OUTPUTS = "\n  bounds_changed, center_changed, click, dblclick, drag, dragend, dragstart, heading_changed, idle\n  maptypeid_changed, mousemove, mouseout, mouseover, projection_changed, resize, rightclick, \n  tilesloaded, tile_changed, zoom_changed"
+		var OUTPUTS = "\n  bounds_changed, center_changed, click, dblclick, drag, dragend, dragstart, heading_changed, idle,\n  maptypeid_changed, mousemove, mouseout, mouseover, projection_changed, resize, rightclick,\n  tilesloaded, tile_changed, zoom_changed"
 		    .split(',').map(function (el) { return ("map" + el.trim().replace(/^[a-z]/, function (x) { return x.toUpperCase(); })); });
 		var Ng2MapComponent = (function () {
 		    function Ng2MapComponent(optionBuilder, elementRef, zone, geolocation, geoCoder, ng2Map) {
@@ -3280,12 +3315,14 @@ return /******/ (function(modules) { // webpackBootstrap
 		                _this.geolocation.getCurrentPosition().subscribe(function (position) {
 		                    console.log('setting marker position from current location');
 		                    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		                    //console.log('this.marker', this.marker);
 		                    _this.marker.setPosition(latLng);
 		                });
 		            }
 		            else if (typeof _this['position'] === 'string') {
 		                _this.geoCoder.geocode({ address: _this['position'] }).subscribe(function (results) {
 		                    console.log('setting marker position from address', _this['position']);
+		                    //console.log('this.marker', this.marker);
 		                    _this.marker.setPosition(results[0].geometry.location);
 		                });
 		            }
