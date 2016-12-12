@@ -8,20 +8,20 @@ Collection of Quality Angular 2 UIs
 
 | module             | version | most-recent version                                                                 |
 | ------------------ | ------- | ----------------------------------------------------------------------------------- |
-| ng2-auto-complete  | 0.7.4   | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
-| ng2-collapsable    | 0.3.1   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
-| ng2-datetime-picker| 0.9.8   | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
-| ng2-infinite-list  | 0.4.2   | ![](https://badge.fury.io/js/ng2-infinite-list.svg)                                 |
-| ng2-map            | 0.5.3   | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
-| ng2-menu           | 0.4.2   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
-| ng2-overlay        | 0.6.2   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
-| ng2-parallax-scroll| 0.3.2   | ![](https://badge.fury.io/js/ng2-parallax-scroll.svg)                               |
-| ng2-popup          | 0.3.2   | ![](https://badge.fury.io/js/ng2-popup.svg)                                         |
-| ng2-scrollable     | 0.6.3   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
-| ng2-sticky         | 0.3.2   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
-| ng2-tab            | 0.3.2   | ![](https://badge.fury.io/js/ng2-tab.svg)                                           |
-| ng2-tooltip-overlay| 0.3.2   | ![](https://badge.fury.io/js/ng2-tooltip-overlay.svg)                               |
-| ng2-ui-sortable    | 0.2.3   | ![](https://badge.fury.io/js/ng2-ui-sortable.svg)                                   |
+| ng2-auto-complete  | 0.8.2   | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
+| ng2-collapsable    | 0.4.2   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
+| ng2-datetime-picker| 0.12.0  | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
+| ng2-infinite-list  | 0.5.1   | ![](https://badge.fury.io/js/ng2-infinite-list.svg)                                 |
+| ng2-map            | 0.12.2  | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
+| ng2-menu           | 0.5.1   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
+| ng2-overlay        | 0.7.0   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
+| ng2-parallax-scroll| 0.4.0   | ![](https://badge.fury.io/js/ng2-parallax-scroll.svg)                               |
+| ng2-popup          | 0.4.0   | ![](https://badge.fury.io/js/ng2-popup.svg)                                         |
+| ng2-scrollable     | 0.7.0   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
+| ng2-sticky         | 0.4.0   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
+| ng2-tab            | 0.4.0   | ![](https://badge.fury.io/js/ng2-tab.svg)                                           |
+| ng2-tooltip-overlay| 0.4.0   | ![](https://badge.fury.io/js/ng2-tooltip-overlay.svg)                               |
+| ng2-ui-sortable    | 0.3.0   | ![](https://badge.fury.io/js/ng2-ui-sortable.svg)                                   |
 
 ## Install
 
