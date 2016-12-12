@@ -1,7 +1,7 @@
 import { Component, enableProdMode, ViewChild } from '@angular/core';
 // import { HTTP_PROVIDERS } from '@angular/http';
 import {
-  OverlayManager,
+  Ng2OverlayManager,
   Ng2PopupComponent,
   Ng2MessagePopupComponent,
   Ng2MapComponent,
@@ -15,7 +15,7 @@ import {
 export class AppComponent {
   id: string = 's1';
 
-  constructor(public overlayManager: OverlayManager) {
+  constructor(public overlayManager: Ng2OverlayManager) {
     console.log('overlayManager', overlayManager);
     Ng2MapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
   }

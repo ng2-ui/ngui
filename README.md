@@ -2,6 +2,8 @@
 
 Collection of Quality Angular 2 UIs
 
+[Example]((https://rawgit.com/ng2-ui/ng2-ui/master/app/index.html)
+
 ## Modules Included
 
 | module             | version | most-recent version                                                                 |
@@ -102,7 +104,5 @@ $ npm start
 ### To update dependencies
 
 ```Shell
-$ ncu --upgrade
-$ npm i && npm prune
-$ npm run build
+$ npm run upgrade
 ```
