@@ -2,7 +2,7 @@
 
 Collection of Quality Angular 2 UIs
 
-[Example]((https://rawgit.com/ng2-ui/ng2-ui/master/app/index.html)
+[Example](https://rawgit.com/ng2-ui/ng2-ui/master/app/index.html)
 
 ## Modules Included
 
