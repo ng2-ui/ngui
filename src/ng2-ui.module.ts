@@ -27,7 +27,8 @@ export {
   Ng2ScrollableDirective,
   Ng2MessagePopupComponent,
   Ng2PopupComponent,
-  Ng2MapComponent
+  Ng2MapComponent,
+  Ng2MapModule
 };
 
 @NgModule({

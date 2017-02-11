@@ -4,7 +4,6 @@ import {
   Ng2OverlayManager,
   Ng2PopupComponent,
   Ng2MessagePopupComponent,
-  Ng2MapComponent,
   Ng2ScrollableDirective
 } from 'ng2-ui';
 
@@ -17,7 +16,7 @@ export class AppComponent {
 
   constructor(public overlayManager: Ng2OverlayManager) {
     console.log('overlayManager', overlayManager);
-    Ng2MapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
+    // Ng2MapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
   }
 
   scrollTo(selector, parentSelector, horizontal) {
