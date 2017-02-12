@@ -1,6 +1,6 @@
 {
   "name": "ng2-ui",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "Collection of Quality Angular2 User Interfaces",
   "license": "MIT",
   "main": "dist/ng2-ui.umd.js",
@@ -66,7 +66,7 @@
     "ng2-infinite-list": "0.5.1",
     "ng2-map": "0.15.2",
     "ng2-menu": "0.5.1",
-    "ng2-overlay": "0.7.0",
+    "ng2-overlay": "0.7.1",
     "ng2-parallax-scroll": "0.4.0",
     "ng2-popup": "0.4.0",
     "ng2-scrollable": "0.7.1",
