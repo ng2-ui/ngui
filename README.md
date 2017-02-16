@@ -8,17 +8,17 @@ Collection of Quality Angular 2 UIs
 
 | module             | version | most-recent version                                                                 |
 | ------------------ | ------- | ----------------------------------------------------------------------------------- |
-| ng2-auto-complete  | 0.8.2   | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
-| ng2-collapsable    | 0.4.2   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
-| ng2-datetime-picker| 0.12.0  | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
+| ng2-auto-complete  | 0.10.9  | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
+| ng2-collapsable    | 0.4.0   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
+| ng2-datetime-picker| 0.14.1  | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
 | ng2-infinite-list  | 0.5.1   | ![](https://badge.fury.io/js/ng2-infinite-list.svg)                                 |
-| ng2-map            | 0.12.2  | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
+| ng2-map            | 0.15.5  | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
 | ng2-menu           | 0.5.1   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
-| ng2-overlay        | 0.7.0   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
+| ng2-overlay        | 0.7.1   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
 | ng2-parallax-scroll| 0.4.0   | ![](https://badge.fury.io/js/ng2-parallax-scroll.svg)                               |
 | ng2-popup          | 0.4.0   | ![](https://badge.fury.io/js/ng2-popup.svg)                                         |
-| ng2-scrollable     | 0.7.0   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
-| ng2-sticky         | 0.4.0   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
+| ng2-scrollable     | 0.7.1   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
+| ng2-sticky         | 0.4.1   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
 | ng2-tab            | 0.4.0   | ![](https://badge.fury.io/js/ng2-tab.svg)                                           |
 | ng2-tooltip-overlay| 0.4.0   | ![](https://badge.fury.io/js/ng2-tooltip-overlay.svg)                               |
 | ng2-ui-sortable    | 0.3.0   | ![](https://badge.fury.io/js/ng2-ui-sortable.svg)                                   |
@@ -52,7 +52,13 @@ Collection of Quality Angular 2 UIs
     import { Ng2UIModule }    from 'ng2-ui';              // <---- this
 
     @NgModule({
-      imports: [BrowserModule, FormsModule, HttpModule, Ng2UIModule], // <--- this
+      imports: [
+        BrowserModule, 
+        FormsModule, 
+        HttpModule, 
+        Ng2UIModule,  // <--- this
+        Ng2MapModule['forRoot']({ apiUrl: 'YOUR GOOGLE MAP URL WITH KEY'}) // <---- this
+      ],
       declarations: [AppComponent],
       bootstrap: [AppComponent]
     })

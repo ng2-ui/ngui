@@ -1,12 +1,14 @@
 <h3>ng2-datetime-picker</h3>
-<input datetime-picker [(ngModel)]="model1" date-only="true"/> <br/>
+<input ng2-datetime-picker [(ngModel)]="model1" date-only="true"/> <br/>
 
 <h3>ng2-auto-complete</h3>
-<input auto-complete [source]="arrayOfKeyValues"
+<input ng2-auto-complete
+  [source]="arrayOfKeyValues"
   [(ngModel)]="model3"
   placeholder="enter text"
-  value-property-name="key"
-  display-property-name="name"/>
+  display-property-name="name"
+  list-formatter="(key) name"
+/>
 <br/> selected: {{model3 | json}}
 
 <h3>ng2-overlay</h3>
@@ -16,13 +18,6 @@
 </div>
 <button (click)="overlayManager.open('window-loading')">Show Loading For Window</button>
 
-
-<h3>ng2-scrollable</h3>
-currentSection: {{id}}
-<div (scrolledTo)="id=$event" ng2-scrollable style="overflow:auto; height: 2em">
-  <div id="s1">One</div> <div id="s2">Two</div> <div id="s3">Three</div> <div id="s4">Four</div> <div id="s5">Five</div>
-  <div id="s6">Six</div> <div id="s7">Seven</div> <div id="s8">Eight</div> <div id="s9">Nine</div>
-</div>
 
 <h3>ng2-tooltop-overlay</h3>
 <div ng2-tooltip="This is my tooltip">
@@ -50,6 +45,10 @@ currentSection: {{id}}
 <h3>ng2-map</h3>
 <ng2-map center="Brampton, Canada" scrollwheel="false">
   <marker position="Brampton, Canada" draggable="true"></marker>
+</ng2-map>
+
+<ng2-map center="New York, USA" scrollwheel="false">
+  <marker position="New York, USA" draggable="true"></marker>
 </ng2-map>
 
 <h3>ng2-infinite-list</h3>
