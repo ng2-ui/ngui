@@ -28,7 +28,7 @@ Collection of Quality Angular 2 UIs
 * npm
 
     ```Shell
-    $ npm install ng2-ui
+    $ npm install ng2-ui @types/googlemaps @types/hammerjs --save-dev
     ```
 
 * update `systemjs.config.js` map and packages
