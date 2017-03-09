@@ -6,10 +6,10 @@ module.exports = {
     'ng2-ui': path.join(__dirname, 'src', 'index.ts')
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.json', '.css', '.html']
+    extensions: ['.ts', '.js', '.json', '.css', '.html']
   },
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
+    modules: [path.join(__dirname, 'node_modules')]
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -23,10 +23,10 @@ module.exports = {
   ],
   devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       { // Support for .ts files.
         test: /\.ts$/,
-        loaders: ['ts', 'angular2-template-loader']
+        loaders: ['ts-loader', 'angular2-template-loader']
       }
     ]
   }

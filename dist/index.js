@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ng2_ui_module_1 = require("./ng2-ui.module");
 exports.Ng2ScrollableDirective = ng2_ui_module_1.Ng2ScrollableDirective;
 exports.Ng2MessagePopupComponent = ng2_ui_module_1.Ng2MessagePopupComponent;
