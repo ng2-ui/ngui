@@ -8,11 +8,11 @@ Collection of Quality Angular 2 UIs
 
 | module             | version | most-recent version                                                                 |
 | ------------------ | ------- | ----------------------------------------------------------------------------------- |
-| ng2-auto-complete  | 0.11.0  | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
+| ng2-auto-complete  | 0.11.1  | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
 | ng2-collapsable    | 0.4.0   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
-| ng2-datetime-picker| 0.14.6  | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
+| ng2-datetime-picker| 0.14.7  | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
 | ng2-infinite-list  | 0.5.1   | ![](https://badge.fury.io/js/ng2-infinite-list.svg)                                 |
-| ng2-map            | 0.16.2  | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
+| ng2-map            | 0.16.3  | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
 | ng2-menu           | 0.5.1   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
 | ng2-overlay        | 0.7.2   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
 | ng2-parallax-scroll| 0.4.0   | ![](https://badge.fury.io/js/ng2-parallax-scroll.svg)                               |

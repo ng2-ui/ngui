@@ -551,23 +551,26 @@ var OptionBuilder = (function () {
                         || input;
             }
         }
-        if (output instanceof Array) {
-            if (options['key'] === 'bounds') {
-                output = new google.maps.LatLngBounds(output[0], output[1]);
+        if (options['key']) {
+            var key = options['key'];
+            if (output instanceof Array) {
+                if (key === 'bounds') {
+                    output = new google.maps.LatLngBounds(output[0], output[1]);
+                }
+                else if (key === 'icons') {
+                    output = this.getMapIcons(output);
+                }
+                else if (key === 'position' || key.match(/^geoFallback/)) {
+                    output = this.getLatLng(output);
+                }
             }
-            else if (options['key'] === 'icons') {
-                output = this.getMapIcons(output);
-            }
-            else if (options['key'] === 'position' || options['key'].match(/^geoFallback/)) {
-                output = this.getLatLng(output);
-            }
-        }
-        else if (options['key'] && output instanceof Object) {
-            if (options['key'] === 'icon') {
-                output = this.getMarkerIcon(output);
-            }
-            else if (options['key'].match(/ControlOptions$/)) {
-                output = this.getMapControlOption(output);
+            else if (output instanceof Object) {
+                if (key === 'icon') {
+                    output = this.getMarkerIcon(output);
+                }
+                else if (key.match(/ControlOptions$/)) {
+                    output = this.getMapControlOption(output);
+                }
             }
         }
         //delete keys only for processing, not used by google
@@ -784,9 +787,12 @@ var Ng2Datetime = (function () {
             }
             return date;
         }
-        else {
+        else if (dateStr.length > 4) {
             var date = moment(dateStr, 'YYYY-MM-DD HH:mm').toDate();
             return date;
+        }
+        else {
+            return new Date();
         }
     };
     //remove timezone
@@ -4029,6 +4035,7 @@ var Ng2AutoCompleteComponent = (function () {
         this.loadingText = "Loading";
         this.showInputTag = true;
         this.showDropdownOnInit = false;
+        this.tabToSelect = true;
         this.valueSelected = new core_1.EventEmitter();
         this.dropdownVisible = false;
         this.isLoading = false;
@@ -4058,6 +4065,11 @@ var Ng2AutoCompleteComponent = (function () {
                         _this.selectOne(_this.filteredList[_this.itemIndex]);
                     }
                     evt.preventDefault();
+                    break;
+                case 9:
+                    if (_this.tabToSelect && _this.filteredList.length > 0) {
+                        _this.selectOne(_this.filteredList[_this.itemIndex]);
+                    }
                     break;
             }
         };
@@ -4190,10 +4202,10 @@ var Ng2AutoCompleteComponent = (function () {
                 },] },
     ];
     /** @nocollapse */
-    Ng2AutoCompleteComponent.ctorParameters = [
+    Ng2AutoCompleteComponent.ctorParameters = function () { return [
         { type: core_1.ElementRef, },
         { type: ng2_auto_complete_1.Ng2AutoComplete, },
-    ];
+    ]; };
     Ng2AutoCompleteComponent.propDecorators = {
         'listFormatter': [{ type: core_1.Input, args: ["list-formatter",] },],
         'source': [{ type: core_1.Input, args: ["source",] },],
@@ -4207,6 +4219,7 @@ var Ng2AutoCompleteComponent = (function () {
         'maxNumList': [{ type: core_1.Input, args: ["max-num-list",] },],
         'showInputTag': [{ type: core_1.Input, args: ["show-input-tag",] },],
         'showDropdownOnInit': [{ type: core_1.Input, args: ["show-dropdown-on-init",] },],
+        'tabToSelect': [{ type: core_1.Input, args: ["tab-to-select",] },],
         'valueSelected': [{ type: core_1.Output },],
         'autoCompleteInput': [{ type: core_1.ViewChild, args: ['autoCompleteInput',] },],
     };
@@ -4273,9 +4286,9 @@ var Ng2AutoComplete = (function () {
         { type: core_1.Injectable },
     ];
     /** @nocollapse */
-    Ng2AutoComplete.ctorParameters = [
+    Ng2AutoComplete.ctorParameters = function () { return [
         { type: http_1.Http, decorators: [{ type: core_1.Optional },] },
-    ];
+    ]; };
     return Ng2AutoComplete;
 }());
 exports.Ng2AutoComplete = Ng2AutoComplete;
@@ -4658,6 +4671,7 @@ var Ng2AutoCompleteDirective = (function () {
         this.viewContainerRef = viewContainerRef;
         this.parentForm = parentForm;
         this.loadingText = "Loading";
+        this.tabToSelect = true;
         this.ngModelChange = new core_1.EventEmitter();
         this.valueChanged = new core_1.EventEmitter();
         //show auto-complete list below the current element
@@ -4676,6 +4690,7 @@ var Ng2AutoCompleteDirective = (function () {
             component.listFormatter = _this.listFormatter;
             component.blankOptionText = _this.blankOptionText;
             component.noMatchFoundText = _this.noMatchFoundText;
+            component.tabToSelect = _this.tabToSelect;
             component.valueSelected.subscribe(_this.selectNewValue);
             _this.acDropdownEl = _this.componentRef.location.nativeElement;
             _this.acDropdownEl.style.display = "none";
@@ -4834,7 +4849,7 @@ var Ng2AutoCompleteDirective = (function () {
             else if (this.displayPropertyName) {
                 displayVal_1 = item[this.displayPropertyName];
             }
-            else if (!this.displayPropertyName && this.listFormatter && this.listFormatter.match(/^\w+$/)) {
+            else if (typeof this.listFormatter === 'string' && this.listFormatter.match(/^\w+$/)) {
                 displayVal_1 = item[this.listFormatter];
             }
             else {
@@ -4852,12 +4867,12 @@ var Ng2AutoCompleteDirective = (function () {
                 },] },
     ];
     /** @nocollapse */
-    Ng2AutoCompleteDirective.ctorParameters = [
+    Ng2AutoCompleteDirective.ctorParameters = function () { return [
         { type: core_1.ComponentFactoryResolver, },
         { type: core_1.Renderer, },
         { type: core_1.ViewContainerRef, },
         { type: forms_1.ControlContainer, decorators: [{ type: core_1.Optional }, { type: core_1.Host }, { type: core_1.SkipSelf },] },
-    ];
+    ]; };
     Ng2AutoCompleteDirective.propDecorators = {
         'autoCompletePlaceholder': [{ type: core_1.Input, args: ["auto-complete-placeholder",] },],
         'source': [{ type: core_1.Input, args: ["source",] },],
@@ -4872,6 +4887,7 @@ var Ng2AutoCompleteDirective = (function () {
         'blankOptionText': [{ type: core_1.Input, args: ["blank-option-text",] },],
         'noMatchFoundText': [{ type: core_1.Input, args: ["no-match-found-text",] },],
         'valueFormatter': [{ type: core_1.Input, args: ["value-formatter",] },],
+        'tabToSelect': [{ type: core_1.Input, args: ["tab-to-select",] },],
         'ngModel': [{ type: core_1.Input },],
         'formControlName': [{ type: core_1.Input, args: ['formControlName',] },],
         'extFormControl': [{ type: core_1.Input, args: ['formControl',] },],
@@ -4977,14 +4993,22 @@ var core_1 = __webpack_require__(0);
 var forms_1 = __webpack_require__(2);
 var ng2_datetime_picker_component_1 = __webpack_require__(16);
 var ng2_datetime_1 = __webpack_require__(9);
-Number.isInteger = Number.isInteger || function (value) {
+function isInteger(value) {
+    if (Number.isInteger) {
+        return Number.isInteger(value);
+    }
     return typeof value === "number" &&
         isFinite(value) &&
         Math.floor(value) === value;
-};
-Number.isNaN = Number.isNaN || function (value) {
+}
+;
+function isNaN(value) {
+    if (Number.isNaN) {
+        return Number.isNaN(value);
+    }
     return value !== value;
-};
+}
+;
 /**
  * If the given string is not a valid date, it defaults back to today
  */
@@ -4994,6 +5018,7 @@ var Ng2DatetimePickerDirective = (function () {
         this.resolver = resolver;
         this.viewContainerRef = viewContainerRef;
         this.parent = parent;
+        this.closeOnSelect = true;
         this.ngModelChange = new core_1.EventEmitter();
         this.valueChanged$ = new core_1.EventEmitter();
         this.popupClosed$ = new core_1.EventEmitter();
@@ -5018,11 +5043,15 @@ var Ng2DatetimePickerDirective = (function () {
             var factory = _this.resolver.resolveComponentFactory(ng2_datetime_picker_component_1.Ng2DatetimePickerComponent);
             _this.componentRef = _this.viewContainerRef.createComponent(factory);
             _this.ng2DatetimePickerEl = _this.componentRef.location.nativeElement;
+            _this.ng2DatetimePickerEl.setAttribute('tabindex', '32767');
             _this.ng2DatetimePickerEl.addEventListener('mousedown', function (event) {
                 _this.clickedDatetimePicker = true;
             });
             _this.ng2DatetimePickerEl.addEventListener('mouseup', function (event) {
                 _this.clickedDatetimePicker = false;
+            });
+            _this.ng2DatetimePickerEl.addEventListener('blur', function (event) {
+                _this.hideDatetimePicker();
             });
             var component = _this.componentRef.instance;
             component.defaultValue = _this.defaultValue || _this.el['dateValue'];
@@ -5035,7 +5064,7 @@ var Ng2DatetimePickerDirective = (function () {
             component.minHour = _this.minHour;
             component.maxHour = _this.maxHour;
             component.disabledDates = _this.disabledDates;
-            component.showCloseButton = _this.closeOnSelect === "false";
+            component.showCloseButton = _this.closeOnSelect === false;
             component.showCloseLayer = _this.showCloseLayer;
             _this.styleDatetimePicker();
             component.selected$.subscribe(_this.dateSelected);
@@ -5049,7 +5078,12 @@ var Ng2DatetimePickerDirective = (function () {
         this.dateSelected = function (date) {
             _this.el.tagName === 'INPUT' && _this.inputElValueChanged(date);
             _this.valueChanged$.emit(date);
-            _this.closeOnSelect !== "false" && _this.hideDatetimePicker();
+            if (_this.closeOnSelect !== false) {
+                _this.hideDatetimePicker();
+            }
+            else {
+                _this.ng2DatetimePickerEl.focus();
+            }
         };
         this.hideDatetimePicker = function (event) {
             if (_this.clickedDatetimePicker) {
@@ -5077,15 +5111,15 @@ var Ng2DatetimePickerDirective = (function () {
     Ng2DatetimePickerDirective.prototype.normalizeInput = function () {
         if (this.defaultValue && typeof this.defaultValue === 'string') {
             var d = ng2_datetime_1.Ng2Datetime.parseDate(this.defaultValue);
-            this.defaultValue = Number.isNaN(d.getTime()) ? new Date() : d;
+            this.defaultValue = isNaN(d.getTime()) ? new Date() : d;
         }
         if (this.minDate && typeof this.minDate == 'string') {
             var d = ng2_datetime_1.Ng2Datetime.parseDate(this.minDate);
-            this.minDate = Number.isNaN(d.getTime()) ? new Date() : d;
+            this.minDate = isNaN(d.getTime()) ? new Date() : d;
         }
         if (this.maxDate && typeof this.maxDate == 'string') {
             var d = ng2_datetime_1.Ng2Datetime.parseDate(this.minDate);
-            this.maxDate = Number.isNaN(d.getTime()) ? new Date() : d;
+            this.maxDate = isNaN(d.getTime()) ? new Date() : d;
         }
         if (this.minHour) {
             if (this.minHour instanceof Date) {
@@ -5093,7 +5127,7 @@ var Ng2DatetimePickerDirective = (function () {
             }
             else {
                 var hour = Number(this.minHour.toString());
-                if (!Number.isInteger(hour) || hour > 23 || hour < 0) {
+                if (!isInteger(hour) || hour > 23 || hour < 0) {
                     this.minHour = undefined;
                 }
             }
@@ -5104,7 +5138,7 @@ var Ng2DatetimePickerDirective = (function () {
             }
             else {
                 var hour = Number(this.maxHour.toString());
-                if (!Number.isInteger(hour) || hour > 23 || hour < 0) {
+                if (!isInteger(hour) || hour > 23 || hour < 0) {
                     this.maxHour = undefined;
                 }
             }
@@ -8861,7 +8895,7 @@ var Ng2AutoCompleteModule = (function () {
                 },] },
     ];
     /** @nocollapse */
-    Ng2AutoCompleteModule.ctorParameters = [];
+    Ng2AutoCompleteModule.ctorParameters = function () { return []; };
     return Ng2AutoCompleteModule;
 }());
 exports.Ng2AutoCompleteModule = Ng2AutoCompleteModule;
