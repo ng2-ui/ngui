@@ -1,11 +1,11 @@
 import { Component, enableProdMode, ViewChild } from '@angular/core';
 // import { HTTP_PROVIDERS } from '@angular/http';
 import {
-  Ng2OverlayManager,
-  Ng2PopupComponent,
-  Ng2MessagePopupComponent,
-  Ng2ScrollableDirective
-} from 'ng2-ui';
+  NguiOverlayManager,
+  NguiPopupComponent,
+  NguiMessagePopupComponent,
+  NguiScrollableDirective
+} from '@ngui/ngui';
 
 @Component({
   selector: 'my-app',
@@ -14,14 +14,14 @@ import {
 export class AppComponent {
   id: string = 's1';
 
-  constructor(public overlayManager: Ng2OverlayManager) {
+  constructor(public overlayManager: NguiOverlayManager) {
     console.log('overlayManager', overlayManager);
-    // Ng2MapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
+    // NguiMapComponent['apiUrl'] = "https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM";
   }
 
   scrollTo(selector, parentSelector, horizontal) {
     console.log('selector', selector, parentSelector, horizontal);
-    Ng2ScrollableDirective.scrollTo(
+    NguiScrollableDirective.scrollTo(
       selector,       // scroll to this
       parentSelector, // scroll within (null if window scrolling)
       horizontal       // is it horizontal scrolling
@@ -32,10 +32,10 @@ export class AppComponent {
   arrayOfKeyValues: any[] =
     [{key:1, name:'Key One'}, {key:2, name:'Key Two'}, {key:3, name:'Key Three'}, {key:4, name:'Key Four'}];
 
-  @ViewChild(Ng2PopupComponent) popup: Ng2PopupComponent;
+  @ViewChild(NguiPopupComponent) popup: NguiPopupComponent;
 
   openPopup(size, title) {
-    this.popup.open(Ng2MessagePopupComponent, {
+    this.popup.open(NguiMessagePopupComponent, {
       classNames: size,
       title: title,
       message: "This is message given using popup.open()"

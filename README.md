@@ -2,45 +2,45 @@
 
 Collection of Quality Angular 2 UIs
 
-[Example](https://rawgit.com/ng2-ui/ng2-ui/master/app/index.html)
+[Example](https://rawgit.com/ng2-ui/ngui/master/app/index.html)
 
 ## Modules Included
 
-| module             | version | most-recent version                                                                 |
-| ------------------ | ------- | ----------------------------------------------------------------------------------- |
-| ng2-auto-complete  | 0.11.1  | ![](https://badge.fury.io/js/ng2-auto-complete.svg)                                 |
-| ng2-collapsable    | 0.4.0   | ![](https://badge.fury.io/js/ng2-collapsable.svg)                                   |
-| ng2-datetime-picker| 0.14.7  | ![](https://badge.fury.io/js/ng2-datetime-picker.svg)                               |
-| ng2-infinite-list  | 0.5.1   | ![](https://badge.fury.io/js/ng2-infinite-list.svg)                                 |
-| ng2-map            | 0.16.3  | ![](https://badge.fury.io/js/ng2-map.svg)                                           |
-| ng2-menu           | 0.5.1   | ![](https://badge.fury.io/js/ng2-menu.svg)                                          |
-| ng2-overlay        | 0.7.2   | ![](https://badge.fury.io/js/ng2-overlay.svg)                                       |
-| ng2-parallax-scroll| 0.4.0   | ![](https://badge.fury.io/js/ng2-parallax-scroll.svg)                               |
-| ng2-popup          | 0.4.0   | ![](https://badge.fury.io/js/ng2-popup.svg)                                         |
-| ng2-scrollable     | 0.8.0   | ![](https://badge.fury.io/js/ng2-scrollable.svg)                                    |
-| ng2-sticky         | 0.5.0   | ![](https://badge.fury.io/js/ng2-sticky.svg)                                        |
-| ng2-tab            | 0.4.0   | ![](https://badge.fury.io/js/ng2-tab.svg)                                           |
-| ng2-tooltip-overlay| 0.4.0   | ![](https://badge.fury.io/js/ng2-tooltip-overlay.svg)                               |
-| ng2-ui-sortable    | 0.3.0   | ![](https://badge.fury.io/js/ng2-ui-sortable.svg)                                   |
+| module               | version | most-recent version                                                                 |
+| -------------------- | ------- | ----------------------------------------------------------------------------------- |
+| @ngui/auto-complete  | 0.13.0  | ![](https://badge.fury.io/js/%40ngui%2Fauto-complete.svg)                           |
+| @ngui/collapsable    | 0.5.0   | ![](https://badge.fury.io/js/%40ngui%2Fcollapsable.svg)                             |
+| @ngui/datetime-picker| 0.16.0  | ![](https://badge.fury.io/js/%40ngui%2Fdatetime-picker.svg)                         |
+| @ngui/infinite-list  | 0.6.0   | ![](https://badge.fury.io/js/%40ngui%2Finfinite-list.svg)                           |
+| @ngui/map            | 0.17.0  | ![](https://badge.fury.io/js/%40ngui%2Fmap.svg)                                     |
+| @ngui/menu           | 0.6.0   | ![](https://badge.fury.io/js/%40ngui%2Fmenu.svg)                                    |
+| @ngui/overlay        | 0.8.0   | ![](https://badge.fury.io/js/%40ngui%2Foverlay.svg)                                 |
+| @ngui/parallax-scroll| 0.5.0   | ![](https://badge.fury.io/js/%40ngui%2Fparallax-scroll.svg)                         |
+| @ngui/popup          | 0.5.0   | ![](https://badge.fury.io/js/%40ngui%2Fpopup.svg)                                   |
+| @ngui/scrollable     | 0.9.0   | ![](https://badge.fury.io/js/%40ngui%2Fscrollable.svg)                              |
+| @ngui/sticky         | 0.6.0   | ![](https://badge.fury.io/js/%40ngui%2Fsticky.svg)                                  |
+| @ngui/tab            | 0.5.0   | ![](https://badge.fury.io/js/%40ngui%2Ftab.svg)                                     |
+| @ngui/tooltip        | 0.5.0   | ![](https://badge.fury.io/js/%40ngui%2Ftooltip.svg)                                 |
+| @ngui/sortable       | 0.4.0   | ![](https://badge.fury.io/js/%40ngui%2Fsortable.svg)                                |
+| @ngui/react          | 0.3.0   | ![](https://badge.fury.io/js/%40ngui%2Freact.svg)                                   |
 
 ## Install
 
 * npm
 
     ```Shell
-    $ npm install ng2-ui @types/googlemaps @types/hammerjs --save-dev
+    $ npm install @ngui/ngui @types/googlemaps @types/hammerjs --save-dev
     ```
 
 * update `systemjs.config.js` map and packages
 
     ```TypeScript
-    map['ng2-ui'] =  'node_modules/ng2-ui/dist';
-    packages['ng2-ui'] = {main: 'ng2-ui.umd.js', defaultExtension: 'js'}
+    map['@ngui/ngui'] =  'node_modules/@ngui/ngui/dist/ngui.umd.js';
     ```
 
 ## Usage
 
-* import `Ng2UIModule` into your app.module.ts
+* import `NguiModule` into your app.module.ts
 
     ```TypeScript
     import { NgModule }       from '@angular/core';
@@ -49,15 +49,15 @@ Collection of Quality Angular 2 UIs
     import { HttpModule } from '@angular/http';
 
     import { AppComponent }   from './app.component';
-    import { Ng2UIModule }    from 'ng2-ui';              // <---- this
+    import { NguiModule, NguiMapModule }  from '@ngui/ngui';              // <---- this
 
     @NgModule({
       imports: [
         BrowserModule, 
         FormsModule, 
         HttpModule, 
-        Ng2UIModule,  // <--- this
-        Ng2MapModule['forRoot']({ apiUrl: 'YOUR GOOGLE MAP URL WITH KEY'}) // <---- this
+        NguiModule,  // <--- this
+        NguiMapModule['forRoot']({ apiUrl: 'YOUR GOOGLE MAP URL WITH KEY'}) // <---- this
       ],
       declarations: [AppComponent],
       bootstrap: [AppComponent]
@@ -68,11 +68,11 @@ Collection of Quality Angular 2 UIs
 * It's ready. Now use it in your template
 
     ```HTML
-    <input ng2-auto-complete [source]="arrayOfKeyValues" [(ngModel)]="myModel" />
+    <input ngui-auto-complete [source]="arrayOfKeyValues" [(ngModel)]="myModel" />
 
-    <input [(ngModel)]="date1" ng2-datetime-picker />
+    <input [(ngModel)]="date1" ngui-datetime-picker />
 
-    <ng2-map center="Brampton, Canada"></ng2-map>
+    <ngui-map center="Brampton, Canada"></ngui-map>
     ```
 
 ## **ng2-ui** welcomes new members and contributors
@@ -100,8 +100,8 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
 ### To start
 
 ```Shell
-$ git clone https://github.com/ng2-ui/ng2-map.git
-$ cd ng2-ui
+$ git clone https://github.com/ng2-ui/ngui.git
+$ cd ngui
 $ npm install
 $ npm run build
 $ npm start

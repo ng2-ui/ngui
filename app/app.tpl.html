@@ -1,8 +1,8 @@
-<h3>ng2-datetime-picker</h3>
-<input ng2-datetime-picker [(ngModel)]="model1" date-only="true"/> <br/>
+<h3>ngui-datetime-picker</h3>
+<input ngui-datetime-picker [(ngModel)]="model1" date-only="true"/> <br/>
 
-<h3>ng2-auto-complete</h3>
-<input ng2-auto-complete
+<h3>ngui-auto-complete</h3>
+<input ngui-auto-complete
   [source]="arrayOfKeyValues"
   [(ngModel)]="model3"
   placeholder="enter text"
@@ -11,29 +11,29 @@
 />
 <br/> selected: {{model3 | json}}
 
-<h3>ng2-overlay</h3>
-<div id="window-loading" ng2-overlay-of="window">
+<h3>ngui-overlay</h3>
+<div id="window-loading" ngui-overlay-of="window">
   <div style="color:#fff">Loading</div>
   <button (click)="overlayManager.close('window-loading')">Close</button>
 </div>
 <button (click)="overlayManager.open('window-loading')">Show Loading For Window</button>
 
 
-<h3>ng2-tooltop-overlay</h3>
-<div ng2-tooltip="This is my tooltip">
+<h3>ngui-tooltop-overlay</h3>
+<div ngui-tooltip="This is my tooltip">
   tooltip 1
 </div>
 
-<h3>ng2-menu</h3>
+<h3>ngui-menu</h3>
 <div class="dropdown-menu">Dropdown Menu
   <ul class="horizontal-menu">
     <li> Item 1
-      <ul ng2-menu="bottom">
+      <ul ngui-menu="bottom">
         <li> Menu Item 1-1 <li> Menu Item 1-2 <li> Menu Item 1-3
       </ul>
     <li> Item 2
-      <ul ng2-menu="bottom">
-        <li> Menu Item 2-1 <li> Item 2-2 <ul ng2-menu="right">
+      <ul ngui-menu="bottom">
+        <li> Menu Item 2-1 <li> Item 2-2 <ul ngui-menu="right">
             <li> Menu Item 2-2-1 <li> Menu Item 2-2-2 <li> Menu Item 2-2-3 </ul>
         <li> Menu Item 2-3
       </ul>
@@ -42,24 +42,24 @@
 </div>
 
 
-<h3>ng2-map</h3>
-<ng2-map center="Brampton, Canada" scrollwheel="false">
+<h3>ngui-map</h3>
+<ngui-map center="Brampton, Canada" scrollwheel="false">
   <marker position="Brampton, Canada" draggable="true"></marker>
-</ng2-map>
+</ngui-map>
 
-<ng2-map center="New York, USA" scrollwheel="false">
+<ngui-map center="New York, USA" scrollwheel="false">
   <marker position="New York, USA" draggable="true"></marker>
-</ng2-map>
+</ngui-map>
 
-<h3>ng2-infinite-list</h3>
+<h3>ngui-infinite-list</h3>
 
-<h3>ng2-parallax-scroll</h3>
-<div ng2-parallax style="height: 300px">
+<h3>ngui-parallax-scroll</h3>
+<div ngui-parallax style="height: 300px">
   <img src="http://materializecss.com/images/parallax1.jpg" />
 </div>
 
-<h3>ng2-tab</h3>
-<ng2-tab
+<h3>ngui-tab</h3>
+<ngui-tab
     selected="js"
     selected-index-class="selected"
     selected-contents-class="fadeIn animated">
@@ -71,10 +71,10 @@
     <div contents="html">HTML {{1}}</div>
     <div contents="js">Javascript {{1}}</div>
   </div>
-</ng2-tab>
+</ngui-tab>
 
-<h3>ng2-collapsable</h3>
-<div ng2-collapsable
+<h3>ngui-collapsable</h3>
+<div ngui-collapsable
      selected="js"
      selected-index-class="selected"
      selected-contents-class="selected">
@@ -88,22 +88,22 @@
   <div contents="css">Style Sheet</div>
 </div>
 
-<h3>ng2-popup</h3>
-<ng2-popup #popup></ng2-popup>
+<h3>ngui-popup</h3>
+<ngui-popup #popup></ngui-popup>
 <button (click)="openPopup('small', 'Hello Small Popup')">open small message popup</button>
 
 
-<h3>ng2-sticky</h3>
-<div class="ng2-sticky">
+<h3>ngui-sticky</h3>
+<div class="ngui-sticky">
   <div class="container">
     <div class="float-right">
-      <div ng2-sticky style="float: right"> float: right </div>
+      <div ngui-sticky style="float: right"> float: right </div>
     </div>
   </div>
 </div>
 
 
-<h3>ng2-scrollable</h3>
+<h3>ngui-scrollable</h3>
 <fieldset>
   <legend>Scroll Within a Section Vertically</legend>
   <ul>
@@ -114,7 +114,7 @@
 
   scrolled to: {{id}}
   <div id="v-scrollable" class="scrollable section"
-       ng2-scrollable (elementVisible)="id = $event.id">
+       ngui-scrollable (elementVisible)="id = $event.id">
     <div id="s1">Section 1  (scroll to here)</div>
     <div id="s2">Section 2  (scroll to here)</div>
     <div id="s3">Section 3  (scroll to here)</div>
@@ -128,8 +128,8 @@
   </div>
 </fieldset>
 
-<h3>ng2-ui-sortable</h3>
-<ul ng2-sortable>
+<h3>ngui-sortable</h3>
+<ul ngui-sortable>
   <li id="order">Order</li>
   <li id="me">Me</li>
   <li id="right">Right</li>

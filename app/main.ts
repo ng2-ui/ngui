@@ -10,7 +10,7 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from "@angular/forms";
 import { HttpModule } from '@angular/http';
-import { Ng2UIModule, Ng2MapModule }  from 'ng2-ui';
+import { NguiModule, NguiMapModule }  from '@ngui/ngui';
 
 import { AppComponent }   from './app.component';
 
@@ -20,8 +20,8 @@ import { AppComponent }   from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2UIModule,
-    Ng2MapModule['forRoot']({
+    NguiModule,
+    NguiMapModule['forRoot']({
       apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyCbMGRUwcqKjlYX4h4-P6t-xcDryRYLmCM' +
       '&libraries=visualization,places,drawing',
     })

@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'ng2-ui': path.join(__dirname, 'src', 'index.ts')
+    '@ngui/ngui': path.join(__dirname, 'src', 'index.ts')
   },
   resolve: {
     extensions: ['.ts', '.js', '.json', '.css', '.html']
@@ -13,8 +13,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: "[name].umd.js",
-    library: ["[name]"],
+    filename: "ngui.umd.js",
+    library: ["ngui"],
     libraryTarget: "umd"
   },
   externals: [

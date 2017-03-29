@@ -1,10 +1,10 @@
-ul[ng2-sortable] {
+ul[ngui-sortable] {
   padding: 10px;
   border: 1px solid #ccc;
   list-style: none;
   display: block
 }
-ul[ng2-sortable] li {
+ul[ngui-sortable] li {
   padding: 10px 5px;
   background: #4986e7;
   color: #fff;
@@ -12,6 +12,6 @@ ul[ng2-sortable] li {
   display: block;
   position: relative
 }
-ul[ng2-sortable] li.drag-enter {
+ul[ngui-sortable] li.drag-enter {
   border-top: 2px solid yellow;
 }
