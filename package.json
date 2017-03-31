@@ -1,6 +1,6 @@
 {
   "name": "@ngui/ngui",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "Collection of Quality Angular2 User Interfaces",
   "license": "MIT",
   "main": "dist/ngui.umd.js",

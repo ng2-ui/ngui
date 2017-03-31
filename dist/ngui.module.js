@@ -19,6 +19,8 @@ var scrollable_1 = require("@ngui/scrollable");
 var collapsable_1 = require("@ngui/collapsable");
 var infinite_list_1 = require("@ngui/infinite-list");
 var react_1 = require("@ngui/react");
+var utils_1 = require("@ngui/utils");
+exports.NguiUtilsModule = utils_1.NguiUtilsModule;
 var overlay_2 = require("@ngui/overlay");
 exports.NguiOverlayManager = overlay_2.NguiOverlayManager;
 var scrollable_2 = require("@ngui/scrollable");
@@ -28,14 +30,14 @@ exports.NguiMessagePopupComponent = popup_2.NguiMessagePopupComponent;
 exports.NguiPopupComponent = popup_2.NguiPopupComponent;
 var map_2 = require("@ngui/map");
 exports.NguiMapComponent = map_2.NguiMapComponent;
-var utils_1 = require("@ngui/utils");
-exports.scrollTo = utils_1.scrollTo;
-exports.elementVisible = utils_1.elementVisible;
-exports.computedStyle = utils_1.computedStyle;
-exports.outerWidth = utils_1.outerWidth;
-exports.outerHeight = utils_1.outerHeight;
-exports.MemoryStorage = utils_1.MemoryStorage;
-exports.Storage = utils_1.Storage;
+var utils_2 = require("@ngui/utils");
+exports.scrollTo = utils_2.scrollTo;
+exports.elementVisible = utils_2.elementVisible;
+exports.computedStyle = utils_2.computedStyle;
+exports.outerWidth = utils_2.outerWidth;
+exports.outerHeight = utils_2.outerHeight;
+exports.MemoryStorage = utils_2.MemoryStorage;
+exports.Storage = utils_2.Storage;
 var NguiModule = (function () {
     function NguiModule() {
     }
@@ -59,7 +61,8 @@ NguiModule.decorators = [
                     overlay_1.NguiOverlayModule,
                     sortable_1.NguiSortableModule,
                     collapsable_1.NguiCollapsableModule,
-                    react_1.NguiReactModule
+                    react_1.NguiReactModule,
+                    utils_1.NguiUtilsModule
                 ],
                 providers: [overlay_2.NguiOverlayManager]
             },] },

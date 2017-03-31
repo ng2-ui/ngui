@@ -1,6 +1,7 @@
 export {
   NguiModule,
   NguiMapModule,
+  NguiUtilsModule,
 
   NguiScrollableDirective,
 

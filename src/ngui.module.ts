@@ -17,6 +17,7 @@ import { NguiScrollableModule }     from "@ngui/scrollable";
 import { NguiCollapsableModule }    from "@ngui/collapsable";
 import { NguiInfiniteListModule }   from "@ngui/infinite-list";
 import { NguiReactModule }          from "@ngui/react";
+import { NguiUtilsModule }         from "@ngui/utils";
 
 import { NguiOverlayManager }  from '@ngui/overlay';
 import { NguiScrollableDirective } from "@ngui/scrollable";
@@ -39,6 +40,7 @@ export {
   NguiPopupComponent,
   NguiMapComponent,
   NguiMapModule,
+  NguiUtilsModule,
   scrollTo,
   elementVisible,
   computedStyle,
@@ -65,7 +67,8 @@ export {
     NguiOverlayModule,
     NguiSortableModule,
     NguiCollapsableModule,
-    NguiReactModule
+    NguiReactModule,
+    NguiUtilsModule
   ],
   providers: [ NguiOverlayManager ]
 })

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ngui_module_1 = require("./ngui.module");
 exports.NguiModule = ngui_module_1.NguiModule;
 exports.NguiMapModule = ngui_module_1.NguiMapModule;
+exports.NguiUtilsModule = ngui_module_1.NguiUtilsModule;
 exports.NguiScrollableDirective = ngui_module_1.NguiScrollableDirective;
 exports.NguiMessagePopupComponent = ngui_module_1.NguiMessagePopupComponent;
 exports.NguiPopupComponent = ngui_module_1.NguiPopupComponent;
