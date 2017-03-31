@@ -1,9 +1,19 @@
 export {
+  NguiModule,
+  NguiMapModule,
+
   NguiScrollableDirective,
+
   NguiMessagePopupComponent,
   NguiPopupComponent,
   NguiOverlayManager,
   NguiMapComponent,
-  NguiModule,
-  NguiMapModule
+
+  scrollTo,
+  elementVisible,
+  computedStyle,
+  outerWidth,
+  outerHeight,
+  MemoryStorage,
+  Storage
 } from './ngui.module';

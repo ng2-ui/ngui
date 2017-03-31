@@ -1,13 +1,13 @@
 {
   "name": "@ngui/ngui",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "Collection of Quality Angular2 User Interfaces",
   "license": "MIT",
   "main": "dist/ngui.umd.js",
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server --quiet --port 9001 --content-base app --config app/webpack.config --open",
+    "start": "NODE_ENV=dev webpack-dev-server --quiet --port 9009 --content-base app --config app/webpack.config --open",
     "lint": "tslint 'src/**/*.ts' 'app/**/*.ts'",
     "clean": "rimraf dist",
     "build": "npm-run-all --serial clean build:ngc build:umd build:app",
@@ -57,6 +57,7 @@
     "@ngui/sticky": "0.6.0",
     "@ngui/tab": "0.5.0",
     "@ngui/tooltip": "0.5.1",
+    "@ngui/utils": "^0.8.1",
     "@types/googlemaps": "^3.26.8",
     "@types/hammerjs": "^2.0.34",
     "@types/node": "^7.0.12",

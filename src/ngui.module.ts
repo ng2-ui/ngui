@@ -22,6 +22,15 @@ import { NguiOverlayManager }  from '@ngui/overlay';
 import { NguiScrollableDirective } from "@ngui/scrollable";
 import { NguiMessagePopupComponent, NguiPopupComponent }   from "@ngui/popup";
 import { NguiMapComponent } from "@ngui/map";
+import {
+  scrollTo,
+  elementVisible,
+  computedStyle,
+  outerWidth,
+  outerHeight,
+  MemoryStorage,
+  Storage
+} from '@ngui/utils';
 
 export {
   NguiOverlayManager,
@@ -29,7 +38,14 @@ export {
   NguiMessagePopupComponent,
   NguiPopupComponent,
   NguiMapComponent,
-  NguiMapModule
+  NguiMapModule,
+  scrollTo,
+  elementVisible,
+  computedStyle,
+  outerWidth,
+  outerHeight,
+  MemoryStorage,
+  Storage
 };
 
 @NgModule({

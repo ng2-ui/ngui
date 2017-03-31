@@ -28,6 +28,14 @@ exports.NguiMessagePopupComponent = popup_2.NguiMessagePopupComponent;
 exports.NguiPopupComponent = popup_2.NguiPopupComponent;
 var map_2 = require("@ngui/map");
 exports.NguiMapComponent = map_2.NguiMapComponent;
+var utils_1 = require("@ngui/utils");
+exports.scrollTo = utils_1.scrollTo;
+exports.elementVisible = utils_1.elementVisible;
+exports.computedStyle = utils_1.computedStyle;
+exports.outerWidth = utils_1.outerWidth;
+exports.outerHeight = utils_1.outerHeight;
+exports.MemoryStorage = utils_1.MemoryStorage;
+exports.Storage = utils_1.Storage;
 var NguiModule = (function () {
     function NguiModule() {
     }
