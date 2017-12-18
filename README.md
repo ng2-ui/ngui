@@ -1,5 +1,8 @@
 # Angular2 User Interface
 
+## NOTE: NOT-MATAINED. 
+Accepting a volunteer and ready to transfer full power to who wants to maintain this repo.
+
 Collection of Quality Angular 2 UIs
 
 [Example](https://rawgit.com/ng2-ui/ngui/master/app/index.html)
